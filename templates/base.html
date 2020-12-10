@@ -3,11 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
     <title>Shohei's Blog</title>
 </head>
 <body>
-    {% block content %}
-      
-    {% endblock content %}
-</body>
+    <div class="container">
+        <ul class="nav">
+            <li><a href="/">Home</a></li>
+            <li><a href="/blog">Blog</a></li>
+            <li><a href="#">GitHub</a></li>
+            <li><a href="#">LinkedIn</a></li>
+            <li><a href="#">Stackoverflow</a></li>
+        </ul>
+        {% block content %}{% endblock content %}
+    </div>
 </html>

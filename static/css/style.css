@@ -1,0 +1,107 @@
+.nav {
+  list-style-type: none;
+  text-align: left;
+  margin: 0;
+  padding: 0;
+}
+
+.nav li {
+  display: inline-block;
+  padding: 8px;
+}
+
+.container {
+  background-color: #ffffff;
+  padding: 15px;
+}
+
+.page-title {
+  width: 215px;
+  text-align: left;
+}
+
+.date-published {
+  width: 160px;
+  text-align: left;
+}
+
+pre {
+  background-color: #f0efeb !important;
+  padding: 5px 15px;
+  font-family: "Droid Sans Mono", "Ubuntu Mono", monospace;
+}
+/* 
+  ##Device = Desktops
+  ##Screen = 1281px to higher resolution desktops
+*/
+
+@media (min-width: 1281px) {
+  body {
+    width: 768px;
+    margin: 28px auto;
+    line-height: 1.5rem;
+    background-color: #e9ecef;
+  }
+
+  .title {
+    margin-top: 2rem;
+    margin-bottom: 1.5rem;
+  }
+}
+
+/* 
+    ##Device = Laptops, Desktops
+    ##Screen = B/w 1025px to 1280px
+  */
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+  body {
+    width: 768px;
+    margin: 28px auto;
+    line-height: 1.5rem;
+    background-color: #e9ecef;
+  }
+}
+
+/* 
+    ##Device = Tablets, Ipads (portrait)
+    ##Screen = B/w 768px to 1024px
+  */
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  body {
+    width: 768px;
+    margin: 28px auto;
+    line-height: 1.5rem;
+    background-color: #e9ecef;
+  }
+}
+
+/* 
+    ##Device = Tablets, Ipads (landscape)
+    ##Screen = B/w 768px to 1024px
+  */
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+  /* CSS */
+}
+
+/* 
+    ##Device = Low Resolution Tablets, Mobiles (Landscape)
+    ##Screen = B/w 481px to 767px
+  */
+
+@media (min-width: 481px) and (max-width: 767px) {
+}
+
+/* 
+    ##Device = Most of the Smartphones Mobiles (Portrait)
+    ##Screen = B/w 320px to 479px
+  */
+
+@media (min-width: 320px) and (max-width: 480px) {
+  .container {
+    background-color: #ffffff;
+    padding: 2px;
+  }
+}
