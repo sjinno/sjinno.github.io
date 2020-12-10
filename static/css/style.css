@@ -33,6 +33,12 @@ pre {
   background-color: #f0efeb !important;
   padding: 5px 15px;
   font-family: "Droid Sans Mono", "Ubuntu Mono", monospace;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  white-space: -moz-pre-wrap;
+  white-space: -pre-wrap;
+  white-space: -o-pre-wrap;
+  word-wrap: break-word;
 }
 
 code {

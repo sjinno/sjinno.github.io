@@ -3,69 +3,85 @@ title = "Git basics"
 date = 2020-12-02
 +++
 
-1. `$ git init` to initialize a git repo.
+I still don't know a lot about what Git really offers, but I'd like to write about my git workflow in case someone finds it helpful.
 
-2. `$ git config --list` to show your git config.
+### Super basics:
 
-3. `$ git add <file-name>` to stage your file(s).
+1. `$ git init` to initialize a git repository.
 
-4. `$ git commit -m "<your-comment>"` to make a commit.
+2. `$ git add <file>` to start keeping track of the files you've staged. _It might be a good idea to create_ `.gitignore` _file to not keep track of unnecessary files._
 
-5. `$ git push` to save your work on your GitHub or GitLab or...?
+3. `$ git commit -m "Your commit message."`
 
----
+If somehow you don't want to save the work remotely such as on GitHub, then this is pretty much it unless you make any mistakes.
 
-6. `$ git status` to show the current working repo's status.
+### Pushing to a remote repository:
 
-7. `$ git branch` to show what branches you have.
+1. Go to GitHub and create a new repository.
 
-8. `$ git branch <branch-name>` to create a new branch.
+2. If you have a work in progress project with git initialized on your local machine, open terminal -> navigate to your project, and `$ git remote add origin <url>`.
 
-9. `$ git checkout <branch-name>` to work on your branch.
+   For example,
 
----
+   ```bash
+   $ cd ~/Projects/legendary-potato
+   $ git remote add origin git@github.com:<your-gh-username>/legendary-potato.git # FYI, I'm using ssh, so your url might start with https.
+   ```
 
-10. `$ git reset <commit> { --soft / --mixed / --hard }` (Choose amongst these three. If `--mixed`, you don't need to.) to reset your commit. Default is `--mixed`, so choose `--soft` or `--hard`. `--soft` resets the commit, but everything is still staged. `--mixed` resets the commit and also unstages everything. `--hard` resets the commit and discard all the change you made in your code.
+   Otherwise, simply run `$ git clone <url>`, navigate to that folder, and start working on the project.
 
-11. `$ git checkout <commit>` --- You can also checkout the previous commits.
+3. Stage files and commit using the commands 2 and 3 shown in "Super basics" section.
 
-12. `$ git checkout -- <file-name>` --- This is especially useful when you accidentally deleted file becasue this command will restore it.
+4. `$ git push -u origin master` to push your work to the remote repo.
 
-13. `$ git ls-files --deleted` to show accidentally/intentionally deleted files.
+## Todos:
 
-\
-_**In case you have already also accidentally commited with deleted files, these commands will save you??**_
+- git branch
 
-14. `$ git rev-list -n 1 HEAD -- <file>`
+- git checkout
 
-15. `$ git checkout <commit>^ -- <file>`
+- git merge
 
-16. `$ git log --diff-filter=D --summary`
+- git rebase
 
----
+- git reset
 
-### Update 1 --- May 26, 2020 Tuesday
+- git commit --amend
 
-17. `$ git branch -m <new-branch-name>` to modify the branch name.
+- git rebase -i HEAD~n where n is the number of commits you want to interact with from HEAD.
 
-    Note: This assumes you are currently on the branch you want to rename.
+- git submodule
 
-    Otherwise, `$ git branch -m <old-branch-name> <new-branch-name>`
+- git fetch
 
-18. `$ git push -d <branch-name>` to delete remote branches.
+- git pull
 
-19. I am not sure if I did this right, but if you want to delete pushed commits(ask yourself if you really need to discard the whole thing permanently so badly), I run `$ git reset --hard <commit-hash>`, then `$ git push -f` to force push, because it might ask you to `$ git pull` first, which I didn't really quite get.
+- git cherry-pick # I don't know anything about this...
 
-It's good if you don't ever have to, but I screw up all the time so I need to know it for myself... Haha.
+- git reflog
 
-_**Also**_,
+- git stash
 
-19. `$ find <directory path> -name ".git"` --- This is a good trick to know. It shows all the git repos in your path.
+- git clean
 
----
+- git switch
 
-### Update 2 --- June 17, 2020 Wednesday
+- git log
 
-20. `$ git --amend -m "<comment>"` to edit your comment to the commit.
+- git tag # ??
 
-21. `$ git stash save "<comment>"` to stash your commit.
+- git worktree #???
+
+- git diff
+
+- git bisect # ???
+
+- git rm
+
+- git mv
+
+- git revert # ???
+
+- git grep # ???
+
+- git config
