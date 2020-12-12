@@ -1,5 +1,5 @@
 +++
-title = "Rust IO tutorial"
+title = "Rust I/O tutorial"
 date = 2020-12-04
 +++
 
@@ -12,7 +12,7 @@ fn main() {
     // To begin with, let us take an input value.
     print!("Type something... ");
     let mut input_1 = String::new(); // This will prompt a user to input something.
-    io::stdin().read_line(&mut input_1).ok().expect("failed to read line.");
+    io::stdin().read_line(&mut input_1).ok().expect("Failed to read line.");
     println!("You typed {}.", input_1);
 }
 ```

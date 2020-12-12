@@ -11,14 +11,14 @@ Anyways, I happen to be utilizing a doubly linked list in my project right now, 
 
 Basically, doubly linked lists have:
 
-- **check if node has value** method
-- **remove** method
-- **remove node bindings** method to help remove method out
-- **insert before node** method
-- **insert after** method
-- **set head** method
-- **set tail** method
-- **insert at specific position** method
+- `check_if_node_has_value` method
+- `remove` method
+- `remove_node_bindings` method to help remove method out
+- `insert_before_node` method
+- `insert_after` method
+- `set_head` method
+- `set_tail` method
+- `insert_at_specific_position` method
 
 and... that's about it.
 
