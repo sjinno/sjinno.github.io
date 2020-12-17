@@ -32,7 +32,8 @@ body {
 pre {
   background-color: #f0efeb !important;
   padding: 5px 15px;
-  font-family: "Droid Sans Mono", "Ubuntu Mono", monospace;
+  font-family: "Liberation Mono", "Droid Sans Mono", "Ubuntu Mono", SFMono,
+    Consolas, monospace;
   overflow-x: auto;
   white-space: pre-wrap;
   white-space: -moz-pre-wrap;

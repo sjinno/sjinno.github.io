@@ -1,5 +1,5 @@
 +++
-title = "Rust I/O tutorial"
+title = "Rust: I/O"
 date = 2020-12-04
 +++
 
