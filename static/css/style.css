@@ -44,7 +44,8 @@ pre {
 
 code {
   background-color: #f0efeb !important;
-  font-family: "Droid Sans Mono", "Ubuntu Mono", monospace;
+  font-family: "Liberation Mono", "Droid Sans Mono", "Ubuntu Mono", SFMono,
+    Consolas, monospace;
   font-size: 13px;
 }
 
