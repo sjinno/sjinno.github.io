@@ -14,7 +14,8 @@ _**Part 1 Quickstart**_
 
 _**Part 2 Deploying to GitHub Pages**_
 
----
+\
+\
 
 ### Part 1: Quickstart
 
@@ -48,7 +49,8 @@ Sometimes, it's `+++` instead of `---`, so you might have to modify that manuall
 
 9. `$ hugo server -D` or `$ hugo server -t <your-theme>` (if you use a theme) to see what your website looks like. &#128521;
 
-<hr>
+\
+\
 
 ### Part 2: Deploying to GitHub Pages
 

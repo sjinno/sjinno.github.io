@@ -86,8 +86,6 @@ Hi your_user_name! You've successfully authenticated, but GitHub does not provid
 \
 \
 
----
-
 \
 \
 

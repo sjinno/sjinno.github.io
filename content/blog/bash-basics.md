@@ -13,7 +13,8 @@ Let's just get started.
 2. `$ printf "<message>"` will do the same thing as `$ echo <message>` but requires double quotation marks.\
    e.g. `$ printf "hello, world!\n"` will print hello world.
 
----
+\
+\
 
 ### User Input
 
@@ -31,7 +32,8 @@ Let's just get started.
    hello
    ```
 
----
+\
+\
 
 ### Conditionals
 
@@ -63,7 +65,8 @@ Let's just get started.
       fi
     ```
 
----
+\
+\
 
 That's about everything I know so far. There is still more to know---loops, functions, etc.\
  But for now, this suffices my need so... I might post more information as I learn so stay tuned. &#128516;
