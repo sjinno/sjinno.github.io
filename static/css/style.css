@@ -55,6 +55,31 @@ body {
   transform: translateY(4px);
 }
 
+.projects-btn {
+  padding: 15px 25px;
+  font-size: 24px;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  font-family: "Libre Franklin";
+  font-weight: 700;
+  color: #faf9f9;
+  background-color: #f95738;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #ffdda1;
+}
+
+.projects-btn:hover {
+  background-color: #f95738;
+}
+
+.projects-btn:active {
+  background-color: #f95738;
+  box-shadow: 0 5px #f7b267;
+  transform: translateY(4px);
+}
+
 .read-more-btn {
   padding: 15px 25px;
   font-size: 14px;
@@ -125,6 +150,12 @@ code {
   font-family: "Liberation Mono", "Droid Sans Mono", "Ubuntu Mono", SFMono,
     Consolas, monospace;
   font-size: 13px;
+}
+
+.repo {
+  color: #05668d;
+  text-decoration: none;
+  padding: 2px 8px;
 }
 
 /* 
