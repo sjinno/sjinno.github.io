@@ -1,5 +1,7 @@
 body {
   font-size: 14px;
+  font-family: "Proza Libre", "Gill Sans", "Gill Sans MT", Calibri,
+    "Trebuchet MS", sans-serif;
 }
 
 .nav {
@@ -19,8 +21,20 @@ body {
   padding: 15px;
 }
 
+.title {
+  font-family: "Libe Franklin", "Gill Sans", "Gill Sans MT", Calibri,
+    "Trebuchet MS", sans-serif;
+  line-height: 1.6em;
+  font-weight: 700;
+  font-size: 2.4rem;
+}
+
+.name {
+  font-size: 1.9em;
+}
+
 .page-title {
-  width: 215px;
+  width: 256px;
   text-align: left;
 }
 

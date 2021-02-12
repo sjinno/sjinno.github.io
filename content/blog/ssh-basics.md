@@ -3,9 +3,6 @@ title = "SSH basics"
 date = 2020-12-11
 +++
 
-\
-\
-
 # Setting up SSH keys
 
 **References:**

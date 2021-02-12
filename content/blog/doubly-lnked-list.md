@@ -36,8 +36,6 @@ class Node:
         self.next = None
 ```
 
-_Rust version coming soon..._
-
 And, now let's also write an init method for our doubly linked list.
 
 ```py
