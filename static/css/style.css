@@ -14,7 +14,7 @@ body {
 
 .nav li {
   display: inline-block;
-  padding: 8px;
+  padding: 16px;
 }
 
 .container {
@@ -27,7 +27,7 @@ body {
     "Trebuchet MS", sans-serif;
   line-height: 1.6em;
   font-weight: 700;
-  font-size: 2.4rem;
+  font-size: 2.5em;
 }
 
 .blog-btn {
@@ -106,7 +106,7 @@ body {
 }
 
 .name {
-  font-size: 1.9em;
+  font-size: 2.4em;
 }
 
 .page-title {
@@ -228,6 +228,10 @@ code {
   */
 
 @media (min-width: 320px) and (max-width: 480px) {
+  .nav li {
+    display: inline-block;
+    padding: 5px;
+  }
   .container {
     background-color: #ffffff;
     padding: 2px;
