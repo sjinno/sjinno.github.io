@@ -30,3 +30,31 @@ macro_rules! hello {
 ```
 
 This macro does not take any argument and prints "Hello!" when you invoke it as `hello!();`.
+
+You can also create a macro so that you don't have to repeat writing `println!("{:#?}", var);` whenever you want to debug your code.
+
+```rust
+macro_rules! printf {
+    ($v:expr) => {
+        println!("{:#?}", $v);
+    }
+}
+```
+
+Now everytime you'll have to write `println!("{:#?}", var);`, you can just simply write `printf!(var);`. Then it should give you the same result.
+
+<br>
+
+### Converting f64 to Duration
+
+Now we are actually going to get started on the problem. To begin with, let's convert one second of Earth time into year unit. So we'll have to devide 1 by 31557600 (60 sec \* 60 min \* 24 hr \* 365.25 d).
+
+```
+struct Duration(f64);
+
+impl From<u64> for Duration {
+    fn from(s: u64) -> Self {
+        Duration((s as f64) / (31_557_600 as f64))
+    }
+}
+```
