@@ -55,6 +55,31 @@ body {
   transform: translateY(4px);
 }
 
+.read-more-btn {
+  padding: 15px 25px;
+  font-size: 14px;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  font-family: "Libre Franklin";
+  font-weight: 700;
+  color: #f4f1de;
+  background-color: #463f3a;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #d6cfcb;
+}
+
+.read-more-btn:hover {
+  background-color: #463f3a;
+}
+
+.read-more-btn:active {
+  background-color: #463f3a;
+  box-shadow: 0 5px #a6a2a2;
+  transform: translateY(4px);
+}
+
 .name {
   font-size: 1.9em;
 }
