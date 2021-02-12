@@ -5,6 +5,9 @@ date = 2020-12-02
 
 I still don't know a lot about what Git really offers, but I'd like to write about my git workflow in case someone finds it helpful.
 
+\
+\
+
 ### Super basics:
 
 1. `$ git init` to initialize a git repository.
@@ -14,6 +17,9 @@ I still don't know a lot about what Git really offers, but I'd like to write abo
 3. `$ git commit -m "Your commit message."`
 
 If somehow you don't want to save the work remotely such as on GitHub, then this is pretty much it unless you make any mistakes.
+
+\
+\
 
 ### Pushing to a remote repository:
 
@@ -34,7 +40,10 @@ If somehow you don't want to save the work remotely such as on GitHub, then this
 
 4. `$ git push -u origin master` to push your work to the remote repo.
 
-## Todos:
+\
+\
+
+## Todo:
 
 - git branch
 
