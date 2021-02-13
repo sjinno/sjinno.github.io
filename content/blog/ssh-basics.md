@@ -89,7 +89,7 @@ Hi your_user_name! You've successfully authenticated, but GitHub does not provid
 \
 \
 
-## So now... How about another account? 👺
+## So now... How about another account?
 
 \
 **CAREFULLY** run:
