@@ -18,6 +18,6 @@ A website watcher to watch Oregon Humane Society's new puppy posts and notify if
 
 ### Techs:
 
-**Programming languages:** Python
+**Languages:** Python
 
 **Libraries:** Beautiful Soup, requests, schedule
