@@ -3,13 +3,9 @@ title = "Doubly linked list"
 date = 2020-12-05
 +++
 
-Doubly linked lists might be one of the useful data structures I like. Even though personally I lean more towards linked hash map, but I think they are similar in a way.
+Here is the implementation of doubly linked list. I sort of wanted to write myself a note on how to implement it because I somehow forget it all the time. 😂
 
-To be honest, I have never even used linked hash map so I can't really say.
-
-Anyways, I happen to be utilizing a doubly linked list in my project right now, so I wanted to go over it before I forget how it works again.
-
-Basically, doubly linked lists have:
+Basically, doubly linked list has:
 
 - `check_if_node_has_value` method
 - `remove` method
@@ -173,7 +169,7 @@ Finally... **_Inert at position_**
             self.set_tail(node_to_insert)
 ```
 
-And..., THAT'S IT!!
+And..., that's it!!
 
 I would like to add a unittest, but I will do it later.
 
