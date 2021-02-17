@@ -20,4 +20,4 @@ date = 2021-02-10
 
 **Languages:** Rust
 
-**Libraries:** dotenv, reqwests, scraper, std
+**Libraries:** dotenv, reqwest, scraper, std
