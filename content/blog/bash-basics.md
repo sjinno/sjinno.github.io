@@ -1,5 +1,5 @@
 +++
-title = "Bash basics"
+title = "Bash Basics"
 date = 2020-12-03
 +++
 

@@ -1,5 +1,5 @@
 +++
-title = "SSH basics"
+title = "SSH Basics"
 date = 2020-12-11
 +++
 

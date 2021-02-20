@@ -1,5 +1,5 @@
 +++
-title = "Doubly linked list"
+title = "Doubly Linked List"
 date = 2020-12-05
 +++
 

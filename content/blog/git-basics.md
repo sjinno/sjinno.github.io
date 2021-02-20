@@ -1,5 +1,5 @@
 +++
-title = "Git basics"
+title = "Git Basics"
 date = 2020-12-02
 +++
 

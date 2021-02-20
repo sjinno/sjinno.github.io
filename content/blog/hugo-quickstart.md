@@ -1,5 +1,5 @@
 +++
-title = "Hugo quickstart"
+title = "Hugo Quickstart"
 date = 2020-12-01
 +++
 
