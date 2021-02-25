@@ -1,14 +1,12 @@
 body {
   font-size: 14px;
-  font-family: "TeX Gyre Heros", "Proza Libre", "Helvetica Neue", Helvetica,
-    sans-serif;
+  font-family: "TeX Gyre Heros", "Proza Libre", "Helvetica Neue", Helvetica;
   text-align: center;
   color: #011627;
 }
 
 .nav {
   list-style-type: none;
-  // text-align: left;
   margin: 0;
   padding: 0;
 }
@@ -25,7 +23,7 @@ body {
 }
 
 .title {
-  font-family: "Libre Franklin", "Helvetica Neue", Helvetica, sans-serif;
+  font-family: "Libre Franklin", "Helvetica Neue", Helvetica;
   line-height: 1.5em;
   font-weight: 700;
   font-size: 2.5em;
@@ -166,7 +164,6 @@ code {
     line-height: 1.8em;
     background-color: #9eadc8;
   }
-
   .entry-content {
     padding: 0 64px;
   }
@@ -184,7 +181,6 @@ code {
     line-height: 1.8em;
     background-color: #9eadc8;
   }
-
   .entry-content {
     padding: 0 64px;
   }
