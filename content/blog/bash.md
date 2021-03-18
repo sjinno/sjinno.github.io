@@ -20,19 +20,27 @@ echo -n "Type something: " ; read input ; echo "You typed $input."
 
 # 4. If statement
 echo -n "Enter a number: " ; read num
-if [ $num -eq 100 ]
-then
+if [ $num -eq 100 ]; then
     echo "true"
 else
     echo "false"
 fi
 
-# -gt: greater than
-# -lt: less than
-# -eq: equal to
-# -ge: greater than or equal to
-# -le: less than or equal to
-# -ne: not equal to
+# if <expression>; then
+#     <commands>
+# elif <expression>; then
+#     <commands>
+# else
+#     <commands>
+# fi
+
+# if [ <expression> ] && [ <expression> ]; then
+#     <commands>
+# fi
+
+# if [ <expression> ] || [ <expression> ]; then
+#     <commands>
+# fi
 
 
 # 5. While loop
@@ -44,6 +52,12 @@ do
     ((count++))
 done
 echo "Now finally $count is equal to $target."
+# -gt: greater than
+# -lt: less than
+# -eq: equal to
+# -ge: greater than or equal to
+# -le: less than or equal to
+# -ne: not equal to
 
 
 # 6. For loop
