@@ -6,7 +6,7 @@ date = 2020-12-02
 - Remove files that are listed in the .gitignore but still on the remote repository:
 
   ```bash
-  # 1. List files that you want to untrack on .gitignore
+  # 1. Remove the file(s) that you want to untrack from .gitignore
 
   # 2. Remove them with:
   git rm --cached file1 file2 dir/file3
