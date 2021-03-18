@@ -46,3 +46,9 @@ date = 2020-12-02
 
   # 6. Force push?
   ```
+
+- List tracked files:
+
+  ```bash
+  git ls-files
+  ```
