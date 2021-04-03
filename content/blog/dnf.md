@@ -1,13 +1,15 @@
 +++
 title = "DNF"
 date = 2021-03-17
+[taxonomies]
+tags = ["#dnf", "#fedora"]
 +++
 
 - How not to include specific packages to update:
 
   ```bash
   # Formula:
-  sudo dnf update --exclude=pkg-name
+  sudo dnf update --exclude=<pkg-name>
 
   # For example, if you want to skip `texlive-...` to update,
   # then you would run:
@@ -18,7 +20,7 @@ date = 2021-03-17
 
   ```bash
   # Formula:
-  sudo dnf search pkg-name
+  sudo dnf search <pkg-name>
 
   # e.g.
   sudo dnf search sox
@@ -41,7 +43,7 @@ date = 2021-03-17
 
   ```bash
   # Formula:
-  sudo dnf remove pkg-name
+  sudo dnf remove <pkg-name>
 
   # e.g.
   sudo dnf remove zathura

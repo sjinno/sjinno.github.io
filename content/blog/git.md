@@ -1,6 +1,8 @@
 +++
 title = "Git"
 date = 2020-12-02
+[taxonomies]
+tags = ["#git", "#tutorial"]
 +++
 
 - Remove files that are listed in the .gitignore but still on the remote repository:

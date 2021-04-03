@@ -1,6 +1,8 @@
 +++
 title = "Doubly Linked List"
 date = 2020-12-05
+[taxonomies]
+tags = ["#data structures", "#python"]
 +++
 
 Here is the implementation of doubly linked list. I sort of wanted to write myself a note on how to implement it because I somehow forget it all the time. 😂

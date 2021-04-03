@@ -1,6 +1,8 @@
 +++
 title = "Hugo Quickstart"
 date = 2020-12-01
+[taxonomies]
+tags = ["#hugo", "#website"]
 +++
 
 Here is a quick tutorial on how to get started with Hugo, the super fast framework for building websites. (Although this website is built with Zola...)
