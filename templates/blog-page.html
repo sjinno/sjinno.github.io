@@ -7,6 +7,15 @@
   <span>{{ page.reading_time }} minute read</span>
   <br />
   <br />
+  <ul>
+    {% for tag in page.taxonomies.tags %}
+    <li style="display: inline-block; padding-right: 16pt;">
+      <a href="/tags/{{ tag | safe }}">#{{ tag }}</a>
+    </li>
+    {% endfor %}
+  </ul>
+  <br />
+  <br />
   <div class="entry-content">{{ page.content | safe }}</div>
 </section>
 <br />

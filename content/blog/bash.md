@@ -2,7 +2,7 @@
 title = "Bash"
 date = 2020-12-03
 [taxonomies]
-tags = ["#bash", "#shell"]
+tags = ["bash", "shell"]
 +++
 
 ```bash

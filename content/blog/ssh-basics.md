@@ -2,7 +2,7 @@
 title = "SSH Basics"
 date = 2020-12-11
 [taxonomies]
-tags = ["#ssh", "#tutorial"]
+tags = ["ssh", "tutorial"]
 +++
 
 # Setting up SSH keys
