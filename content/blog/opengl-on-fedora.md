@@ -1,5 +1,5 @@
 +++
-title = "Getting Started with OpenGL on Fedora 33"
+title = "OpenGL on Fedora 33"
 date = 2021-04-14
 [taxonomies]
 tags = ["opengl", "tutorial", "fedora", "glfw", "glad"]
