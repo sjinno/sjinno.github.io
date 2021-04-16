@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+	<title> - linux</title>
+	<link href="https://sjinno.github.io/tags/linux/atom.xml" rel="self" type="application/atom+xml"/>
+  <link href="https://sjinno.github.io"/>
+	<generator uri="https://www.getzola.org/">Zola</generator>
+	<updated>2021-03-17T00:00:00+00:00</updated>
+	<id>https://sjinno.github.io/tags/linux/atom.xml</id>
+	<entry xml:lang="en">
+		<title>Random Commands</title>
+		<published>2021-03-17T00:00:00+00:00</published>
+		<updated>2021-03-17T00:00:00+00:00</updated>
+		<link href="https://sjinno.github.io/blog/random-commands/" type="text/html"/>
+		<id>https://sjinno.github.io/blog/random-commands/</id>
+		<content type="html">&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Print system information&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#ffffff;&quot;&gt;
+&lt;code&gt;&lt;span style=&quot;color:#804000;&quot;&gt;# The following should print out `Linux` if you are on linux.
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#000000;&quot;&gt;uname
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#804000;&quot;&gt;# The following will print out all the information about your system.
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#000000;&quot;&gt;uname -a
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#804000;&quot;&gt;# I mostly use the following command to get the basic but sufficient information about my current system.
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#000000;&quot;&gt;uname -srm
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;View processes&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#ffffff;&quot;&gt;
+&lt;code&gt;&lt;span style=&quot;color:#000000;&quot;&gt;top
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#804000;&quot;&gt;# Alternatively `htop`, but it needs to be installed.
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#804000;&quot;&gt;# Example: `sudo dnf install htop`.
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#000000;&quot;&gt;htop
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;man - an interface to the system reference manuals&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#ffffff;&quot;&gt;
+&lt;code&gt;&lt;span style=&quot;color:#804000;&quot;&gt;# Basic usage:
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#000000;&quot;&gt;man &lt;&#x2F;span&gt;&lt;span style=&quot;color:#0000ff;&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#000000;&quot;&gt;something&lt;&#x2F;span&gt;&lt;span style=&quot;color:#0000ff;&quot;&gt;&amp;gt;
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#000000;&quot;&gt;man man
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#000000;&quot;&gt;man ascii
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+</content>
+	</entry>
+</feed>

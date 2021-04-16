@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/fontawesome-free-5.13.1-web/css/fontawesome.min.css">
+    <link rel="stylesheet" href="/fontawesome-free-5.13.1-web/css/solid.min.css">
+    <link rel="stylesheet" href="/fontawesome-free-5.13.1-web/css/brands.min.css">
+    <title>Shohei's Blog</title>
+</head>
+<body>
+    <div class="container">
+        <ul class="nav">
+            <li><a href="/" style="text-decoration: none; color: #383961;"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="/blog" style="text-decoration: none; color: #383961;"><i class="fas fa-pen-fancy"></i> Blog</a></li>
+            <li><a href="/projects" style="text-decoration: none; color: #383961;"><i class="fas fa-seedling"></i> Projects</a></li>
+            |
+            <li><a href="https://github.com/sjinno" target="_blank" style="color: #212529;"><i class="fab fa-github-alt"></i></a></li>
+            <li><a href="https://www.linkedin.com/in/shohei-jinno-947a88121/" target="_blank" style="color: #0077b6;"><i class="fab fa-linkedin"></i></a></li>
+            <li><a href="https://stackoverflow.com/users/4909849/syohey" target="_blank" style="color: #e76f51;"><i class="fab fa-stack-overflow"></i></a></li>
+        </ul>
+        
+<h1 class="title">Bash</h1>
+<p class="subtitle">
+  <strong>2020-12-03</strong>
+</p>
+<section class="example-post">
+  <span>2 minute read</span>
+  <br />
+  <br />
+  <ul>
+    
+    <li style="display: inline-block; padding-right: 16pt;">
+      <a href="/tags/bash">#bash</a>
+    </li>
+    
+    <li style="display: inline-block; padding-right: 16pt;">
+      <a href="/tags/shell">#shell</a>
+    </li>
+    
+  </ul>
+  <br />
+  <br />
+  <div class="entry-content"><pre style="background-color:#ffffff;">
+<code><span style="color:#804000;"># 1. Print output into terminal
+</span><span style="color:#0000ff;">echo </span><span style="color:#ff0080;">&quot;Hello, world\!&quot;
+
+
+</span><span style="color:#804000;"># 2. Take user input
+</span><span style="color:#000000;">read input </span><span style="color:#0000ff;">; echo </span><span style="color:#ff0080;">&quot;You typed $</span><span style="color:#006600;">input</span><span style="color:#ff0080;">.&quot;
+
+
+</span><span style="color:#804000;"># 3. Take user input in the same line
+</span><span style="color:#000000;">echo </span><span style="color:#ff0080;">&quot;Type something: \c&quot; </span><span style="color:#0000ff;">; read</span><span style="color:#000000;"> input </span><span style="color:#0000ff;">; echo </span><span style="color:#ff0080;">&quot;You typed $</span><span style="color:#006600;">input</span><span style="color:#ff0080;">.&quot;
+</span><span style="color:#804000;"># or
+</span><span style="color:#000000;">echo -n </span><span style="color:#ff0080;">&quot;Type something: &quot; </span><span style="color:#0000ff;">; read</span><span style="color:#000000;"> input </span><span style="color:#0000ff;">; echo </span><span style="color:#ff0080;">&quot;You typed $</span><span style="color:#006600;">input</span><span style="color:#ff0080;">.&quot;
+
+
+</span><span style="color:#804000;"># 4. If statement
+</span><span style="color:#000000;">echo -n </span><span style="color:#ff0080;">&quot;Enter a number: &quot; </span><span style="color:#0000ff;">; read</span><span style="color:#000000;"> num
+</span><span style="color:#0000ff;">if [ </span><span style="color:#000000;">$</span><span style="color:#006600;">num </span><span style="color:#000000;">-eq 100 </span><span style="color:#0000ff;">]; then
+    echo </span><span style="color:#ff0080;">&quot;true&quot;
+</span><span style="color:#0000ff;">else
+    echo </span><span style="color:#ff0080;">&quot;false&quot;
+</span><span style="color:#0000ff;">fi
+
+</span><span style="color:#804000;"># if &lt;expression&gt;; then
+#     &lt;commands&gt;
+# elif &lt;expression&gt;; then
+#     &lt;commands&gt;
+# else
+#     &lt;commands&gt;
+# fi
+
+# if [ &lt;expression&gt; ] &amp;&amp; [ &lt;expression&gt; ]; then
+#     &lt;commands&gt;
+# fi
+
+# if [ &lt;expression&gt; ] || [ &lt;expression&gt; ]; then
+#     &lt;commands&gt;
+# fi
+
+
+# 5. While loop
+</span><span style="color:#000000;">count=1
+</span><span style="color:#006600;">target</span><span style="color:#0000ff;">=</span><span style="background-color:#427ff51a;color:#ff0080;">10</span><span style="color:#000000;">
+</span><span style="color:#0000ff;">while [ </span><span style="color:#000000;">$</span><span style="color:#006600;">count </span><span style="color:#000000;">-ne $</span><span style="color:#006600;">target </span><span style="color:#0000ff;">]
+do
+    echo </span><span style="color:#ff0080;">&quot;$</span><span style="color:#006600;">count</span><span style="color:#ff0080;"> is still less than $</span><span style="color:#006600;">target</span><span style="color:#ff0080;">.&quot;
+    </span><span style="color:#000000;">((count</span><span style="color:#0000ff;">++</span><span style="color:#000000;">))
+</span><span style="color:#0000ff;">done
+echo </span><span style="color:#ff0080;">&quot;Now finally $</span><span style="color:#006600;">count</span><span style="color:#ff0080;"> is equal to $</span><span style="color:#006600;">target</span><span style="color:#ff0080;">.&quot;
+</span><span style="color:#804000;"># -gt: greater than
+# -lt: less than
+# -eq: equal to
+# -ge: greater than or equal to
+# -le: less than or equal to
+# -ne: not equal to
+
+
+# 6. For loop
+</span><span style="color:#000000;">for num in {1..10}
+</span><span style="color:#0000ff;">do
+    echo </span><span style="color:#ff0080;">&quot;$</span><span style="color:#006600;">num</span><span style="color:#ff0080;">&quot;
+</span><span style="color:#0000ff;">done
+
+</span><span style="color:#804000;"># The following will output `1 11 21 31 41 51 61 71 81 91`.
+</span><span style="color:#000000;">for num in {1..100..10}
+</span><span style="color:#0000ff;">do
+    echo </span><span style="color:#000000;">-n </span><span style="color:#ff0080;">&quot;$</span><span style="color:#006600;">num </span><span style="color:#ff0080;">&quot;
+</span><span style="color:#0000ff;">done
+
+
+</span><span style="color:#804000;"># 7. Date
+</span><span style="color:#000000;">date                             </span><span style="color:#804000;"># Output: Thu Mar 18 10:56:29 AM PDT 2021
+</span><span style="color:#000000;">date +%</span><span style="color:#006600;">H</span><span style="color:#000000;">:%</span><span style="color:#006600;">M</span><span style="color:#000000;">:%</span><span style="color:#006600;">S                   </span><span style="color:#804000;"># Output: 10:57:14
+</span><span style="color:#000000;">date +</span><span style="color:#ff0080;">&quot;%dth %B, %Y&quot;              </span><span style="color:#804000;"># Output: 18th March, 2021
+</span><span style="color:#000000;">date --date</span><span style="color:#0000ff;">=</span><span style="color:#ff0080;">&#39;15 days&#39;            </span><span style="color:#804000;"># Output: Fri Apr  2 11:00:14 AM PDT 2021
+</span><span style="color:#000000;">date --date</span><span style="color:#0000ff;">=</span><span style="color:#ff0080;">&#39;15 days ago&#39;        </span><span style="color:#804000;"># Output: Wed Mar  3 10:00:22 AM PST 2021
+</span><span style="color:#000000;">date --date</span><span style="color:#0000ff;">=</span><span style="color:#ff0080;">&#39;5 hours 20 minutes&#39; </span><span style="color:#804000;"># Output: Thu Mar 18 04:21:33 PM PDT 2021
+</span><span style="color:#000000;">date -d </span><span style="color:#ff0080;">&quot;2021-04-01&quot;</span><span style="color:#000000;"> +</span><span style="color:#ff0080;">&quot;%A&quot;       </span><span style="color:#804000;"># Output: Thursday
+
+</span><span style="color:#0000a2;">timediff</span><span style="color:#000000;">() {
+    </span><span style="color:#006600;">START</span><span style="color:#0000ff;">=</span><span style="color:#000000;">`date -d $</span><span style="color:#006600;">1</span><span style="color:#000000;"> +%</span><span style="color:#006600;">s</span><span style="color:#000000;">`
+    </span><span style="color:#006600;">END</span><span style="color:#0000ff;">=</span><span style="color:#000000;">`date -d $</span><span style="color:#006600;">2</span><span style="color:#000000;"> +%</span><span style="color:#006600;">s</span><span style="color:#000000;">`
+    ((diff</span><span style="color:#0000ff;">=</span><span style="color:#000000;">$</span><span style="color:#006600;">END</span><span style="color:#0000ff;">-</span><span style="color:#000000;">$</span><span style="color:#006600;">START</span><span style="color:#000000;">))
+    ((days</span><span style="color:#0000ff;">=</span><span style="color:#000000;">$</span><span style="color:#006600;">diff</span><span style="color:#0000ff;">/</span><span style="color:#000000;">(</span><span style="color:#ff0080;">60</span><span style="color:#0000ff;">*</span><span style="color:#ff0080;">60</span><span style="color:#0000ff;">*</span><span style="color:#ff0080;">24</span><span style="color:#000000;">)))
+    </span><span style="color:#0000ff;">echo </span><span style="color:#ff0080;">&quot;The time escaped = $</span><span style="color:#006600;">days</span><span style="color:#ff0080;"> days.&quot;
+</span><span style="color:#000000;">}
+
+</span><span style="color:#804000;"># The following should output `The time escaped = 282 days`.
+</span><span style="color:#000000;">timediff </span><span style="color:#ff0080;">&quot;2021-03-18&quot; &quot;2021-12-25&quot;
+
+
+</span><span style="color:#804000;"># 8. Calendar
+</span><span style="color:#000000;">cal
+</span><span style="color:#804000;">#      March 2021
+# Su Mo Tu We Th Fr Sa
+#     1  2  3  4  5  6
+#  7  8  9 10 11 12 13
+# 14 15 16 17 18 19 20
+# 21 22 23 24 25 26 27
+# 28 29 30 31
+
+# For more info, run `man cal`.
+
+
+# 9. Operators
+</span><span style="color:#0000ff;">&amp;&amp;  </span><span style="color:#804000;"># AND op
+</span><span style="color:#0000ff;">||  </span><span style="color:#804000;"># OR op
+</span><span style="color:#000000;">...
+</span></code></pre>
+<p><a href="https://linuxhint.com/category/bash-programming/">More bash programming stuff.</a></p>
+</div>
+</section>
+<br />
+<br />
+<br />
+<a href="/blog"><button class="read-more-btn">Read more posts</button></a>
+
+        <hr style="margin-top: 2rem; border-style: dotted; color: #1a535c;">
+        <footer style="text-align: center; margin-top: 1.2rem;">
+            All text <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC-BY-SA</a> & code <a href="https://www.gnu.org/licenses/agpl-3.0.en.html">AGPL</a>
+        </footer>
+    </div>
+</html>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+	<title> - dnf</title>
+	<link href="https://sjinno.github.io/tags/dnf/atom.xml" rel="self" type="application/atom+xml"/>
+  <link href="https://sjinno.github.io"/>
+	<generator uri="https://www.getzola.org/">Zola</generator>
+	<updated>2021-03-17T00:00:00+00:00</updated>
+	<id>https://sjinno.github.io/tags/dnf/atom.xml</id>
+	<entry xml:lang="en">
+		<title>DNF</title>
+		<published>2021-03-17T00:00:00+00:00</published>
+		<updated>2021-03-17T00:00:00+00:00</updated>
+		<link href="https://sjinno.github.io/blog/dnf/" type="text/html"/>
+		<id>https://sjinno.github.io/blog/dnf/</id>
+		<content type="html">&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;How not to include specific packages to update:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#ffffff;&quot;&gt;
+&lt;code&gt;&lt;span style=&quot;color:#804000;&quot;&gt;# Formula:
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#000000;&quot;&gt;sudo dnf update --exclude&lt;&#x2F;span&gt;&lt;span style=&quot;color:#0000ff;&quot;&gt;=&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#000000;&quot;&gt;pkg-name&lt;&#x2F;span&gt;&lt;span style=&quot;color:#0000ff;&quot;&gt;&amp;gt;
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#804000;&quot;&gt;# For example, if you want to skip `texlive-...` to update,
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#804000;&quot;&gt;# then you would run:
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#000000;&quot;&gt;sudo dnf update --exclude&lt;&#x2F;span&gt;&lt;span style=&quot;color:#0000ff;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#000000;&quot;&gt;texlive-&lt;&#x2F;span&gt;&lt;span style=&quot;color:#33cc33;&quot;&gt;\*
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;Search specific package:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#ffffff;&quot;&gt;
+&lt;code&gt;&lt;span style=&quot;color:#804000;&quot;&gt;# Formula:
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#000000;&quot;&gt;sudo dnf search &lt;&#x2F;span&gt;&lt;span style=&quot;color:#0000ff;&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#000000;&quot;&gt;pkg-name&lt;&#x2F;span&gt;&lt;span style=&quot;color:#0000ff;&quot;&gt;&amp;gt;
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#804000;&quot;&gt;# e.g.
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#000000;&quot;&gt;sudo dnf search sox
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;Check if specific package is installed:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#ffffff;&quot;&gt;
+&lt;code&gt;&lt;span style=&quot;color:#804000;&quot;&gt;# Formula:
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#000000;&quot;&gt;dnf list installed &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff0080;&quot;&gt;&amp;quot;pkg-name&amp;quot;
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#804000;&quot;&gt;# e.g.
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#000000;&quot;&gt;dnf list installed &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff0080;&quot;&gt;&amp;quot;postgresql*&amp;quot;
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#804000;&quot;&gt;# Alternatively, you can also do this:
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#000000;&quot;&gt;dnf list installed &lt;&#x2F;span&gt;&lt;span style=&quot;color:#0000ff;&quot;&gt;| &lt;&#x2F;span&gt;&lt;span style=&quot;color:#000000;&quot;&gt;grep postgresql
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;Remove specif package:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#ffffff;&quot;&gt;
+&lt;code&gt;&lt;span style=&quot;color:#804000;&quot;&gt;# Formula:
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#000000;&quot;&gt;sudo dnf remove &lt;&#x2F;span&gt;&lt;span style=&quot;color:#0000ff;&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#000000;&quot;&gt;pkg-name&lt;&#x2F;span&gt;&lt;span style=&quot;color:#0000ff;&quot;&gt;&amp;gt;
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#804000;&quot;&gt;# e.g.
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#000000;&quot;&gt;sudo dnf remove zathura
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+</content>
+	</entry>
+</feed>

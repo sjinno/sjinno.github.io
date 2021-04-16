@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+	<title> - rust</title>
+	<link href="https://sjinno.github.io/tags/rust/atom.xml" rel="self" type="application/atom+xml"/>
+  <link href="https://sjinno.github.io"/>
+	<generator uri="https://www.getzola.org/">Zola</generator>
+	<updated>2020-12-04T00:00:00+00:00</updated>
+	<id>https://sjinno.github.io/tags/rust/atom.xml</id>
+	<entry xml:lang="en">
+		<title>Rust: I&#x2F;O</title>
+		<published>2020-12-04T00:00:00+00:00</published>
+		<updated>2020-12-04T00:00:00+00:00</updated>
+		<link href="https://sjinno.github.io/blog/rust-io/" type="text/html"/>
+		<id>https://sjinno.github.io/blog/rust-io/</id>
+		<content type="html">&lt;p&gt;Input&#x2F;output in Rust is one of the things that confuses me, so I wanted to drop a quick tutorial on how to io in Rust.&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#ffffff;&quot;&gt;
+&lt;code&gt;&lt;span style=&quot;color:#0000ff;&quot;&gt;use &lt;&#x2F;span&gt;&lt;span style=&quot;color:#000000;&quot;&gt;std::io;
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#0000ff;&quot;&gt;fn &lt;&#x2F;span&gt;&lt;span style=&quot;color:#0000a2;&quot;&gt;main&lt;&#x2F;span&gt;&lt;span style=&quot;color:#000000;&quot;&gt;() {
+    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#804000;&quot;&gt;&#x2F;&#x2F; To begin with, let us take an input value.
+    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#000000;&quot;&gt;print!(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff0080;&quot;&gt;&amp;quot;Type something... &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#000000;&quot;&gt;);
+    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#0000ff;&quot;&gt;let mut&lt;&#x2F;span&gt;&lt;span style=&quot;color:#000000;&quot;&gt; input_1 &lt;&#x2F;span&gt;&lt;span style=&quot;color:#0000ff;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#6d79de;&quot;&gt;String&lt;&#x2F;span&gt;&lt;span style=&quot;color:#000000;&quot;&gt;::new(); &lt;&#x2F;span&gt;&lt;span style=&quot;color:#804000;&quot;&gt;&#x2F;&#x2F; This will prompt a user to input something.
+    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#000000;&quot;&gt;io::stdin().&lt;&#x2F;span&gt;&lt;span style=&quot;color:#0000ff;&quot;&gt;read_line&lt;&#x2F;span&gt;&lt;span style=&quot;color:#000000;&quot;&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#0000ff;&quot;&gt;&amp;amp;mut&lt;&#x2F;span&gt;&lt;span style=&quot;color:#000000;&quot;&gt; input_1).&lt;&#x2F;span&gt;&lt;span style=&quot;color:#0000ff;&quot;&gt;ok&lt;&#x2F;span&gt;&lt;span style=&quot;color:#000000;&quot;&gt;().&lt;&#x2F;span&gt;&lt;span style=&quot;color:#0000ff;&quot;&gt;expect&lt;&#x2F;span&gt;&lt;span style=&quot;color:#000000;&quot;&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff0080;&quot;&gt;&amp;quot;Failed to read line.&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#000000;&quot;&gt;);
+    println!(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff0080;&quot;&gt;&amp;quot;You typed &lt;&#x2F;span&gt;&lt;span style=&quot;color:#c5060b;&quot;&gt;{}&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff0080;&quot;&gt;.&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#000000;&quot;&gt;, input_1);
+}
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;</content>
+	</entry>
+</feed>

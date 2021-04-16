@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/fontawesome-free-5.13.1-web/css/fontawesome.min.css">
+    <link rel="stylesheet" href="/fontawesome-free-5.13.1-web/css/solid.min.css">
+    <link rel="stylesheet" href="/fontawesome-free-5.13.1-web/css/brands.min.css">
+    <title>Shohei's Blog</title>
+</head>
+<body>
+    <div class="container">
+        <ul class="nav">
+            <li><a href="/" style="text-decoration: none; color: #383961;"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="/blog" style="text-decoration: none; color: #383961;"><i class="fas fa-pen-fancy"></i> Blog</a></li>
+            <li><a href="/projects" style="text-decoration: none; color: #383961;"><i class="fas fa-seedling"></i> Projects</a></li>
+            |
+            <li><a href="https://github.com/sjinno" target="_blank" style="color: #212529;"><i class="fab fa-github-alt"></i></a></li>
+            <li><a href="https://www.linkedin.com/in/shohei-jinno-947a88121/" target="_blank" style="color: #0077b6;"><i class="fab fa-linkedin"></i></a></li>
+            <li><a href="https://stackoverflow.com/users/4909849/syohey" target="_blank" style="color: #e76f51;"><i class="fab fa-stack-overflow"></i></a></li>
+        </ul>
+        
+<h1 class="title">pgAdmin4 on Fedora 33</h1>
+<p class="subtitle">
+  <strong>2021-04-15</strong>
+</p>
+<section class="example-post">
+  <span>4 minute read</span>
+  <br />
+  <br />
+  <ul>
+    
+    <li style="display: inline-block; padding-right: 16pt;">
+      <a href="/tags/postgresql">#postgresql</a>
+    </li>
+    
+    <li style="display: inline-block; padding-right: 16pt;">
+      <a href="/tags/pgadmin">#pgadmin</a>
+    </li>
+    
+    <li style="display: inline-block; padding-right: 16pt;">
+      <a href="/tags/setup">#setup</a>
+    </li>
+    
+    <li style="display: inline-block; padding-right: 16pt;">
+      <a href="/tags/tutorial">#tutorial</a>
+    </li>
+    
+    <li style="display: inline-block; padding-right: 16pt;">
+      <a href="/tags/fedora">#fedora</a>
+    </li>
+    
+  </ul>
+  <br />
+  <br />
+  <div class="entry-content"><h1 id="useful-links">Useful links:</h1>
+<ul>
+<li>
+<p><a href="https://www.youtube.com/watch?v=jDQjRHPRcgM&amp;list=PL061tjwVHN1gJIfXCHk4jc9aRacY0D9vR&amp;index=1&amp;t=581s">PostgreSQL Server Setup &amp; Monitor</a> (youtube)</p>
+</li>
+<li>
+<p><a href="https://computingforgeeks.com/how-to-install-postgresql-12-on-fedora/">How To Install PostgreSQL 12 on Fedora 33/32/31/30</a></p>
+</li>
+<li>
+<p><a href="https://computingforgeeks.com/how-to-install-pgadmin-on-centos-fedora/">Install pgAdmin 4 on CentOS 7 &amp; Fedora 33/32/31/30</a></p>
+</li>
+</ul>
+<h1 id="useful-commands">Useful commands:</h1>
+<pre style="background-color:#ffffff;">
+<code><span style="color:#000000;">sudo dnf search postgresql12
+
+dnf list installed </span><span style="color:#0000ff;">| </span><span style="color:#000000;">grep postgresql12
+
+systemctl status httpd
+systemctl status postgresql-12
+
+systemctl start httpd
+systemctl start postgresql-12
+
+systemctl stop httpd
+systemctl stop postgresql-12
+
+systemctl restart httpd
+systemctl restart postgresql-12
+
+man firewall-cmd
+
+sudo netstat -tupln
+</span></code></pre><br />
+<h1 id="step-1-install-postgresql">Step 1: Install PostgreSQL</h1>
+<ol>
+<li>
+<p>First of all, update the system packages</p>
+<pre style="background-color:#ffffff;">
+<code><span style="color:#000000;">sudo dnf update -y </span><span style="color:#0000ff;">&amp;&amp; </span><span style="color:#000000;">reboot
+</span></code></pre></li>
+<li>
+<p>Add the PostgreSQL yum repository</p>
+<p><strong>Download link:</strong> <a href="https://www.postgresql.org/download/linux/redhat/">https://www.postgresql.org/download/linux/redhat/</a></p>
+<pre style="background-color:#ffffff;">
+<code><span style="color:#804000;"># Install the repository RPM:
+</span><span style="color:#000000;">sudo dnf install -y https://download.postgresql.org/pub/repos/yum/reporpms/F-33-x86_64/ pgdg-fedora-repo-latest.noarch.rpm
+
+</span><span style="color:#804000;"># Install PostgreSQL:
+</span><span style="color:#000000;">sudo dnf install -y postgresql12-server postgresql12
+
+</span><span style="color:#804000;"># Initialize the database and enable automatic start:
+</span><span style="color:#000000;">sudo postgresql-12-setup initdb
+</span><span style="color:#804000;"># If the above didn&#39;t work, then try the following:
+</span><span style="color:#000000;">sudo /usr/pgsql-12/bin/postgresql-12-setup initdb
+
+</span><span style="color:#804000;"># Enable postgres server to start on boot:
+</span><span style="color:#000000;">sudo systemctl enable postgresql-12
+
+</span><span style="color:#804000;"># Start postgres server:
+</span><span style="color:#000000;">sudo systemctl start postgresql-12
+</span></code></pre></li>
+<li>
+<p>Firewall setting</p>
+<pre style="background-color:#ffffff;">
+<code><span style="color:#000000;">sudo firewall-cmd --add-port</span><span style="color:#0000ff;">=</span><span style="color:#000000;">5432/tcp --permanent
+</span><span style="color:#000000;">sudo firewall-cmd --reload
+</span></code></pre></li>
+<li>
+<p>Edit <code>/var/lib/pgsql/12/data/postgresql.conf</code></p>
+<p>Edit the line where it says <code>listen_addresses = '...'</code> to <code>listen_addresses = '*'</code> for remote access.</p>
+<p>Mine is just set to <code>listen_addresses = 'localhost'</code> or <code>listen_addresses = '127.0.0.1'</code> since I don't need to remotely access to the database right now.</p>
+</li>
+<li>
+<p>Notice that there is now <code>potgres</code> user with:</p>
+<pre style="background-color:#ffffff;">
+<code><span style="color:#000000;">more /etc//passwd </span><span style="color:#0000ff;">| </span><span style="color:#000000;">grep postgres
+
+</span><span style="color:#804000;"># And then set the admin password with:
+</span><span style="color:#000000;">sudo passwd postgres
+</span></code></pre>
+<p><strong>IMPORTANT:</strong> Try not to forget the password.</p>
+</li>
+<li>
+<p>Set PostgreSQL admin user’s password</p>
+<pre style="background-color:#ffffff;">
+<code><span style="color:#000000;">sudo su - postgres
+
+</span><span style="color:#804000;"># After running the line below,
+</span><span style="color:#804000;"># it should print out `ALTER ROLE` if successful.
+</span><span style="color:#000000;">psql -d template1 -c </span><span style="color:#ff0080;">&quot;ALTER USER postgres WITH PASSWORD &#39;ReallyGoodPasswd&#39;;&quot;
+</span></code></pre></li>
+</ol>
+<p>And that should be it for the installation of PostgreSQL!</p>
+<h1 id="step-2-set-up-pgadmin4">Step 2: Set up pgAdmin4</h1>
+<p>This one is fairly easier, so let's just do it :)</p>
+<p><strong>Instruction link:</strong> <a href="https://www.pgadmin.org/download/pgadmin-4-rpm/">https://www.pgadmin.org/download/pgadmin-4-rpm/</a></p>
+<ol>
+<li>
+<p>Uninstall any pgAdmin repo packages that you may already have installed:</p>
+<pre style="background-color:#ffffff;">
+<code><span style="color:#000000;">sudo rpm -e pgadmin4-fedora-repo
+</span></code></pre></li>
+<li>
+<p>Set up the repository:</p>
+<pre style="background-color:#ffffff;">
+<code><span style="color:#000000;">sudo rpm -i https://ftp.postgresql.org/pub/pgadmin/pgadmin4/yum/pgadmin4-fedora-repo-1-1.noarch.rpm
+</span></code></pre></li>
+<li>
+<p>Search for package:</p>
+<pre style="background-color:#ffffff;">
+<code><span style="color:#000000;">sudo dnf search pgadmin4
+</span></code></pre></li>
+<li>
+<p>Install the package:</p>
+<pre style="background-color:#ffffff;">
+<code><span style="color:#000000;">sudo dnf install pgadmin4.noarch
+</span></code></pre></li>
+<li>
+<p>Finally, run the web setup script to configure the system to run in web mode:</p>
+<pre style="background-color:#ffffff;">
+<code><span style="color:#000000;">sudo /usr/pgadmin4/bin/setup-web.sh
+</span></code></pre></li>
+</ol>
+<p>That should be it for the installation of pgAdmin4, though I could be missing somthing. If that seems like the case, please go to <a href="https://computingforgeeks.com/how-to-install-pgadmin-on-centos-fedora/">Install pgAdmin 4 on CentOS 7 &amp; Fedora 33/32/31/30</a> and try to figure it out.</p>
+<h1 id="finally">Finally</h1>
+<ol>
+<li>
+<p>You might have to open <code>/var/lib/pgsql/12/data/pg_hba.conf</code> with:</p>
+<pre style="background-color:#ffffff;">
+<code><span style="color:#000000;">sudo nano /var/lib/pgsql/12/data/pg_hba.conf
+</span></code></pre>
+<p>And change <code>peer</code> and <code>ident</code> to <code>md5</code>.</p>
+<pre style="background-color:#ffffff;">
+<code><span style="color:#804000;"># TYPE  DATABASE        USER            ADDRESS                 METHOD
+
+</span><span style="color:#804000;"># &quot;local&quot; is for Unix domain socket connections only
+</span><span style="color:#0000ff;">local   </span><span style="color:#006600;">all             all                                     md5
+</span><span style="color:#804000;"># IPv4 local connections:
+</span><span style="color:#000000;">host    all             all             127.0.0.1/32            md5
+</span></code></pre></li>
+</ol>
+<p>And...that really should be it?</p>
+<br />
+<h2 id="optional">Optional:</h2>
+<p><em>Let's create a test database!</em></p>
+<pre style="background-color:#ffffff;">
+<code><span style="color:#000000;">su - postgres
+</span></code></pre><pre style="background-color:#ffffff;">
+<code><span style="color:#804000;"># Create a new test database:
+</span><span style="color:#000000;">createdb newtestdb
+</span></code></pre><pre style="background-color:#ffffff;">
+<code><span style="color:#000000;">psql newtestdb
+
+# List all the databases:
+\l
+
+CREATE TABLE employees (eid int, fname varchar, lname varchar);
+
+INSERT INTO employees VALUES (1, &#39;Peter&#39;, &#39;Smith&#39;);
+
+SELECT * FROM employees;
+</span></code></pre>
+<p>To exit <code>psql</code>, run</p>
+<pre style="background-color:#ffffff;">
+<code><span style="color:#000000;">\q
+</span></code></pre>
+<p>And to exit <code>postgres user</code>, run</p>
+<pre style="background-color:#ffffff;">
+<code><span style="color:#000000;">exit
+</span></code></pre>
+<p>Now you can also open up your pgAdmin4 by going to <code>localhost/pgadmin4</code> or maybe <code>127.0.0.1/pgadmin4</code> and you should be able to see the database created!</p>
+<p>Though, if it's your first time ever opening up pgAdmin4, <strong><em>you will have to connect it to the postgres server.</em></strong> So just simply follow the very last part of <a href="https://computingforgeeks.com/how-to-install-pgadmin-on-centos-fedora/">Install pgAdmin 4 on CentOS 7 &amp; Fedora 33/32/31/30</a>, and you should be good to go.</p>
+<p>Also, don't forget to:</p>
+<pre style="background-color:#ffffff;">
+<code><span style="color:#000000;">systemctl start httpd
+systemctl start postgresql-12
+</span></code></pre>
+<p>You can check if they're running with:</p>
+<pre style="background-color:#ffffff;">
+<code><span style="color:#000000;">systemctl status httpd
+systemctl status postgresql-12
+</span></code></pre>
+<p>I hope it helped!</p>
+</div>
+</section>
+<br />
+<br />
+<br />
+<a href="/blog"><button class="read-more-btn">Read more posts</button></a>
+
+        <hr style="margin-top: 2rem; border-style: dotted; color: #1a535c;">
+        <footer style="text-align: center; margin-top: 1.2rem;">
+            All text <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC-BY-SA</a> & code <a href="https://www.gnu.org/licenses/agpl-3.0.en.html">AGPL</a>
+        </footer>
+    </div>
+</html>

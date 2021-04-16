@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/fontawesome-free-5.13.1-web/css/fontawesome.min.css">
+    <link rel="stylesheet" href="/fontawesome-free-5.13.1-web/css/solid.min.css">
+    <link rel="stylesheet" href="/fontawesome-free-5.13.1-web/css/brands.min.css">
+    <title>Shohei's Blog</title>
+</head>
+<body>
+    <div class="container">
+        <ul class="nav">
+            <li><a href="/" style="text-decoration: none; color: #383961;"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="/blog" style="text-decoration: none; color: #383961;"><i class="fas fa-pen-fancy"></i> Blog</a></li>
+            <li><a href="/projects" style="text-decoration: none; color: #383961;"><i class="fas fa-seedling"></i> Projects</a></li>
+            |
+            <li><a href="https://github.com/sjinno" target="_blank" style="color: #212529;"><i class="fab fa-github-alt"></i></a></li>
+            <li><a href="https://www.linkedin.com/in/shohei-jinno-947a88121/" target="_blank" style="color: #0077b6;"><i class="fab fa-linkedin"></i></a></li>
+            <li><a href="https://stackoverflow.com/users/4909849/syohey" target="_blank" style="color: #e76f51;"><i class="fab fa-stack-overflow"></i></a></li>
+        </ul>
+        
+<h1 class="title">Hugo Quickstart</h1>
+<p class="subtitle">
+  <strong>2020-12-01</strong>
+</p>
+<section class="example-post">
+  <span>3 minute read</span>
+  <br />
+  <br />
+  <ul>
+    
+    <li style="display: inline-block; padding-right: 16pt;">
+      <a href="/tags/hugo">#hugo</a>
+    </li>
+    
+    <li style="display: inline-block; padding-right: 16pt;">
+      <a href="/tags/webdevelopment">#webdevelopment</a>
+    </li>
+    
+  </ul>
+  <br />
+  <br />
+  <div class="entry-content"><p>Here is a quick tutorial on how to get started with Hugo, the super fast framework for building websites. (Although this website is built with Zola...)</p>
+<p>I'm glad if this post could help someone get started with it too! 😉</p>
+<p><br />
+There will be two parts:</p>
+<p><em><strong>Part 1 Quickstart</strong></em></p>
+<p><em><strong>Part 2 Deploying to GitHub Pages</strong></em></p>
+<p><br />
+</p>
+<h3 id="part-1-quickstart">Part 1: Quickstart</h3>
+<p>I assume that you already have hugo installed on your machine, so I'll skip that part.</p>
+<ol>
+<li>
+<p><code>$ hugo new site quickstart</code> to generate a hugo website. You can <strong>replace</strong> <code>quickstart</code> with whatever name you like.</p>
+</li>
+<li>
+<p><code>$ cd quickstart</code> to go to the folder you just created.</p>
+</li>
+<li>
+<p><code>$ git init</code> to initialize a git repo.</p>
+</li>
+<li>
+<p><code>$ git submodule add https://github.com/budparr/gohugo-theme-ananke.git themes/ananke</code> to install a theme you like. In this example, we are installing <code>ananke</code> theme.</p>
+</li>
+<li>
+<p><code>$ echo 'theme = &quot;ananke&quot;' &gt;&gt; config.toml</code> to use the theme. Or open the folder in your favorite text editor, open the config.toml file, and write <code>theme = &quot;ananke&quot;</code>.</p>
+</li>
+<li>
+<p><code>$ hugo new posts/my-first-post.md</code> to create a new post.</p>
+</li>
+<li>
+<p><code>my-first-post.md</code> should look like the following.</p>
+</li>
+</ol>
+<pre style="background-color:#ffffff;">
+<code><span style="color:#000000;">---
+title: </span><span style="color:#ff0080;">&quot;My First Post&quot;
+</span><span style="color:#000000;">date: 2019-03-26T08:47:11+01:00
+draft: true
+---
+</span></code></pre>
+<p>Sometimes, it's <code>+++</code> instead of <code>---</code>, so you might have to modify that manually.</p>
+<ol start="8">
+<li>
+<p>Write anything you want in <code>my-first-post.md</code> and that's pretty much it for the first part!</p>
+</li>
+<li>
+<p><code>$ hugo server -D</code> or <code>$ hugo server -t &lt;your-theme&gt;</code> (if you use a theme) to see what your website looks like. 😉</p>
+</li>
+</ol>
+<p><br />
+</p>
+<h3 id="part-2-deploying-to-github-pages">Part 2: Deploying to GitHub Pages</h3>
+<p>I assume that you already have a GitHub account.</p>
+<ol>
+<li>
+<p>Create a new repository <code>&lt;your-blog&gt;</code>.</p>
+</li>
+<li>
+<p>Create another repository, but this time the name should be <code>&lt;your-user-name&gt;.github.io</code>.</p>
+</li>
+<li>
+<p><code>$ git clone &lt;your-blog&gt;</code> or <code>$ git remote add origin &lt;url-to-your-blog-repo&gt;</code> to skip step 4.</p>
+</li>
+<li>
+<p>Move all the files and folders in your <code>quickstart</code> into <code>&lt;your-blog&gt;</code> repo.</p>
+</li>
+<li>
+<p>Make sure your website works locally by running <code>$ hugo server</code> or <code>$ hugo server -t &lt;your-theme&gt;</code>.</p>
+</li>
+<li>
+<p><code>$ git submodule add -b master https://github.com/&lt;your-user-name&gt;/&lt;your-user-name&gt;.github.io.git public</code> to create a git submodule.</p>
+</li>
+<li>
+<p>Run <code>$ hugo</code> or <code>$ hugo -t &lt;your-theme&gt;</code> (if you use a theme). This should create a public folder in your working directory.</p>
+</li>
+<li>
+<p><code>$ cd public</code> and all that's left to do is to <code>git add</code>, <code>git commit</code>, and <code>git push</code> it.</p>
+</li>
+</ol>
+<pre style="background-color:#ffffff;">
+<code><span style="color:#000000;">$ git add .
+$ git commit -m </span><span style="color:#ff0080;">&quot;Your comment.&quot;
+</span><span style="color:#000000;">$ git push -u origin master
+</span></code></pre>
+<ol start="9">
+<li>Now go to <code>https://&lt;your-user-name&gt;.github.io</code>, and you should see your website running!</li>
+</ol>
+<p><strong><em>Fin.</em></strong></p>
+</div>
+</section>
+<br />
+<br />
+<br />
+<a href="/blog"><button class="read-more-btn">Read more posts</button></a>
+
+        <hr style="margin-top: 2rem; border-style: dotted; color: #1a535c;">
+        <footer style="text-align: center; margin-top: 1.2rem;">
+            All text <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC-BY-SA</a> & code <a href="https://www.gnu.org/licenses/agpl-3.0.en.html">AGPL</a>
+        </footer>
+    </div>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/fontawesome-free-5.13.1-web/css/fontawesome.min.css">
+    <link rel="stylesheet" href="/fontawesome-free-5.13.1-web/css/solid.min.css">
+    <link rel="stylesheet" href="/fontawesome-free-5.13.1-web/css/brands.min.css">
+    <title>Shohei's Blog</title>
+</head>
+<body>
+    <div class="container">
+        <ul class="nav">
+            <li><a href="/" style="text-decoration: none; color: #383961;"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="/blog" style="text-decoration: none; color: #383961;"><i class="fas fa-pen-fancy"></i> Blog</a></li>
+            <li><a href="/projects" style="text-decoration: none; color: #383961;"><i class="fas fa-seedling"></i> Projects</a></li>
+            |
+            <li><a href="https://github.com/sjinno" target="_blank" style="color: #212529;"><i class="fab fa-github-alt"></i></a></li>
+            <li><a href="https://www.linkedin.com/in/shohei-jinno-947a88121/" target="_blank" style="color: #0077b6;"><i class="fab fa-linkedin"></i></a></li>
+            <li><a href="https://stackoverflow.com/users/4909849/syohey" target="_blank" style="color: #e76f51;"><i class="fab fa-stack-overflow"></i></a></li>
+        </ul>
+        
+<h1 class="title">Git</h1>
+<p class="subtitle">
+  <strong>2020-12-02</strong>
+</p>
+<section class="example-post">
+  <span>2 minute read</span>
+  <br />
+  <br />
+  <ul>
+    
+    <li style="display: inline-block; padding-right: 16pt;">
+      <a href="/tags/git">#git</a>
+    </li>
+    
+    <li style="display: inline-block; padding-right: 16pt;">
+      <a href="/tags/tutorial">#tutorial</a>
+    </li>
+    
+  </ul>
+  <br />
+  <br />
+  <div class="entry-content"><ul>
+<li>
+<p>Remove files that are listed in the .gitignore but still on the remote repository:</p>
+<pre style="background-color:#ffffff;">
+<code><span style="color:#804000;"># 1. Remove the file(s) that you want to untrack from .gitignore
+
+</span><span style="color:#804000;"># 2. Remove them with:
+</span><span style="color:#000000;">git rm --cached file1 file2 dir/file3
+
+</span><span style="color:#804000;"># Or, if you have a lot of files:
+</span><span style="color:#000000;">git rm --cached `git ls-files -i --exclude-from</span><span style="color:#0000ff;">=</span><span style="color:#000000;">.gitignore`
+</span></code></pre>
+<p>Here is <a href="https://stackoverflow.com/questions/13541615/how-to-remove-files-that-are-listed-in-the-gitignore-but-still-on-the-repositor">the stackoverflow link</a> for reference.</p>
+</li>
+<li>
+<p>Quick way to create a branch and check it out in one line:</p>
+<pre style="background-color:#ffffff;">
+<code><span style="color:#000000;">git checkout -b branch1
+</span></code></pre></li>
+<li>
+<p>Split git commit into multiple commits:</p>
+<blockquote>
+<p>Suppose you have a commit that <code>README.md</code> and <code>file1.txt</code> have changes,
+and you want to split the commit into one with just <code>README.md</code> and another with <code>file1.txt</code>.</p>
+</blockquote>
+<pre style="background-color:#ffffff;">
+<code><span style="color:#804000;"># 1. Run interactive rebase
+</span><span style="color:#804000;"># Change `n` to appropriate number.
+</span><span style="color:#804000;"># For example, if the commit is located in the second from HEAD,
+</span><span style="color:#804000;"># then you would run `git rebase -i HEAD~2`
+</span><span style="color:#804000;"># If it&#39;s the very first commit, then `git rebase -i --root`.
+</span><span style="color:#000000;">git rebase -i HEAD</span><span style="color:#006600;">~</span><span style="color:#000000;">n
+
+</span><span style="color:#804000;"># 2. pick -&gt; edit
+
+</span><span style="color:#804000;"># 3. git reset HEAD^
+
+</span><span style="color:#804000;"># 4. Add, commit, and continue with `git rebase --continue`.
+
+</span><span style="color:#804000;"># 5. Repeat until you are done splitting the commit.
+
+</span><span style="color:#804000;"># 6. Force push?
+</span></code></pre></li>
+<li>
+<p>List tracked files:</p>
+<pre style="background-color:#ffffff;">
+<code><span style="color:#000000;">git ls-files
+</span></code></pre></li>
+</ul>
+</div>
+</section>
+<br />
+<br />
+<br />
+<a href="/blog"><button class="read-more-btn">Read more posts</button></a>
+
+        <hr style="margin-top: 2rem; border-style: dotted; color: #1a535c;">
+        <footer style="text-align: center; margin-top: 1.2rem;">
+            All text <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC-BY-SA</a> & code <a href="https://www.gnu.org/licenses/agpl-3.0.en.html">AGPL</a>
+        </footer>
+    </div>
+</html>

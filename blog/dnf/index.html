@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/fontawesome-free-5.13.1-web/css/fontawesome.min.css">
+    <link rel="stylesheet" href="/fontawesome-free-5.13.1-web/css/solid.min.css">
+    <link rel="stylesheet" href="/fontawesome-free-5.13.1-web/css/brands.min.css">
+    <title>Shohei's Blog</title>
+</head>
+<body>
+    <div class="container">
+        <ul class="nav">
+            <li><a href="/" style="text-decoration: none; color: #383961;"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="/blog" style="text-decoration: none; color: #383961;"><i class="fas fa-pen-fancy"></i> Blog</a></li>
+            <li><a href="/projects" style="text-decoration: none; color: #383961;"><i class="fas fa-seedling"></i> Projects</a></li>
+            |
+            <li><a href="https://github.com/sjinno" target="_blank" style="color: #212529;"><i class="fab fa-github-alt"></i></a></li>
+            <li><a href="https://www.linkedin.com/in/shohei-jinno-947a88121/" target="_blank" style="color: #0077b6;"><i class="fab fa-linkedin"></i></a></li>
+            <li><a href="https://stackoverflow.com/users/4909849/syohey" target="_blank" style="color: #e76f51;"><i class="fab fa-stack-overflow"></i></a></li>
+        </ul>
+        
+<h1 class="title">DNF</h1>
+<p class="subtitle">
+  <strong>2021-03-17</strong>
+</p>
+<section class="example-post">
+  <span>1 minute read</span>
+  <br />
+  <br />
+  <ul>
+    
+    <li style="display: inline-block; padding-right: 16pt;">
+      <a href="/tags/dnf">#dnf</a>
+    </li>
+    
+    <li style="display: inline-block; padding-right: 16pt;">
+      <a href="/tags/fedora">#fedora</a>
+    </li>
+    
+  </ul>
+  <br />
+  <br />
+  <div class="entry-content"><ul>
+<li>
+<p>How not to include specific packages to update:</p>
+<pre style="background-color:#ffffff;">
+<code><span style="color:#804000;"># Formula:
+</span><span style="color:#000000;">sudo dnf update --exclude</span><span style="color:#0000ff;">=&lt;</span><span style="color:#000000;">pkg-name</span><span style="color:#0000ff;">&gt;
+
+</span><span style="color:#804000;"># For example, if you want to skip `texlive-...` to update,
+</span><span style="color:#804000;"># then you would run:
+</span><span style="color:#000000;">sudo dnf update --exclude</span><span style="color:#0000ff;">=</span><span style="color:#000000;">texlive-</span><span style="color:#33cc33;">\*
+</span></code></pre></li>
+<li>
+<p>Search specific package:</p>
+<pre style="background-color:#ffffff;">
+<code><span style="color:#804000;"># Formula:
+</span><span style="color:#000000;">sudo dnf search </span><span style="color:#0000ff;">&lt;</span><span style="color:#000000;">pkg-name</span><span style="color:#0000ff;">&gt;
+
+</span><span style="color:#804000;"># e.g.
+</span><span style="color:#000000;">sudo dnf search sox
+</span></code></pre></li>
+<li>
+<p>Check if specific package is installed:</p>
+<pre style="background-color:#ffffff;">
+<code><span style="color:#804000;"># Formula:
+</span><span style="color:#000000;">dnf list installed </span><span style="color:#ff0080;">&quot;pkg-name&quot;
+
+</span><span style="color:#804000;"># e.g.
+</span><span style="color:#000000;">dnf list installed </span><span style="color:#ff0080;">&quot;postgresql*&quot;
+
+</span><span style="color:#804000;"># Alternatively, you can also do this:
+</span><span style="color:#000000;">dnf list installed </span><span style="color:#0000ff;">| </span><span style="color:#000000;">grep postgresql
+</span></code></pre></li>
+<li>
+<p>Remove specif package:</p>
+<pre style="background-color:#ffffff;">
+<code><span style="color:#804000;"># Formula:
+</span><span style="color:#000000;">sudo dnf remove </span><span style="color:#0000ff;">&lt;</span><span style="color:#000000;">pkg-name</span><span style="color:#0000ff;">&gt;
+
+</span><span style="color:#804000;"># e.g.
+</span><span style="color:#000000;">sudo dnf remove zathura
+</span></code></pre></li>
+</ul>
+</div>
+</section>
+<br />
+<br />
+<br />
+<a href="/blog"><button class="read-more-btn">Read more posts</button></a>
+
+        <hr style="margin-top: 2rem; border-style: dotted; color: #1a535c;">
+        <footer style="text-align: center; margin-top: 1.2rem;">
+            All text <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC-BY-SA</a> & code <a href="https://www.gnu.org/licenses/agpl-3.0.en.html">AGPL</a>
+        </footer>
+    </div>
+</html>

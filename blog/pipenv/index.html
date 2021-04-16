@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/fontawesome-free-5.13.1-web/css/fontawesome.min.css">
+    <link rel="stylesheet" href="/fontawesome-free-5.13.1-web/css/solid.min.css">
+    <link rel="stylesheet" href="/fontawesome-free-5.13.1-web/css/brands.min.css">
+    <title>Shohei's Blog</title>
+</head>
+<body>
+    <div class="container">
+        <ul class="nav">
+            <li><a href="/" style="text-decoration: none; color: #383961;"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="/blog" style="text-decoration: none; color: #383961;"><i class="fas fa-pen-fancy"></i> Blog</a></li>
+            <li><a href="/projects" style="text-decoration: none; color: #383961;"><i class="fas fa-seedling"></i> Projects</a></li>
+            |
+            <li><a href="https://github.com/sjinno" target="_blank" style="color: #212529;"><i class="fab fa-github-alt"></i></a></li>
+            <li><a href="https://www.linkedin.com/in/shohei-jinno-947a88121/" target="_blank" style="color: #0077b6;"><i class="fab fa-linkedin"></i></a></li>
+            <li><a href="https://stackoverflow.com/users/4909849/syohey" target="_blank" style="color: #e76f51;"><i class="fab fa-stack-overflow"></i></a></li>
+        </ul>
+        
+<h1 class="title">Pipenv</h1>
+<p class="subtitle">
+  <strong>2021-03-20</strong>
+</p>
+<section class="example-post">
+  <span>1 minute read</span>
+  <br />
+  <br />
+  <ul>
+    
+    <li style="display: inline-block; padding-right: 16pt;">
+      <a href="/tags/pipenv">#pipenv</a>
+    </li>
+    
+    <li style="display: inline-block; padding-right: 16pt;">
+      <a href="/tags/python">#python</a>
+    </li>
+    
+  </ul>
+  <br />
+  <br />
+  <div class="entry-content"><ul>
+<li>
+<p>Create a virtual enronment with <code>pipenv</code>:</p>
+<pre style="background-color:#ffffff;">
+<code><span style="color:#000000;">pipenv shell
+</span></code></pre></li>
+<li>
+<p>Run python files:</p>
+<pre style="background-color:#ffffff;">
+<code><span style="color:#804000;"># 1. If you are in the environment, then
+</span><span style="color:#000000;">python </span><span style="color:#0000ff;">&lt;</span><span style="color:#000000;">file-name</span><span style="color:#0000ff;">&gt;
+
+</span><span style="color:#804000;"># 2. If not, then
+</span><span style="color:#000000;">pipenv run python </span><span style="color:#0000ff;">&lt;</span><span style="color:#000000;">file-name</span><span style="color:#0000ff;">&gt;
+</span></code></pre></li>
+<li>
+<p>Install packages:</p>
+<pre style="background-color:#ffffff;">
+<code><span style="color:#000000;">pipenv install </span><span style="color:#0000ff;">&lt;</span><span style="color:#000000;">pkg-name</span><span style="color:#0000ff;">&gt;
+
+</span><span style="color:#804000;"># Or if it&#39;s a dev-dependency, e.g. autopep8
+</span><span style="color:#000000;">pipenv install </span><span style="color:#0000ff;">&lt;</span><span style="color:#000000;">pkg-name</span><span style="color:#0000ff;">&gt; </span><span style="color:#000000;">--dev
+</span></code></pre></li>
+<li>
+<p>Other frequently used commands:</p>
+<pre style="background-color:#ffffff;">
+<code><span style="color:#804000;"># List installed packages:
+</span><span style="color:#000000;">pipenv lock -r
+
+</span><span style="color:#804000;"># Check package vulnerabilities:
+</span><span style="color:#000000;">pipenv check
+
+</span><span style="color:#804000;"># After editing `pyton_version` in `Pipfile` to whatever version you want to use,
+</span><span style="color:#804000;"># run tis command to apply the update.
+</span><span style="color:#804000;"># This will remove the currenct environment and create a new one with the updated version.
+</span><span style="color:#000000;">pipenv --python </span><span style="color:#0000ff;">&lt;</span><span style="color:#000000;">python-ver</span><span style="color:#0000ff;">&gt;
+
+</span><span style="color:#804000;"># Uninstall package(s):
+</span><span style="color:#000000;">pipenv uninstall </span><span style="color:#0000ff;">&lt;</span><span style="color:#000000;">pkg-name</span><span style="color:#0000ff;">&gt;
+
+</span><span style="color:#804000;"># Remove the current virtual environment:
+</span><span style="color:#000000;">pipenv --rm
+</span></code></pre></li>
+</ul>
+</div>
+</section>
+<br />
+<br />
+<br />
+<a href="/blog"><button class="read-more-btn">Read more posts</button></a>
+
+        <hr style="margin-top: 2rem; border-style: dotted; color: #1a535c;">
+        <footer style="text-align: center; margin-top: 1.2rem;">
+            All text <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC-BY-SA</a> & code <a href="https://www.gnu.org/licenses/agpl-3.0.en.html">AGPL</a>
+        </footer>
+    </div>
+</html>
