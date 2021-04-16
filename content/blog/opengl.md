@@ -7,15 +7,15 @@ tags = ["opengl", "tutorial", "fedora", "glfw", "glad"]
 
 # Installation requirements:
 
-**GLFW:** <https://www.glfw.org/download.html>
+- **GLFW:** <https://www.glfw.org/download.html>
 
-**Glad:** <https://github.com/Dav1dde/glad> or <https://glad.dav1d.de>
+- **GLAD:** <https://github.com/Dav1dde/glad> or <https://glad.dav1d.de>
 
 # Useful links:
 
-[**How to build & install GLFW 3 and use it in a Linux project** (stack overflow)](https://stackoverflow.com/questions/17768008/how-to-build-install-glfw-3-and-use-it-in-a-linux-project)
+- [**How to build & install GLFW 3 and use it in a Linux project** (stack overflow)](https://stackoverflow.com/questions/17768008/how-to-build-install-glfw-3-and-use-it-in-a-linux-project)
 
-[**Issue compiling with GLAD - C++** (reddit)](https://www.reddit.com/r/opengl/comments/blqgoy/issue_compiling_with_glad_c/)
+- [**Issue compiling with GLAD - C++** (reddit)](https://www.reddit.com/r/opengl/comments/blqgoy/issue_compiling_with_glad_c/)
 
 <br />
 
@@ -33,7 +33,7 @@ After installing GLFW,
 
 5. `sudo make install`
 
-After installing Glad,
+After installing GLAD,
 
 1. ```bash
    sudo ln -s <path/to/glad> /usr/local/include/glad
