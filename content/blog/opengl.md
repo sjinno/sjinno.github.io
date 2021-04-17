@@ -38,7 +38,7 @@ After installing GLAD,
 1. ```bash
    sudo ln -s <path/to/glad> /usr/local/include/glad
 
-    # In my case,
+   # In my case,
    sudo ln -s ~/glad/include/glad /usr/local/include/glad
    ```
 
@@ -51,10 +51,10 @@ After installing GLAD,
 2. Compile `shaders.cpp` with:
 
    ```bash
-   g++ -std=c++11 -c shaders.cpp <path/to/glad.c>`
+   g++ -std=c++11 -c shaders.cpp <path/to/glad.c>
 
    # In my case,
-   `g++ -std=c++11 -c shaders.cpp ~/glad/src/glad.c
+   g++ -std=c++11 -c shaders.cpp ~/glad/src/glad.c
    ```
 
 3. Output an executable file with:
