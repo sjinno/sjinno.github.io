@@ -1,17 +1,19 @@
 {% extends "base.html" %} {% block content %}
-<h1>{{ section.title }}</h1>
-<table>
-  <tr>
-    <th>Titile</th>
-    <th>Date published</th>
-  </tr>
-  {% for page in section.pages %}
-  <tr>
-    <td>
-      <a href="{{ page.permalink | safe }}">{{ page.title }}</a>
-    </td>
-    <td>{{ page.date }}</td>
-  </tr>
-  {% endfor %}
-</table>
+<section class="section">
+  <h1 class="section__title">{{ section.title }}</h1>
+  <table class="table">
+    <tr>
+      <th class="table__header">Titile</th>
+      <th class="table__header">Date published</th>
+    </tr>
+    {% for page in section.pages %}
+    <tr>
+      <td class="table__data table__data--wide">
+        <a href="{{ page.permalink | safe }}">{{ page.title }}</a>
+      </td>
+      <td class="table__data table__data--narrow table__data--date">{{ page.date }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+</section>
 {% endblock content %}

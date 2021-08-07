@@ -17,9 +17,9 @@ If you follow those references above, you will be proabably all set. But I am ju
 \
 \
 
-### 1. Check for existing keys
+# 1. Check for existing keys
 
-- Run `$ ls -al ~/.ssh` to see if you have any **existing** SSH keys.
+-   Run `$ ls -al ~/.ssh` to see if you have any **existing** SSH keys.
 
 If you see something like the following output, you should already have an SSH key.
 
@@ -44,7 +44,7 @@ Now run `$ ls -la ~/.ssh` again to see if the set of keys has been generated suc
 \
 \
 
-### 2. ssh-agent
+# 2. ssh-agent
 
 Run the following command to see if the agent is running:
 
@@ -134,7 +134,7 @@ Lastly,`$ ssh-add ~/.ssh/id_rsa_work` and when you `$ ssh-add -l`, you should se
 \
 \
 
-### 3. Create `~/.ssh/config`
+# 3. Create `~/.ssh/config`
 
 When you have multiple SSH keys, creating `config` file under your `.ssh` directory is a must.
 
@@ -163,7 +163,7 @@ In this example, we have configured multiple accounts for GitHub.
 \
 \
 
-### 4. How do you switch between identities??
+# 4. How do you switch between identities??
 
 Every terminal session, you will have to `$ ssh-add ~/.ssh/<identity_file>` to add the identity you want to use.
 

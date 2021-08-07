@@ -19,7 +19,7 @@ _**Part 2 Deploying to GitHub Pages**_
 \
 \
 
-### Part 1: Quickstart
+# Part 1: Quickstart
 
 I assume that you already have hugo installed on your machine, so I'll skip that part.
 
@@ -54,7 +54,7 @@ Sometimes, it's `+++` instead of `---`, so you might have to modify that manuall
 \
 \
 
-### Part 2: Deploying to GitHub Pages
+# Part 2: Deploying to GitHub Pages
 
 I assume that you already have a GitHub account.
 

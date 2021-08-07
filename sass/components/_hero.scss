@@ -11,28 +11,29 @@
         color: $clrBlack;
     }
 
-    &__btn {
+    &__links {
         padding-top: 12.3rem;
         font-size: 2.8rem;
         text-align: center;
+        font-family: $headingFonts;
+    }
 
-        & .btn {
-            text-decoration: none;
-            color: #343a40;
-            display: block;
-            transition: color .5s ease-in-out;
-            background: linear-gradient(to right, $clrBrightPink, $clrBrightBlue);
-            background-clip: text;
-            display: inline-block;
+    &__link {
+        text-decoration: none;
+        color: #343a40;
+        display: block;
+        transition: color .5s ease-in-out;
+        background: linear-gradient(to right, $clrBrightPink, $clrBrightBlue);
+        background-clip: text;
+        display: inline-block;
 
 
-            &:first-child {
-                padding-bottom: 2.8rem;
-            }
+        &--blog {
+            padding-bottom: 2.8rem;
+        }
 
-            &--blog:hover, &--projects:hover {
-                color: transparent;
-            }
+        &--blog:hover, &--projects:hover {
+            color: transparent;
         }
     }
 }

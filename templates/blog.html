@@ -2,17 +2,17 @@
 <section class="section">
   <h1 class="section__title">{{ section.title }}</h1>
   <h2 class="section__subtitle"><a href="/tags">All tags</a></h2>
-  <table>
+  <table class="table">
     <tr>
-      <th>Titile</th>
-      <th>Date published</th>
+      <th class="table__header">Titile</th>
+      <th class="table__header">Date published</th>
     </tr>
     {% for page in section.pages %}
     <tr>
-      <td>
+      <td class="table__data table__data--wide">
         <a href="{{ page.permalink | safe }}">{{ page.title }}</a>
       </td>
-      <td>{{ page.date }}</td>
+      <td class="table__data table__data--date table__data--narrow">{{ page.date }}</td>
     </tr>
     {% endfor %}
   </table>
