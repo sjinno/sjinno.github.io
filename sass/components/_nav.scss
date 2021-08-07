@@ -31,28 +31,68 @@
         position: relative;
 
         &::before {
-            content: '\005b';
+            content: '';
             position: absolute;
-            top: 0;
             bottom: 0;
-            left: 0;
+            right: 50%;
+            border-bottom: 1px solid white;
+            width: 0%;
             opacity: 0;
+            transition: width .8s ease-out, opacity .4s ease-in-out;
         }
 
         &::after {
-            content: '\005d';
+            content: '';
             position: absolute;
-            top: 0;
             bottom: 0;
-            right: 0;
+            left: 50%;
+            border-bottom: 1px solid white;
+            width: 0%;
             opacity: 0;
+            transition: width .8s ease-out, opacity .4s ease-in-out;
         }
 
-        &:hover::before,
-        &:hover::after {
-            opacity: 0.8;
-            transition: opacity 0.4s;
+        // &--gh::before {
+        //     bottom: -1;
+        // }
+
+        // &--gh::after {
+        //     bottom: -1;
+        // }
+
+        &:hover::before {
+            width: 45%;
+            opacity: 1;
         }
+
+        &:hover::after {
+            width: 45%;
+            opacity: 1;
+        }
+
+        // &::before {
+        //     content: '\005b';
+        //     position: absolute;
+        //     top: 0;
+        //     bottom: 0;
+        //     left: 0;
+        //     opacity: 0;
+        // }
+
+        // &::after {
+        //     content: '\005d';
+        //     position: absolute;
+        //     top: 0;
+        //     bottom: 0;
+        //     right: 0;
+        //     opacity: 0;
+        // }
+
+        // &:hover::before,
+        // &:hover::after {
+        //     opacity: 0.8;
+        //     transition: opacity 0.4s;
+        // }
 
         &--home {
             font-family: $mainFonts;
