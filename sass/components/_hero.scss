@@ -3,7 +3,6 @@
     width: 92%;
     margin: 0 auto;
 
-
     &__title {
         font-size: 8rem;
         font-weight: 700;
@@ -19,8 +18,8 @@
 
         & .btn {
             text-decoration: none;
+            color: #343a40;
             display: block;
-            color: $clrDarkBlue;
 
             &:first-child {
                 padding-bottom: 2.8rem;

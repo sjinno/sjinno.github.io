@@ -7,15 +7,15 @@ tags = ["opengl", "tutorial", "fedora", "glfw", "glad"]
 
 # Installation requirements:
 
-- **GLFW:** <https://www.glfw.org/download.html>
+-   **GLFW:** <https://www.glfw.org/download.html>
 
-- **GLAD:** <https://github.com/Dav1dde/glad> or <https://glad.dav1d.de>
+-   **GLAD:** <https://github.com/Dav1dde/glad> or <https://glad.dav1d.de>
 
 # Useful links:
 
-- [**How to build & install GLFW 3 and use it in a Linux project** (stack overflow)](https://stackoverflow.com/questions/17768008/how-to-build-install-glfw-3-and-use-it-in-a-linux-project)
+-   [**How to build & install GLFW 3 and use it in a Linux project** (stack overflow)](https://stackoverflow.com/questions/17768008/how-to-build-install-glfw-3-and-use-it-in-a-linux-project)
 
-- [**Issue compiling with GLAD - C++** (reddit)](https://www.reddit.com/r/opengl/comments/blqgoy/issue_compiling_with_glad_c/)
+-   [**Issue compiling with GLAD - C++** (reddit)](https://www.reddit.com/r/opengl/comments/blqgoy/issue_compiling_with_glad_c/)
 
 <br />
 
@@ -50,28 +50,28 @@ After installing GLAD,
 
 2. Compile `shaders.cpp` with:
 
-   ```bash
-   g++ -std=c++11 -c shaders.cpp <path/to/glad.c>
+    ```bash
+    g++ -std=c++11 -c shaders.cpp <path/to/glad.c>
 
-   # In my case,
-   g++ -std=c++11 -c shaders.cpp ~/glad/src/glad.c
-   ```
+    # In my case,
+    g++ -std=c++11 -c shaders.cpp ~/glad/src/glad.c
+    ```
 
 3. Output an executable file with:
 
-   ```bash
-   g++ shaders.o glad.o -o shaders.exec -lGL -lglfw3 -lX11 -lpthread -ldl
-   ```
+    ```bash
+    g++ shaders.o glad.o -o shaders.exec -lGL -lglfw3 -lX11 -lpthread -ldl
+    ```
 
 4. Finally execute with:
 
-   ```bash
-   ./shaders.exec
-   ```
+    ```bash
+    ./shaders.exec
+    ```
 
-   And you should see something like this:
+    And you should see something like this:
 
-   ![triangle](/images/shaders.webp)
+    ![triangle](/images/blog/shaders.webp)
 
 # Finally...
 

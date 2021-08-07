@@ -4,20 +4,20 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(black, 0.9);
+    background-color: rgba($clrBlack, 0.96);
     z-index: 1;
     display: flex;
     justify-content: center;
     align-items: center;
-    opacity: 0;
     visibility: hidden;
+    opacity: 0;
     transition: visibility 0.6s ease-in-out, opacity 0.7s ease-in-out;
 
     &__list {
         position: fixed;
         display: flex;
         flex-direction: column;
-        gap: 6rem;
+        gap: 5.1rem;
         justify-content: center;
         align-items: center;
         overflow: auto;
@@ -53,5 +53,42 @@
             opacity: 0.8;
             transition: opacity 0.4s;
         }
+
+        &--home {
+            font-family: $mainFonts;
+            font-weight: 700;
+            font-size: 2.2em;
+        }
+
+        &--blog {
+            font-family: $headingFonts;
+            font-size: 2em;
+        }
+
+        &--projects {
+            font-family: $monoFonts;
+            font-weight: 700;
+            font-size: 1.41421356em;
+        }
+
+        &__image {
+            object-fit: contain;
+            filter: brightness(0) invert(1);
+
+            &--gh {
+                height: 4.2rem;
+            }
+
+            &--li {
+                height: 3.08rem;
+                margin-left: .5rem;
+            }
+
+            &--so {
+                height: 3.5rem;
+            }
+        }
+
+
     }
 }
