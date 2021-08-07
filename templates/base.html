@@ -1,29 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="/fontawesome-free-5.13.1-web/css/fontawesome.min.css">
-    <link rel="stylesheet" href="/fontawesome-free-5.13.1-web/css/solid.min.css">
-    <link rel="stylesheet" href="/fontawesome-free-5.13.1-web/css/brands.min.css">
+    <link rel="stylesheet" href="/main.css">
     <title>Shohei's Blog</title>
 </head>
+
 <body>
-    <div class="container">
-        <ul class="nav">
-            <li><a href="/" style="text-decoration: none; color: #383961;"><i class="fas fa-home"></i> Home</a></li>
-            <li><a href="/blog" style="text-decoration: none; color: #383961;"><i class="fas fa-pen-fancy"></i> Blog</a></li>
-            <li><a href="/projects" style="text-decoration: none; color: #383961;"><i class="fas fa-seedling"></i> Projects</a></li>
-            |
-            <li><a href="https://github.com/sjinno" target="_blank" style="color: #212529;"><i class="fab fa-github-alt"></i></a></li>
-            <li><a href="https://www.linkedin.com/in/shohei-jinno-947a88121/" target="_blank" style="color: #0077b6;"><i class="fab fa-linkedin"></i></a></li>
-            <li><a href="https://stackoverflow.com/users/4909849/syohey" target="_blank" style="color: #e76f51;"><i class="fab fa-stack-overflow"></i></a></li>
-        </ul>
+    <header>
+        <nav class="nav">
+            <div class="nav__list">
+                <a class="nav__item" href="/">Home</a>
+                <a class="nav__item" href="/blog">Blog</a>
+                <a class="nav__item" href="/projects">Projects</a>
+
+                <a class="nav__item" href="https://github.com/sjinno" target="_blank">GitHub</a>
+                <a class="nav__item" href="https://www.linkedin.com/in/shohei-jinno-947a88121/"
+                    target="_blank">LinkedIn</a>
+                <a class="nav__item" href="https://stackoverflow.com/users/4909849/syohey" target="_blank">Stack
+                    Overflow</a>
+            </div>
+        </nav>
+        <div class="hamburger">
+            <a href="#" class="hamburger__btn hamburger--open"><span class="hamburger__btn__icon">三</span></a>
+        </div>
+    </header>
+    <main>
         {% block content %}{% endblock content %}
-        <hr style="margin-top: 2rem; border-style: dotted; color: #1a535c;">
-        <footer style="text-align: center; margin-top: 1.2rem;">
-            All text <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC-BY-SA</a> & code <a href="https://www.gnu.org/licenses/agpl-3.0.en.html">AGPL</a>
-        </footer>
-    </div>
+    </main>
+    <footer class="footer">
+        <p class="footer__content">
+            All text <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC-BY-SA</a> & code <a
+                href="https://www.gnu.org/licenses/agpl-3.0.en.html">AGPL</a>
+        </p>
+    </footer>
+    <script src="/js/main.js"></script>
+
 </html>

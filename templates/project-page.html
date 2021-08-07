@@ -1,14 +1,8 @@
 {% extends "base.html" %} {% block content %}
-<h1 class="title">{{ page.title }}</h1>
-<p class="subtitle"><strong>{{ page.date }}</strong></p>
-<section class="example-post">
-  <br />
-  <div class="entry-content">{{ page.content | safe }}</div>
+<section class="project">
+  <h1 class="project__title">{{ page.title }}</h1>
+  <h2 class="project__subtitle">{{ page.date }}</h2>
+  <div class="project__content">{{ page.content | safe }}</div>
+  <a href="/projects" class="btn btn--read-more">View more projects</a>
 </section>
-<br />
-<br />
-<br />
-<a href="/projects"
-  ><button class="read-more-btn">View more projects</button></a
->
 {% endblock content %}

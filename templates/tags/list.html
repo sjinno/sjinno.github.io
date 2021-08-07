@@ -1,11 +1,10 @@
 {% extends "base.html" %} {% block content %}
-<h1>Tags</h1>
-<br />
-<p style="line-height: 2.2; width: 64%; margin: auto">
-  {% for term in terms %} {% if loop.index != 1 %}
-  <a href="{{ term.permalink | safe }}" style="padding-right: 16px"
-    >{{ term.name | safe }}</a
-  >
-  {% endif %} {% endfor %}
-</p>
+<section class="section">
+  <h1 class="section__header">Tags</h1>
+  <div>
+    {% for term in terms %} {% if loop.index != 1 %}
+    <a class="all-tags__tag" href="{{ term.permalink | safe }}">{{ term.name | safe }}</a>
+    {% endif %} {% endfor %}
+  </div>
+</section>
 {% endblock content %}

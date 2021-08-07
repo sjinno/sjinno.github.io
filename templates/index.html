@@ -1,33 +1,13 @@
 {% extends "base.html" %} {% block content %}
-<br />
-<br />
-<br />
-<div id="profile-pic" style="margin: auto">
-  <img
-    src="/images/puppy.webp"
-    alt=""
-    width="256px"
-    height="256px"
-    style="border-radius: 50%"
-  />
+<div class="hero">
+  <div class="hero__image">
+    <!-- <img src="/images/puppy.webp" alt="Profile picture"> -->
+  </div>
+  <div class="hero__title">Shohei's Blog</div>
+  <div class="hero__subtitle"></div>
+  <div class="hero__btn">
+    <a href="/blog" class="btn btn--blog">Blog Posts</a>
+    <a href="/projects" class="btn btn--projects">Projects</a>
+  </div>
 </div>
-<br />
-<br />
-<h1 class="title">
-  Hello, there! <span style="font-size: 1.1em">My</span> name is
-  <span class="name">Shohei</span>.
-</h1>
-<h1 class="title">
-  <span style="font-size: 1.5em">Welcome</span> to my website where I post
-  articles... sometimes! :D
-</h1>
-<br />
-<br />
-<a href="/blog"><button class="blog-btn">Blog</button></a>
-<br />
-<br />
-<a href="/projects"><button class="projects-btn">Projects</button></a>
-<br />
-<br />
-<p>00101010 🤖</p>
 {% endblock content %}
