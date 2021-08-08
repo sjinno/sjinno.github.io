@@ -1,12 +1,11 @@
 .table {
     width: 100%;
-    max-width: 555px;
+    max-width: 41.4rem;
     margin: 0 auto;
 
     &__header {
         font-size: 2.8rem;
         padding-bottom: 1.5rem;
-
 
         &--title {
             text-align: left;
@@ -23,10 +22,22 @@
 
         &--wide {
             width: 60%;
+
+            @include tablet {
+                & {
+                    width: 51%;
+                }
+            }
         }
 
         &--narrow {
             width: 40%;
+
+            @include tablet {
+                & {
+                    width: 49%;
+                }
+            }
         }
     }
 }

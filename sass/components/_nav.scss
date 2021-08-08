@@ -47,7 +47,9 @@
             position: absolute;
             bottom: 0;
             right: 50%;
-            border-bottom: 1px solid white;
+            border-bottom: .25rem solid white;
+            border-top-left-radius: 25%;
+            border-bottom-left-radius: 25%;
             width: 0%;
             opacity: 0;
             transition: width .8s ease-out, opacity .4s ease-in-out;
@@ -58,19 +60,13 @@
             position: absolute;
             bottom: 0;
             left: 50%;
-            border-bottom: 1px solid white;
+            border-bottom: .25rem solid white;
+            border-top-right-radius: 25%;
+            border-bottom-right-radius: 25%;
             width: 0%;
             opacity: 0;
             transition: width .8s ease-out, opacity .4s ease-in-out;
         }
-
-        // &--gh::before {
-        //     bottom: -1;
-        // }
-
-        // &--gh::after {
-        //     bottom: -1;
-        // }
 
         &:hover::before {
             width: 45%;
@@ -81,30 +77,6 @@
             width: 45%;
             opacity: 1;
         }
-
-        // &::before {
-        //     content: '\005b';
-        //     position: absolute;
-        //     top: 0;
-        //     bottom: 0;
-        //     left: 0;
-        //     opacity: 0;
-        // }
-
-        // &::after {
-        //     content: '\005d';
-        //     position: absolute;
-        //     top: 0;
-        //     bottom: 0;
-        //     right: 0;
-        //     opacity: 0;
-        // }
-
-        // &:hover::before,
-        // &:hover::after {
-        //     opacity: 0.8;
-        //     transition: opacity 0.4s;
-        // }
 
         &--home {
             font-family: $mainFonts;
@@ -140,7 +112,5 @@
                 height: 3.5rem;
             }
         }
-
-
     }
 }
