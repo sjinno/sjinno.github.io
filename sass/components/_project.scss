@@ -1,10 +1,11 @@
 .project {
     padding-top: 3rem;
+    line-height: 1.75;
 
     &__title {
         font-family: $headingFonts;
         font-size: 6.4rem;
-        line-height: .75;
+        line-height: .88;
         text-align: center;
         padding-bottom: 3rem;
     }
@@ -14,26 +15,56 @@
         padding-bottom: 3rem;
     }
 
-    &__repository {
-        text-decoration: none;
-        font-weight: 700;
-        background-color: $clrBrightBlue;
-        color: white;
-        padding: .5rem 2.5rem;
-        border-radius: 5rem;
-        letter-spacing: 1px;
-        position: relative;
-    }
-
     &__content {
-        & h1 {
-            font-size: 3.2rem;
-            margin-top: 1.5rem;
-            margin-bottom: .75rem;
+        & p {
+            line-height: 1.618;
+            padding-top: .75rem;
+            padding-bottom: .75rem;
         }
 
-        & br {
-            margin-bottom: 6rem;
+        & h1 {
+            font-size: 2.8rem;
+        }
+
+        // & .btn--repo {
+        //     display: inline-block;
+        //     margin-top: 1rem;
+        //     margin-bottom: 1rem;
+        // }
+
+        & h1, h2 {
+            margin-top: .5rem;
+            margin-bottom: .5rem;
+            line-height: 1;
+        }
+
+        & ol > li, ul > li {
+            margin-left: 1.5rem;
+
+            & > code {
+                background-color:rgb(243, 240, 255);
+            }
+        }
+
+
+        & p > code {
+            background-color:rgb(243, 240, 255);
+        }
+
+        & code {
+            font-size: .9em;
+        }
+
+        & pre {
+            // white-space: pre-wrap;
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+            line-height: 1.25;
+            overflow-x: auto;
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+            padding-left: 1.5rem;
+            border: 2px solid $clrBlack;
         }
     }
 }

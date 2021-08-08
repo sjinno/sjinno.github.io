@@ -11,7 +11,7 @@
     align-items: center;
     visibility: hidden;
     opacity: 0;
-    transition: visibility 0.6s ease-in-out, opacity 0.7s ease-in-out;
+    transition: visibility 0.6s ease-in-out, opacity 0.6s ease-in-out;
 
     &__list {
         position: fixed;
@@ -21,6 +21,18 @@
         justify-content: center;
         align-items: center;
         overflow: auto;
+
+        @include tablet {
+            & {
+                gap: 4.2rem;
+            }
+        }
+
+        @include desktop {
+            & {
+                gap: 2.8rem;
+            }
+        }
     }
 
     &__item {

@@ -19,3 +19,15 @@ body {
 a {
     color: $clrAnchor;
 }
+
+@include tablet {
+    html {
+        font-size: 88%;
+    }
+}
+
+@include desktop {
+    html {
+        font-size: 100%;
+    }
+}

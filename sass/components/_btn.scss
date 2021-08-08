@@ -1,15 +1,30 @@
 .btn {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 29rem;
-    height: 5.5rem;
-    margin: 6rem auto 6rem auto;
-    font-size: 2.8rem;
     text-decoration: none;
     color: white;
-    background-color: $clrBlack;
     border-radius: 2.8rem;
     font-weight: 700;
     font-family: $headingFonts;
+
+    &--more {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: black;
+        width: 29rem;
+        height: 5.5rem;
+        margin: 6rem auto 6rem auto;
+        font-size: 2.8rem;
+    }
+
+    &--repo {
+        text-decoration: none;
+        background-color: $clrBrightBlue;
+        font-family: $mainFonts;
+        color: white;
+        padding: .6rem 2.8rem;
+        border-radius: 5rem;
+        letter-spacing: 1px;
+        position: relative;
+        font-size: 1.6rem;
+    }
 }

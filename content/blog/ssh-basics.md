@@ -167,7 +167,7 @@ Every terminal session, you will have to `$ ssh-add ~/.ssh/<identity_file>` to a
 
 If an identity is somehow already set and you want to switch to a different one, then you will have to `$ ssh-add -D` to drop that identity and `$ ssh-add ~/.ssh/<identity_file>` to add the identity you want to use.
 
-_**You cannot use multiple identities during the same session.**_
+## _You cannot use multiple identities during the same session._
 
 And I think that's about it.
 
