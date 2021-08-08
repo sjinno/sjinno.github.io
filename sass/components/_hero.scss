@@ -4,6 +4,8 @@
     margin: 0 auto;
 
     &__title {
+        width: 100%;
+        max-width: 34.6875rem; /* 555px */
         font-size: 8rem;
         font-weight: 700;
         line-height: .75;

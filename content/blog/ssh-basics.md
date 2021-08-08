@@ -18,7 +18,7 @@ If you follow those references above, you will be proabably all set. But I am ju
 
 # 1. Check for existing keys
 
--   Run `$ ls -al ~/.ssh` to see if you have any **existing** SSH keys.
+-   Run `ls -al ~/.ssh` to see if you have any **existing** SSH keys.
 
 If you see something like the following output, you should already have an SSH key.
 
@@ -30,15 +30,15 @@ If you see something like the following output, you should already have an SSH k
 
 If you don't see any output, you probably don't have any SSH keys.
 
-So run `$ mkdir $HOME/.ssh` to create a `.ssh` directory.
+So run `mkdir $HOME/.ssh` to create a `.ssh` directory.
 
 Then generate a new set of keys:
 
 ```bash
-$ ssh-keygen -t rsa -b 4096 -C your_email@example.com
+ssh-keygen -t rsa -b 4096 -C your_email@example.com
 ```
 
-Now run `$ ls -la ~/.ssh` again to see if the set of keys has been generated successfully. 😎
+Now run `ls -la ~/.ssh` again to see if the set of keys has been generated successfully. 😎
 
 \
 
@@ -47,7 +47,7 @@ Now run `$ ls -la ~/.ssh` again to see if the set of keys has been generated suc
 Run the following command to see if the agent is running:
 
 ```bash
-$ eval "$(ssh-agent -s)" # for Mac and Linux
+eval "$(ssh-agent -s)" # for Mac and Linux
 ```
 
 or
@@ -60,7 +60,7 @@ ssh-agent -s # for Windows
 Then add your private key to `ssh-agent`:
 
 ```bash
-$ ssh-add ~/.ssh/id_rsa
+ssh-add ~/.ssh/id_rsa
 ```
 
 After that,
@@ -74,7 +74,7 @@ After that,
 Lstly, check your authentication:
 
 ```bash
-$ ssh -T git@github.com
+ssh -T git@github.com
 ```
 
 If you see the following message, your SSH key has been successfully set up! 🖖
@@ -97,7 +97,7 @@ Hi your_user_name! You've successfully authenticated, but GitHub does not provid
 **CAREFULLY** run:
 
 ```bash
-$ ssh-keygen -t rsa -b 4096 -C your_email@example.com
+ssh-keygen -t rsa -b 4096 -C your_email@example.com
 ```
 
 **BUT**, this time, you will have to change the file name **MANUALLY**.
@@ -119,7 +119,7 @@ For example, if you are generating a key for your work, then you might want to e
 /home/<your_username>/.ssh/id_rsa_work
 ```
 
-Now, when you run `$ ls -la ~/.ssh`, you should see the following output or something similar:
+Now, when you run `ls -la ~/.ssh`, you should see the following output or something similar:
 
 ```
 -rw-------  1 user_name user_name  1766 Jul  7  2018 id_rsa
@@ -129,7 +129,7 @@ Now, when you run `$ ls -la ~/.ssh`, you should see the following output or some
 -rw-------  1 user_name user_name 12892 Feb  5 18:39 known_hosts
 ```
 
-Lastly,`$ ssh-add ~/.ssh/id_rsa_work` and when you `$ ssh-add -l`, you should see all your identities in the output.
+Lastly, `ssh-add ~/.ssh/id_rsa_work` and when you `ssh-add -l`, you should see all your identities in the output.
 
 \
 
@@ -139,7 +139,7 @@ When you have multiple SSH keys, creating `config` file under your `.ssh` direct
 
 So let's do that.
 
-Run `$ touch ~/.ssh/config` to create `config` file, and then open it with your favorite text editor.
+Run `touch ~/.ssh/config` to create `config` file, and then open it with your favorite text editor.
 
 Copy and paste the following as a template:
 
@@ -163,9 +163,9 @@ In this example, we have configured multiple accounts for GitHub.
 
 # 4. How do you switch between identities??
 
-Every terminal session, you will have to `$ ssh-add ~/.ssh/<identity_file>` to add the identity you want to use.
+Every terminal session, you will have to `ssh-add ~/.ssh/<identity_file>` to add the identity you want to use.
 
-If an identity is somehow already set and you want to switch to a different one, then you will have to `$ ssh-add -D` to drop that identity and `$ ssh-add ~/.ssh/<identity_file>` to add the identity you want to use.
+If an identity is somehow already set and you want to switch to a different one, then you will have to `ssh-add -D` to drop that identity and `ssh-add ~/.ssh/<identity_file>` to add the identity you want to use.
 
 ## _You cannot use multiple identities during the same session._
 
@@ -174,6 +174,6 @@ And I think that's about it.
 One thing to keep in mind is that, if you have globally set github username and email, you might want to configure your `.git` whenever you initialize a git repo:
 
 ```bash
-$ git config user.name "Your name"
-$ git config user.email your_email@example.com
+git config user.name "Your name"
+git config user.email your_email@example.com
 ```
