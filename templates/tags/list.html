@@ -1,10 +1,10 @@
 {% extends "base.html" %} {% block content %}
 <section class="tags">
   <h1 class="tags__title">Tags</h1>
-  <ul class="tags__list">
+  <div class="tags__list">
     {% for term in terms %} {% if loop.index != 1 %}
-    <li class="tags__item"><a class="tags__tag" href="{{ term.permalink | safe }}">{{ term.name | safe }}</a></li>
+    <a class="tags__tag" href="{{ term.permalink | safe }}">{{ term.name | safe }}</a>&emsp;
     {% endif %} {% endfor %}
-  </ul>
+  </div>
 </section>
 {% endblock content %}

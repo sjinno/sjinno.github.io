@@ -15,7 +15,6 @@ tags = ["ssh", "tutorial"]
 If you follow those references above, you will be proabably all set. But I am just going to leave the summary on how to go about setting up multiple SSH keys so that if you have multiple GitHub accounts or some other accounts with GitLab or BitBucket, this post might give you an idea.
 
 \
-\
 
 # 1. Check for existing keys
 
@@ -41,7 +40,6 @@ $ ssh-keygen -t rsa -b 4096 -C your_email@example.com
 
 Now run `$ ls -la ~/.ssh` again to see if the set of keys has been generated successfully. 😎
 
-\
 \
 
 # 2. ssh-agent
@@ -87,13 +85,15 @@ Hi your_user_name! You've successfully authenticated, but GitHub does not provid
 
 \
 \
-
 \
 \
 
-## So now... How about another account?
+## So now... How about another account...?
 
 \
+\
+\
+
 **CAREFULLY** run:
 
 ```bash
@@ -132,7 +132,6 @@ Now, when you run `$ ls -la ~/.ssh`, you should see the following output or some
 Lastly,`$ ssh-add ~/.ssh/id_rsa_work` and when you `$ ssh-add -l`, you should see all your identities in the output.
 
 \
-\
 
 # 3. Create `~/.ssh/config`
 
@@ -160,7 +159,6 @@ Host github.com-work # Change `github.com-work` to the name of your like.
 
 In this example, we have configured multiple accounts for GitHub.
 
-\
 \
 
 # 4. How do you switch between identities??

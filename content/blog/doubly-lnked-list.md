@@ -9,20 +9,20 @@ Here is the implementation of doubly linked list. I sort of wanted to write myse
 
 Basically, doubly linked list has:
 
-- `check_if_node_has_value` method
-- `remove` method
-- `remove_node_bindings` method to help remove method out
-- `insert_before_node` method
-- `insert_after` method
-- `set_head` method
-- `set_tail` method
-- `insert_at_specific_position` method
+-   `check_if_node_has_value` method
+-   `remove` method
+-   `remove_node_bindings` method to help remove method out
+-   `insert_before_node` method
+-   `insert_after` method
+-   `set_head` method
+-   `set_tail` method
+-   `insert_at_specific_position` method
 
 and... that's about it.
 
-So in total, we will need to write 8 methods, which isn't so bad.
+So in total, we will need to write 8 methods, which isn't so bad. Let's just dive right into it!
 
-Let's dive right into it!
+\
 
 Firstly, let us make a `Node` class.
 
@@ -132,7 +132,9 @@ Phew, almost there...
 
 We are going to write **set head**, **set tail**, and finally **insert at position** method, and we are done!
 
-**_Set head_**
+\
+
+## _Setting head_
 
 ```py
     def set_head(self, node):
@@ -143,7 +145,9 @@ We are going to write **set head**, **set tail**, and finally **insert at positi
         self.insert_before(self.head, node)
 ```
 
-**_Set tail_**
+\
+
+## _Setting tail_
 
 ```py
     def set_tail(self, node):
@@ -152,6 +156,8 @@ We are going to write **set head**, **set tail**, and finally **insert at positi
             return
         self.insert_after(self.tail, node)
 ```
+
+\
 
 Finally... **_Inert at position_**
 
@@ -177,7 +183,10 @@ I would like to add a unittest, but I will do it later.
 
 Thank you! &#128513;
 
-**Final code**
+\
+\
+
+# Final code
 
 ```py
 class Node:

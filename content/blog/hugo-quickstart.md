@@ -10,11 +10,12 @@ Here is a quick tutorial on how to get started with Hugo, the super fast framewo
 I'm glad if this post could help someone get started with it too! &#128521;
 
 \
+
 There will be two parts:
 
-_**Part 1 Quickstart**_
+### _Part 1 Quickstart_
 
-_**Part 2 Deploying to GitHub Pages**_
+### _Part 2 Deploying to GitHub Pages_
 
 \
 \
@@ -37,15 +38,15 @@ I assume that you already have hugo installed on your machine, so I'll skip that
 
 7. `my-first-post.md` should look like the following.
 
-```bash
----
-title: "My First Post"
-date: 2019-03-26T08:47:11+01:00
-draft: true
----
-```
+    ```bash
+    ---
+    title: "My First Post"
+    date: 2019-03-26T08:47:11+01:00
+    draft: true
+    ---
+    ```
 
-Sometimes, it's `+++` instead of `---`, so you might have to modify that manually.
+    Sometimes, it's `+++` instead of `---`, so you might have to modify that manually.
 
 8. Write anything you want in `my-first-post.md` and that's pretty much it for the first part!
 
@@ -81,5 +82,3 @@ $ git push -u origin master
 ```
 
 9. Now go to `https://<your-user-name>.github.io`, and you should see your website running!
-
-**_Fin._**

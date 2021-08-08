@@ -1,17 +1,17 @@
 {% extends "base.html" %} {% block content %}
-<section class="section">
-  <h1 class="section__header">#{{ term.name }}</h1>
-  <table>
+<section class="tag">
+  <h1 class="tag__title">{{ term.name | safe }}</h1>
+  <table class="table">
     <tr>
-      <th>Titile</th>
-      <th>Date published</th>
+      <th class="table__header">Titile</th>
+      <th class="table__header">Date published</th>
     </tr>
     {% for page in term.pages %}
     <tr>
-      <td>
+      <td class="table__data table__data--wide">
         <a href="{{ page.permalink | safe }}">{{ page.title | safe }}</a>
       </td>
-      <td>{{ page.date }}</td>
+      <td class="table__data table__data--narrow table__data--date">{{ page.date }}</td>
     </tr>
     {% endfor %}
   </table>

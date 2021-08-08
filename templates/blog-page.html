@@ -5,7 +5,7 @@
   <div class="post__reading-time">{{ page.reading_time }} minute read</div>
   <div class="post__tags">
     {% for tag in page.taxonomies.tags %}
-    <a class="post__tags__tag" href="/tags/{{ tag | safe }}">#{{ tag }}</a>
+    <a class="post__tags__tag" href="/tags/{{ tag | safe }}">{{ tag }}</a>&emsp;
     {% endfor %}
   </div>
   <div class="post__content">{{ page.content | safe }}</div>

@@ -1,3 +1,5 @@
+'use strict';
+
 // console.log('Hello, world!');
 
 const hamburger = document.querySelector('.hamburger');
@@ -21,3 +23,11 @@ hamburger.addEventListener('click', (e) => {
         nav.style.visibility = 'hidden';
     }
 });
+
+window.onclick = (e) => {
+    if (e.target.className === 'nav') {
+        hamburger.innerHTML = hamburgerOpen;
+        nav.style.opacity = '0';
+        nav.style.visibility = 'hidden';
+    }
+};

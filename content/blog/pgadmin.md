@@ -7,11 +7,13 @@ tags = ["postgresql", "pgadmin", "setup", "tutorial", "fedora"]
 
 # Useful links:
 
-- [PostgreSQL Server Setup & Monitor](https://www.youtube.com/watch?v=jDQjRHPRcgM&list=PL061tjwVHN1gJIfXCHk4jc9aRacY0D9vR&index=1&t=581s) (youtube)
+-   [PostgreSQL Server Setup & Monitor](https://www.youtube.com/watch?v=jDQjRHPRcgM&list=PL061tjwVHN1gJIfXCHk4jc9aRacY0D9vR&index=1&t=581s) (youtube)
 
-- [How To Install PostgreSQL 12 on Fedora 33/32/31/30](https://computingforgeeks.com/how-to-install-postgresql-12-on-fedora/)
+-   [How To Install PostgreSQL 12 on Fedora 33/32/31/30](https://computingforgeeks.com/how-to-install-postgresql-12-on-fedora/)
 
-- [Install pgAdmin 4 on CentOS 7 & Fedora 33/32/31/30](https://computingforgeeks.com/how-to-install-pgadmin-on-centos-fedora/)
+-   [Install pgAdmin 4 on CentOS 7 & Fedora 33/32/31/30](https://computingforgeeks.com/how-to-install-pgadmin-on-centos-fedora/)
+
+\
 
 # Useful commands:
 
@@ -37,7 +39,8 @@ man firewall-cmd
 sudo netstat -tupln
 ```
 
-<br />
+\
+\
 
 # Step 1: Install PostgreSQL
 
@@ -106,6 +109,8 @@ sudo netstat -tupln
 
 And that should be it for the installation of PostgreSQL!
 
+\
+
 # Step 2: Set up pgAdmin4
 
 This one is fairly easier, so let's just do it :)
@@ -114,58 +119,61 @@ This one is fairly easier, so let's just do it :)
 
 1. Uninstall any pgAdmin repo packages that you may already have installed:
 
-   ```bash
-   sudo rpm -e pgadmin4-fedora-repo
-   ```
+    ```bash
+    sudo rpm -e pgadmin4-fedora-repo
+    ```
 
 2. Set up the repository:
 
-   ```bash
-   sudo rpm -i https://ftp.postgresql.org/pub/pgadmin/pgadmin4/yum/pgadmin4-fedora-repo-1-1.noarch.rpm
-   ```
+    ```bash
+    sudo rpm -i https://ftp.postgresql.org/pub/pgadmin/pgadmin4/yum/pgadmin4-fedora-repo-1-1.noarch.rpm
+    ```
 
 3. Search for package:
 
-   ```bash
-   sudo dnf search pgadmin4
-   ```
+    ```bash
+    sudo dnf search pgadmin4
+    ```
 
 4. Install the package:
 
-   ```bash
-   sudo dnf install pgadmin4.noarch
-   ```
+    ```bash
+    sudo dnf install pgadmin4.noarch
+    ```
 
 5. Finally, run the web setup script to configure the system to run in web mode:
 
-   ```bash
-   sudo /usr/pgadmin4/bin/setup-web.sh
-   ```
+    ```bash
+    sudo /usr/pgadmin4/bin/setup-web.sh
+    ```
 
 That should be it for the installation of pgAdmin4, though I could be missing somthing. If that seems like the case, please go to [Install pgAdmin 4 on CentOS 7 & Fedora 33/32/31/30](https://computingforgeeks.com/how-to-install-pgadmin-on-centos-fedora/) and try to figure it out.
+
+\
 
 # Finally
 
 1. You might have to open `/var/lib/pgsql/12/data/pg_hba.conf` with:
 
-   ```bash
-   sudo nano /var/lib/pgsql/12/data/pg_hba.conf
-   ```
+    ```bash
+    sudo nano /var/lib/pgsql/12/data/pg_hba.conf
+    ```
 
-   And change `peer` and `ident` to `md5`.
+    And change `peer` and `ident` to `md5`.
 
-   ```bash
-   # TYPE  DATABASE        USER            ADDRESS                 METHOD
+    ```bash
+    # TYPE  DATABASE        USER            ADDRESS                 METHOD
 
-   # "local" is for Unix domain socket connections only
-   local   all             all                                     md5
-   # IPv4 local connections:
-   host    all             all             127.0.0.1/32            md5
-   ```
+    # "local" is for Unix domain socket connections only
+    local   all             all                                     md5
+    # IPv4 local connections:
+    host    all             all             127.0.0.1/32            md5
+    ```
 
 And...that really should be it?
 
-<br />
+\
+\
 
 ## Optional:
 
