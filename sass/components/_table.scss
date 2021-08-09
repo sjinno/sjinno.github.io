@@ -9,6 +9,12 @@
 
         &--title {
             text-align: left;
+
+            @include desktop {
+                & {
+                    padding-left: .51rem;
+                }
+            }
         }
     }
 

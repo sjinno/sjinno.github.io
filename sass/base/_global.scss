@@ -22,7 +22,7 @@ a {
 
 @include tablet {
     html {
-        font-size: 88%;
+        font-size: 81.25%;
     }
 }
 
@@ -32,8 +32,4 @@ a {
         // background-color: $clrBlack;
         // filter: invert(1) hue-rotate(180deg);
     }
-
-    // a:hover {
-    //     background-color: rgb(242, 240, 255);
-    // }
 }

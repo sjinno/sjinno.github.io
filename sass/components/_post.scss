@@ -1,5 +1,6 @@
 .post {
     padding-top: 3rem;
+    padding-bottom: 3rem;
     line-height: 1.75;
 
     &__title {
@@ -26,9 +27,36 @@
         text-align: center;
         padding-bottom: 3rem;
         line-height: 1.5;
+
+        @include desktop {
+            & a {
+                position: relative;
+                padding: .15rem .51rem;
+            }
+    
+            & a::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: $clrAnchor;
+                opacity: 0;
+                visibility: hidden;
+                transition: visibility .2s ease, opacity .2s ease;
+            }
+    
+            & a:hover::before {
+                visibility: visible;
+                opacity: .15;
+            }
+        }
     }
 
     &__content {
+        padding-bottom: 3rem;
+        
         & p {
             line-height: 1.618;
             padding-top: .75rem;
@@ -70,6 +98,31 @@
             padding-bottom: 2rem;
             padding-left: 1.5rem;
             border: 2px solid $clrBlack;
+        }
+
+        @include desktop {
+            & a {
+                position: relative;
+                padding: .15rem .51rem;
+            }
+    
+            & a::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: $clrAnchor;
+                opacity: 0;
+                visibility: hidden;
+                transition: visibility .2s ease, opacity .2s ease;
+            }
+    
+            & a:hover::before {
+                visibility: visible;
+                opacity: .15;
+            }
         }
     }
 }

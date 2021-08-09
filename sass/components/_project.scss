@@ -1,6 +1,10 @@
 .project {
     padding-top: 3rem;
+    padding-bottom: 3rem;
     line-height: 1.75;
+    width: 100%;
+    max-width: 43.2rem;
+    margin: 0 auto;
 
     &__title {
         font-family: $headingFonts;
@@ -16,6 +20,8 @@
     }
 
     &__content {
+        padding-bottom: 3rem;
+
         & p {
             line-height: 1.618;
             padding-top: .75rem;
@@ -49,7 +55,6 @@
         }
 
         & pre {
-            // white-space: pre-wrap;
             margin-top: 1rem;
             margin-bottom: 1rem;
             line-height: 1.25;
