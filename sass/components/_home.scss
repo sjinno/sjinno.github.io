@@ -34,23 +34,38 @@
         text-decoration: none;
         color: white;
         background-color: black;
-        background: linear-gradient(to right, $clrBrightPink, $clrBrightBlue);
-        background-clip: text;
         padding: .75rem 1.5rem;
         position: relative;
         transition: color .5s ease-in;
 
-        &--blog {
-            position: relative;
-        }
-
-        &__svg--blog {
+        & img {
             display: none;
         }
 
-        &__svg--projects {
-            display: none;
+        @include desktop {
+            & {
+                background: linear-gradient(to right, $clrBrightPink, $clrBrightBlue);
+                background-clip: text;
+            }
+
+            & img {
+                display: inline-block;
+            }
+
+            &--blog {
+                position: relative;
+            }
+
+            &__svg--blog {
+                display: none;
+            }
+
+            &__svg--projects {
+                display: none;
+            }
         }
+
+
 
         @include desktop {
             &__svg--blog {
@@ -83,37 +98,26 @@
                     opacity: 1;
                 }
             }
-        }
-
-        &::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: black;
-            z-index: -1;
-            transition: background-color .5s ease-out;
-        }
-
-        &:hover {
-            color: transparent;
 
             &::before {
-                background-color: transparent;
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: black;
+                z-index: -1;
+                transition: background-color .5s ease-out;
+            }
+
+            &:hover {
+                color: transparent;
+
+                &::before {
+                    background-color: transparent;
+                }
             }
         }
     }
-    
 }
-
-// @include desktop {
-//     .hero {
-//         padding-top: 2.8rem;
-
-//         &__links {
-//             padding-top: 8.2rem;
-//         }
-//     }
-// }
