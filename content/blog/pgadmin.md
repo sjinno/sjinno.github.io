@@ -7,7 +7,7 @@ tags = ["postgresql", "pgadmin", "setup", "tutorial", "fedora"]
 
 # Useful links:
 
--   [PostgreSQL Server Setup & Monitor](https://www.youtube.com/watch?v=jDQjRHPRcgM&list=PL061tjwVHN1gJIfXCHk4jc9aRacY0D9vR&index=1&t=581s) (youtube)
+-   [PostgreSQL Server Setup & Monitor](https://www.youtube.com/watch?v=jDQjRHPRcgM&list=PL061tjwVHN1gJIfXCHk4jc9aRacY0D9vR&index=1&t=581s) (YouTube)
 
 -   [How To Install PostgreSQL 12 on Fedora 33/32/31/30](https://computingforgeeks.com/how-to-install-postgresql-12-on-fedora/)
 
