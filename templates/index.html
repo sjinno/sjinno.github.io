@@ -1,13 +1,18 @@
 {% extends "base.html" %} {% block content %}
-<div class="hero">
-  <div class="hero__image">
+<div class="home">
+  <div class="home__image">
     <!-- <img src="/images/puppy.webp" alt="Profile picture"> -->
   </div>
-  <div class="hero__title">Shohei's Blog</div>
-  <div class="hero__subtitle"></div>
-  <div class="hero__links">
-    <a href="/blog" class="hero__link hero__link--blog">Blog</a>
-    <a href="/projects" class="hero__link hero__link--projects">Projects</a>
+  <div class="home__title">Shohei's Blog</div>
+  <div class="home__subtitle"></div>
+  <div class="home__links">
+    <div class="home__link-wrapper">
+      <a href="/blog" class="home__link home__link--blog">Blog<img class="home__link__svg--blog"
+          src="/images/circle.svg"></a>
+    </div>
+    <a href="/projects" class="home__link home__link--projects">Projects<img class="home__link__svg--projects"
+        src="/images/circle.svg"></a>
+
   </div>
 </div>
 {% endblock content %}

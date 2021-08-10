@@ -27,4 +27,10 @@
         position: relative;
         font-size: 1.6rem;
     }
+
+    @include desktop {
+        &:hover {
+            opacity: .8;
+        }
+    }
 }

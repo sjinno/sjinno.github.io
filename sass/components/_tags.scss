@@ -1,15 +1,19 @@
 .tags {
+    padding-top: 2rem;
+    padding-bottom: 8rem;
+
     &__title {
+        padding-bottom: 3rem;
         font-size: 6.4rem;
         text-align: center;
-        padding-bottom: 3rem;
     }
 
     &__list {
-        text-align: center;
-        width: 92%;
-        max-width: 34.6875rem;
+        width: 90%;
+        max-width: 44.4rem;
         margin: 0 auto;
+
+        text-align: center;
         line-height: 2;
     }
 

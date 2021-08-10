@@ -10,6 +10,12 @@
     }
 }
 
+@mixin landscape {
+    @media (orientation: landscape) {
+        @content;
+    }
+}
+
 @mixin hoverEffect {
     a {
         position: relative;

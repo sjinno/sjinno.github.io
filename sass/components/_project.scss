@@ -1,9 +1,11 @@
 .project {
-    padding-top: 3rem;
-    padding-bottom: 3rem;
-    line-height: 1.75;
-    width: 100%;
-    max-width: 43.2rem;
+    line-height: 1.618;
+
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+
+    width: 90%;
+    max-width: 42rem;
     margin: 0 auto;
 
     &__title {
@@ -20,10 +22,10 @@
     }
 
     &__content {
+        padding-top: 1.5rem;
         padding-bottom: 3rem;
 
         & p {
-            line-height: 1.618;
             padding-top: .75rem;
             padding-bottom: .75rem;
         }
@@ -55,13 +57,16 @@
         }
 
         & pre {
-            margin-top: 1rem;
-            margin-bottom: 1rem;
             line-height: 1.25;
             overflow-x: auto;
+
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+            
             padding-top: 2rem;
             padding-bottom: 2rem;
             padding-left: 1.5rem;
+
             border: 2px solid $clrBlack;
         }
     }

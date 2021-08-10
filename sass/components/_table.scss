@@ -1,6 +1,6 @@
 .table {
-    width: 100%;
-    max-width: 41.4rem;
+    width: 90%;
+    max-width: 42rem;
     margin: 0 auto;
 
     &__header {
@@ -20,7 +20,7 @@
 
     &__data {
         font-size: 1.8rem;
-        padding-bottom: .75rem;
+        padding-bottom: 1rem;
 
         &--date {
             text-align: center;
@@ -28,6 +28,12 @@
 
         &--wide {
             width: 60%;
+
+            @include landscape {
+                & {
+                    width: 51%;
+                }
+            }
 
             @include tablet {
                 & {
@@ -38,6 +44,12 @@
 
         &--narrow {
             width: 40%;
+
+            @include landscape {
+                & {
+                    width: 49%;
+                }
+            }
 
             @include tablet {
                 & {

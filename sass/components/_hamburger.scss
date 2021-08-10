@@ -1,33 +1,92 @@
 .hamburger {
+    // position: absolute;
+    // top: 0;
+    // left: 0;
+    // width: 100%;
+    // height: 100%;
     width: 100%;
     max-width: 72rem;
     margin: 0 auto;
 
+    // @include desktop {
+    //     max-width: 48rem;
+    //     margin: 0 auto;
+    // }
+
+
+
     &__btn {
+        font-size: 2.8rem;
         text-decoration: none;
         color: $clrBlack;
-        font-size: 2.8rem;
+
         width: 6.4rem;
         height: 6.4rem;
+
         display: block;
         margin-left: auto;
         margin-right: 1.5rem;
         margin-top: .5rem;
+
         position: relative;
 
+        // border-radius: 50%;
+        // background-color: aliceblue;
+
+   
+
+
         &__icon {
-            font-weight: 900;
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -55%);
             pointer-events: none; // Nice!!
+            font-weight: 900;
+        }
+    }
+
+    @include desktop {
+        &--open::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background-color: #dee2e6;
+            opacity: 0;
+            transition: opacity 1s;
+        }
+
+        &--open:hover::before {
+            opacity: .8;
         }
     }
 
     &--close {
-        font-size: 5.6rem;
+        font-size: 5.5rem;
         color: white;
         z-index: 1;
+
+        @include desktop {
+            &::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                border-radius: 50%;
+                background-color: #495057;
+                opacity: 0;
+                transition: opacity 1s;
+            }
+    
+            &:hover::before {
+                opacity: .8;
+            }
+        }
     }
 }

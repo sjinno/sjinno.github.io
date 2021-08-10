@@ -1,24 +1,31 @@
 *, *::before, *::after {
-    box-sizing: 0;
     margin: 0;
     padding: 0;
+    box-sizing: 0;
 }
 
 html {
     font-size: 62.5%;
+    // height: 100%;
 }
 
 body {
+    // min-height: 100%;
+    min-height: 100vh;
+
     font-family: $mainFonts;
     font-size: 1.5rem;
-    position: relative;
     color: $clrBlack;
     scroll-behavior: smooth;
+
+    position: relative;
 }
 
 a {
     color: $clrAnchor;
 }
+
+
 
 @include tablet {
     html {
@@ -29,7 +36,5 @@ a {
 @include desktop {
     html {
         font-size: 100%;
-        // background-color: $clrBlack;
-        // filter: invert(1) hue-rotate(180deg);
     }
 }

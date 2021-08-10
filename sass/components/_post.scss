@@ -1,19 +1,24 @@
 .post {
-    padding-top: 3rem;
-    padding-bottom: 3rem;
-    line-height: 1.75;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+
+    width: 90%;
+    max-width: 72rem;
+    margin: 0 auto;
+
+    line-height: 1.618;
 
     &__title {
         font-family: $headingFonts;
         font-size: 6.4rem;
+        text-align: center;
         line-height: .88;
         padding-bottom: 3rem;
-        text-align: center;
     }
 
     &__date {
-        padding-bottom: 1.5rem;
         text-align: center;
+        padding-bottom: 1.5rem;
     }
 
     &__reading-time {
@@ -55,10 +60,10 @@
     }
 
     &__content {
+        padding-top: 1.5rem;
         padding-bottom: 3rem;
         
         & p {
-            line-height: 1.618;
             padding-top: .75rem;
             padding-bottom: .75rem;
         }
@@ -90,14 +95,17 @@
         }
 
         & pre {
-            margin-top: 1rem;
-            margin-bottom: 1rem;
             line-height: 1.25;
             overflow-x: auto;
+
             padding-top: 2rem;
             padding-bottom: 2rem;
             padding-left: 1.5rem;
-            border: 2px solid $clrBlack;
+
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+
+            border: .2rem solid $clrBlack;
         }
 
         @include desktop {

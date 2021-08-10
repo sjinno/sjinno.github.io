@@ -1,5 +1,6 @@
 .tag {
     padding-top: 3rem;
+    padding-bottom: 3rem;
 
     &__title {
         font-family: $monoFonts;
@@ -8,7 +9,7 @@
         font-size: 6.4rem;
         word-wrap: break-word;
         line-height: .88;
-        padding-bottom: 3rem;
+        padding-bottom: 4.5rem;
     }
 
     @include desktop {
