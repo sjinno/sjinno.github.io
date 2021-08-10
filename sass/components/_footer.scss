@@ -11,8 +11,20 @@
     letter-spacing: .15px;
 
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    &__content-1 {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+
+        width: 28rem;
+        margin: 0 auto;
+
+        padding-bottom: .28rem;
+    }
 
     & a {
         text-decoration: none;

@@ -45,31 +45,43 @@
         }
 
         &__svg--blog {
-            position: absolute;
-            top: 0;
-            left: 0;
-            opacity: 0;
-            transform: scale(1.8) translateX(.9rem);
-            transition: opacity .5s ease-in;
-            z-index: 2;
-
-            &:hover {
-                opacity: 1;
-            }
+            display: none;
         }
 
-
         &__svg--projects {
-            position: absolute;
-            top: 0;
-            left: 0;
-            opacity: 0;
-            transform: scale(2.6) translateX(2rem);
-            transition: opacity .5s ease-in;
-            z-index: 2;
+            display: none;
+        }
 
-            &:hover {
-                opacity: 1;
+        @include desktop {
+            &__svg--blog {
+                display: inline;
+                position: absolute;
+                top: 0;
+                left: 0;
+                opacity: 0;
+                transform: scale(1.8) translateX(1.2rem);
+                transition: opacity .5s ease-in;
+                z-index: 2;
+
+                &:hover {
+                    opacity: 1;
+                }
+            }
+
+
+            &__svg--projects {
+                display: inline;
+                position: absolute;
+                top: 0;
+                left: 0;
+                opacity: 0;
+                transform: scale(2.6) translateX(2rem);
+                transition: opacity .5s ease-in;
+                z-index: 2;
+
+                &:hover {
+                    opacity: 1;
+                }
             }
         }
 
@@ -92,8 +104,8 @@
                 background-color: transparent;
             }
         }
-
     }
+    
 }
 
 // @include desktop {
