@@ -34,42 +34,71 @@
             & {
                 display: block;
                 position: relative;
+                padding: .5rem 1.75rem;
+            }
+
+
+            &--blog {
+                padding: .75rem 1.75rem;
+            }
+
+            &--projects {
+                padding-top: 1rem;
+                padding-bottom: .75rem;
+            }
+
+            &--gh {
+                padding: .5rem 1.5rem 0 1.5rem;
+            }
+
+            &--li {
+                padding-top: 1rem;
+            }
+
+            &--so {
+                padding-top: .8rem;
             }
 
             &::before {
                 content: '';
                 position: absolute;
                 bottom: 0;
-                right: 50%;
-                border-bottom: .2rem solid white;
-                border-top-left-radius: 6rem;
-                border-bottom-left-radius: 6rem;
+                right:0;
+                border-bottom: .4rem solid $clrBrightOrange;
+                border-right: .4rem solid $clrBrightOrange;
                 width: 0%;
+                height: 0%;
                 opacity: 0;
-                transition: width .8s ease-out, opacity .4s ease-in-out;
+                // transition: width .8s ease-out, height .8s ease-out, opacity .6s ease-in-out;
+                transition: all .8s ease-out;
             }
 
             &::after {
                 content: '';
                 position: absolute;
-                bottom: 0;
-                left: 50%;
-                border-bottom: .2rem solid white;
-                border-top-right-radius: 6rem;
-                border-bottom-right-radius: 6rem;
+                top: 0;
+                left: 0;
+                border-top: .4rem solid $clrBrightOrange;
+                border-left: .4rem solid $clrBrightOrange;
                 width: 0%;
+                height: 0%;
                 opacity: 0;
-                transition: width .8s ease-out, opacity .4s ease-in-out;
+                // transition: width .8s ease-out, height .8s ease-out, opacity .6s ease-in-out;
+                transition: all .8s ease-out;
             }
 
             &:hover::before {
-                width: 59%;
-                opacity: 1;
+                width: 105%;
+                height: 105%;
+                opacity: .8;
+                filter: invert(1) hue-rotate(42deg);
             }
 
             &:hover::after {
-                width: 59%;
-                opacity: 1;
+                width: 105%;
+                height: 105%;
+                opacity: .8;
+                filter: invert(1) hue-rotate(42deg);
             }
         }
 
