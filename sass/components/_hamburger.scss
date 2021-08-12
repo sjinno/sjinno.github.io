@@ -68,7 +68,7 @@
     &--close {
         font-size: 5.5rem;
         color: white;
-        z-index: 1;
+        z-index: 11;
 
         @include desktop {
             &::before {

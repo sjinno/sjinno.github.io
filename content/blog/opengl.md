@@ -15,9 +15,9 @@ tags = ["opengl", "tutorial", "fedora", "glfw", "glad"]
 
 # Useful links:
 
--   [**How to build & install GLFW 3 and use it in a Linux project** (stack overflow)](https://stackoverflow.com/questions/17768008/how-to-build-install-glfw-3-and-use-it-in-a-linux-project)
+-   [**How to build & install GLFW 3 and use it in a Linux project** (Stack Overflow)](https://stackoverflow.com/questions/17768008/how-to-build-install-glfw-3-and-use-it-in-a-linux-project)
 
--   [**Issue compiling with GLAD - C++** (reddit)](https://www.reddit.com/r/opengl/comments/blqgoy/issue_compiling_with_glad_c/)
+-   [**Issue compiling with GLAD - C++** (Reddit)](https://www.reddit.com/r/opengl/comments/blqgoy/issue_compiling_with_glad_c/)
 
 \
 \
