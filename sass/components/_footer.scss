@@ -36,10 +36,6 @@
     }
 
     @include desktop {
-        & {
-            height: 6.4rem;
-        }
-
         &__content-2 {
             display: block;
         }
