@@ -3,7 +3,7 @@ title = "Othello"
 date = 2021-04-03
 +++
 
-# Description:
+# Description
 
 CLI app of Othello a.k.a. Reversi.
 

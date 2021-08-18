@@ -3,7 +3,7 @@ title = "Hebi"
 date = 2021-03-09
 +++
 
-# Description:
+# Description
 
 Hebi (meaning _snake_ in Japanese) is an implementation of Snake using a **_double-ended queue_**.
 
