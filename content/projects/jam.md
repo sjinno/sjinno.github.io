@@ -15,6 +15,6 @@ jam is a CLI application written in Rust that helps job seekers manage/organize 
 
 Link to the demo recorded with [`asciinema`](https://asciinema.org/): <https://asciinema.org/a/VK8qDRJIIAkgwqLL9RLYkJNGG> -->
 
-**Languages & tools:** Rust, PosgreSQL, Python, [Google Calendar API](https://developers.google.com/calendar/api), Shell
+**Languages & tools:** Rust, PostgreSQL, Python, [Google Calendar API](https://developers.google.com/calendar/api), Bash
 
 <a class="btn btn--repo" href="https://github.com/sjinno/jam" target="\_blank">Repository</a>

@@ -17,6 +17,6 @@ Here is the quick demo of what the app does:
 
 [![asciicast](https://asciinema.org/a/VK8qDRJIIAkgwqLL9RLYkJNGG.svg)](https://asciinema.org/a/VK8qDRJIIAkgwqLL9RLYkJNGG?preload=0) -->
 
-**Languages & tools:** Rust, [weather api](https://www.weatherapi.com/)
+**Languages & tools:** Rust, [Weather API](https://www.weatherapi.com/)
 
 <a class="btn btn--repo" href="https://github.com/sjinno/tenki" target="\_blank">Repository</a>
