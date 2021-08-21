@@ -15,6 +15,7 @@
     opacity: 0;
     transition: visibility .5s ease-in-out, opacity .5s ease-in-out;
     z-index: 10;
+    overflow: auto;
 
     &__list {
         height: calc(100% - 3.45rem);

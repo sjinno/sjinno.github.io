@@ -14,6 +14,11 @@
         text-align: center;
         line-height: .88;
         padding-bottom: 3rem;
+
+        @include desktop {
+            max-width: 64rem;
+            margin: 0 auto;
+        }
     }
 
     &__date {
