@@ -9,19 +9,38 @@ html {
 }
 
 body {
+    /* Dimension */
     min-height: 100vh;
 
-    font-family: $mainFonts;
+    /* Typography */
+    font-family: $mainFont;
     font-size: 1.5rem;
     color: $clrBlack;
+
+    /* Position */
+    position: relative;
+
+    /* Miscellaneous */
     scroll-behavior: smooth;
 
-    position: relative;
 }
 
 a {
     text-decoration: none;
     color: $clrAnchor;
+}
+
+hr {
+    border: 0.32rem solid black;
+    margin: 1rem 0;
+}
+
+ul {
+    list-style: none;
+}
+
+.container {
+    padding: 1.5rem 1rem;
 }
 
 @include tablet {
