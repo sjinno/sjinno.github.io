@@ -1,4 +1,7 @@
 .hamburger {
+    border: none;
+    background-color: transparent;
+
     position: absolute;
     top: 0;
     right: 1rem;
@@ -8,12 +11,37 @@
 
     z-index: 10;
 
+    cursor: pointer;
+
     // display: flex;
     // justify-content: center;
     // align-items: center;
     // font-size: 2.8rem;
 
-    transition: all .8s ease;
+    transition: top .8s ease, right .8s ease;
+
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0.15rem;
+        bottom: 0.15rem;
+        left: 0.15rem;
+        right: 0.15rem;
+        border-radius: 50%;
+        background-color: $clrBrightLightPurple;
+        z-index: -1;
+        opacity: 0;
+        transition: opacity .4s ease;
+    }
+
+    &:hover::after {
+        opacity: 1;
+    }
+
+    &:focus {
+        outline-offset: -.7rem;
+        outline: .5rem dashed $clrBrightPink;
+    }
 
     &__patty1 {
         position: absolute;

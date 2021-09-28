@@ -1,4 +1,10 @@
 .list {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+
+    &__item {
+        &--category {
+            text-transform: capitalize;
+        }
+    }
 }

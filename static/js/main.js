@@ -1,7 +1,5 @@
 'use strict';
 
-let openState = false;
-
 function setCurrentYear(currentYear) {
   currentYear.textContent = new Date().getFullYear();
 }
@@ -20,7 +18,9 @@ function toggleMenu(btn, menu, patty1, patty2, openState) {
   // right: 1rem;
   // transform: rotate(-45deg);
 
-  btn.addEventListener('click', (evt) => {
+  btn.addEventListener('click', (_evt) => {
+    btn.blur();
+
     if (!openState) {
       menu.style.transform = 'translateY(0%)';
       openState = true;
@@ -63,7 +63,13 @@ function main() {
   const menu = document.querySelector('.nav__menu');
   const patty1 = document.querySelector('.hamburger__patty1');
   const patty2 = document.querySelector('.hamburger__patty2');
+  let openState = false;
   toggleMenu(btn, menu, patty1, patty2, openState);
+
+  // Hide header on scroll-down, and show on scroll-up
+  const header = document.querySelector('.nav');
+  const body = document.body;
+  let scrollingDown = false;
 }
 
 main();
