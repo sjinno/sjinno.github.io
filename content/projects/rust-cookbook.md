@@ -3,7 +3,7 @@ title = "Rust Cookbook"
 date = 2021-03-27
 +++
 
-# Description
+## Description
 
 A collection of various things about Rust that I find useful. This is an ongoing project.
 

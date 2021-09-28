@@ -1,8 +1,10 @@
 {% extends "base.html" %} {% block content %}
-<section class="project">
-  <h1 class="project__title">{{ page.title }}</h1>
-  <h2 class="project__date">{{ page.date }}</h2>
-  <div class="project__content">{{ page.content | safe }}</div>
-  <a href="/projects" class="btn btn--more">View more projects</a>
+<section class="post">
+  <h1 class="post__title">{{ page.title }}</h1>
+  <h3 class="post__date">{{ page.date }}</h3>
+  <div class="post__content">{{ page.content | safe }}</div>
+  <div class="btn__wrapper">
+    <a href="/projects" class="btn btn--more">View more projects</a>
+  </div>
 </section>
 {% endblock content %}

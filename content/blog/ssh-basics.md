@@ -3,9 +3,10 @@ title = "SSH Basics"
 date = 2020-12-11
 [taxonomies]
 tags = ["ssh", "tutorial"]
+categories = ["programming"]
 +++
 
-# Setting up SSH keys
+## Setting up SSH keys
 
 **References:**
 
@@ -16,9 +17,9 @@ If you follow those references above, you will be proabably all set. But I am ju
 
 \
 
-# 1. Check for existing keys
+## 1. Check for existing keys
 
--   Run `ls -al ~/.ssh` to see if you have any **existing** SSH keys.
+- Run `ls -al ~/.ssh` to see if you have any **existing** SSH keys.
 
 If you see something like the following output, you should already have an SSH key.
 
@@ -42,7 +43,7 @@ Now run `ls -la ~/.ssh` again to see if the set of keys has been generated succe
 
 \
 
-# 2. ssh-agent
+## 2. ssh-agent
 
 Run the following command to see if the agent is running:
 
@@ -88,7 +89,7 @@ Hi your_user_name! You've successfully authenticated, but GitHub does not provid
 \
 \
 
-## So now... How about another account...?
+### So now... How about another account...?
 
 \
 \
@@ -133,7 +134,7 @@ Lastly, `ssh-add ~/.ssh/id_rsa_work` and when you `ssh-add -l`, you should see a
 
 \
 
-# 3. Create `~/.ssh/config`
+## 3. Create `~/.ssh/config`
 
 When you have multiple SSH keys, creating `config` file under your `.ssh` directory is a must.
 
@@ -161,13 +162,13 @@ In this example, we have configured multiple accounts for GitHub.
 
 \
 
-# 4. How do you switch between identities??
+## 4. How do you switch between identities??
 
 Every terminal session, you will have to `ssh-add ~/.ssh/<identity_file>` to add the identity you want to use.
 
 If an identity is somehow already set and you want to switch to a different one, then you will have to `ssh-add -D` to drop that identity and `ssh-add ~/.ssh/<identity_file>` to add the identity you want to use.
 
-## _You cannot use multiple identities during the same session._
+### _You cannot use multiple identities during the same session._
 
 And I think that's about it.
 

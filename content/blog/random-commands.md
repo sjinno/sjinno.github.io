@@ -3,6 +3,8 @@ title = "Random Commands"
 date = 2021-03-17
 [taxonomies]
 tags = ["linux"]
+categories = ["programming"]
+
 +++
 
 - Print system information

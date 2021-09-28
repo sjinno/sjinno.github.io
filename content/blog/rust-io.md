@@ -2,7 +2,9 @@
 title = "Rust: I/O"
 date = 2020-12-04
 [taxonomies]
-tags = ["rust", "std", "tutorial"]
+tags = ["rust"]
+categories = ["programming"]
+
 +++
 
 Input/output in Rust is one of the things that confuses me, so I wanted to drop a quick tutorial on how to io in Rust.

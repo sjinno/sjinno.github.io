@@ -1,0 +1,16 @@
+{% extends "base.html" %} {% block content %}
+<section class="listPage">
+    <h1 class="listPage__title listPage__title--taxonomy">{{ term.name | safe }}</h1>
+    <table class="table">
+        {% for page in term.pages %}
+        <tr>
+            <td class="table__data table__data--narrow table__data--date">&nbsp;&nbsp;<strong>&bull;</strong>
+                {{ page.date }}</td>
+            <td class="table__data table__data--wide">
+                <a href="{{ page.permalink | safe }}">{{ page.title | safe }}</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</section>
+{% endblock content %}

@@ -1,0 +1,13 @@
+{% extends "base.html" %} {% block content %}
+<section class="listPage">
+    <h1 class="listPage__title">Categories</h1>
+    <div class="list">
+        {% for term in terms %} {% if loop.index != 0 %}
+        <div>
+            &nbsp;<strong>&bull;</strong> <a class="list__item"
+                href="{{ term.permalink | safe }}">{{ term.name | safe }}</a>
+        </div>
+        {% endif %} {% endfor %}
+    </div>
+</section>
+{% endblock content %}

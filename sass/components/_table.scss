@@ -1,61 +1,7 @@
 .table {
-    width: 90%;
-    max-width: 42rem;
-    margin: 0 auto;
-
-    &__header {
-        font-size: 2.8rem;
-        padding-bottom: 1.5rem;
-
-        &--title {
-            text-align: left;
-
-            // @include desktop {
-            //     & {
-            //         padding-left: .51rem;
-            //     }
-            // }
-        }
-    }
-
     &__data {
-        font-size: 1.8rem;
-        padding-bottom: 1rem;
-
-        &--date {
-            text-align: center;
-        }
-
-        &--wide {
-            width: 60%;
-
-            @include landscape {
-                & {
-                    width: 51%;
-                }
-            }
-
-            @include tablet {
-                & {
-                    width: 51%;
-                }
-            }
-        }
-
         &--narrow {
-            width: 40%;
-
-            @include landscape {
-                & {
-                    width: 49%;
-                }
-            }
-
-            @include tablet {
-                & {
-                    width: 49%;
-                }
-            }
+            padding-right: .5rem;
         }
     }
 }

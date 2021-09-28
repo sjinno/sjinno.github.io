@@ -1,0 +1,43 @@
+.nav {
+    font-family: $ssFont;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5.5rem;
+    padding-left: 1rem;
+    // background-color: aliceblue; /* To be commented out */
+
+    z-index: 1;
+
+    display: flex;
+    align-items: center;
+
+    background-color: white;
+    border-bottom: 1px solid $clrBlack;
+
+    &__home {
+        font-size: 2rem;
+        font-weight: 700;
+    }
+
+    &__menu {
+        position: fixed;
+        top: 0;
+        right: 0;
+        border: 1px solid black;
+        background-color: white;
+
+        z-index: 2;
+
+        transform: translateY(-100%);
+
+        transition: transform .6s ease;
+    }
+
+    &__list {
+        width: 18rem;
+        padding: 4.2rem 1rem 2rem 2rem;
+    }
+}

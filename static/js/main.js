@@ -1,32 +1,69 @@
-"use strict";
-const hamburger = document.querySelector('.hamburger');
-if (hamburger) {
-    hamburger.addEventListener('click', (evt) => {
-        const nav = document.querySelector('.nav');
-        const hamburgerClose = '<a href="#" class="hamburger__btn hamburger--close"><span class="hamburger__btn__icon">&times;</span></a>';
-        const hamburgerOpen = '<a href="#" class="hamburger__btn hamburger--open"><span class="hamburger__btn__icon">三</span></a>';
-        const target = evt.target;
-        if (target.classList[1] === 'hamburger--open') {
-            hamburger.innerHTML = hamburgerClose;
-            nav.style.visibility = 'visible';
-            nav.style.opacity = '1';
-        }
-        else if (target.classList[1] === 'hamburger--close') {
-            hamburger.innerHTML = hamburgerOpen;
-            nav.style.opacity = '0';
-            nav.style.visibility = 'hidden';
-        }
-    });
-    window.onclick = (evt) => {
-        const nav = document.querySelector('.nav');
-        const hamburgerOpen = '<a href="#" class="hamburger__btn hamburger--open"><span class="hamburger__btn__icon">三</span></a>';
-        const target = evt.target;
-        if (target) {
-            if (target.className === 'nav') {
-                hamburger.innerHTML = hamburgerOpen;
-                nav.style.opacity = '0';
-                nav.style.visibility = 'hidden';
-            }
-        }
-    };
+'use strict';
+
+let openState = false;
+
+function setCurrentYear(currentYear) {
+  currentYear.textContent = new Date().getFullYear();
 }
+
+function toggleMenu(btn, menu, patty1, patty2, openState) {
+  // Cross 1
+  // top: 2.1rem;
+  // left: 1rem;
+  // right: 1rem;
+  // transform: rotate(45deg);
+
+  // Cross 2
+  // top: 2.1rem;
+  // bottom: auto;
+  // left: 1rem;
+  // right: 1rem;
+  // transform: rotate(-45deg);
+
+  btn.addEventListener('click', (evt) => {
+    if (!openState) {
+      menu.style.transform = 'translateY(0%)';
+      openState = true;
+
+      // Cross 1
+      patty1.style.top = '2.75rem';
+      patty1.style.left = '1.5rem';
+      patty1.style.right = '1.5rem';
+      patty1.style.transform = 'rotate(45deg)';
+      // Cross 2
+      patty2.style.top = '2.75rem';
+      patty2.style.bottom = 'auto';
+      patty2.style.left = '1.5rem';
+      patty2.style.right = '1.5rem';
+      patty2.style.transform = 'rotate(-45deg)';
+    } else {
+      menu.style.transform = 'translateY(-100%)';
+      openState = false;
+
+      // Cross 1
+      patty1.style.top = '2.25rem';
+      patty1.style.left = '1.5rem';
+      patty1.style.right = '1.5rem';
+      patty1.style.transform = 'rotate(0deg)';
+      // Cross 2
+      patty2.style.top = 'auto';
+      patty2.style.bottom = '2.25rem';
+      patty2.style.left = '1.5rem';
+      patty2.style.right = '1.5rem';
+      patty2.style.transform = 'rotate(0deg)';
+    }
+  });
+}
+
+function main() {
+  const currentYear = document.querySelector('#currentYear');
+  setCurrentYear(currentYear);
+
+  const btn = document.querySelector('.hamburger');
+  const menu = document.querySelector('.nav__menu');
+  const patty1 = document.querySelector('.hamburger__patty1');
+  const patty2 = document.querySelector('.hamburger__patty2');
+  toggleMenu(btn, menu, patty1, patty2, openState);
+}
+
+main();

@@ -3,11 +3,11 @@ title = "Tenki"
 date = 2021-08-17
 +++
 
-# Description
+## Description
 
 Tenki (天気 meaning _"weather"_ in Japanese) is a Rust CLI application that lets you request the current weather and forecast for the next `N` days, depending on your subscription status.
 
-# Demo
+## Demo
 
 Link to the demo recorded with [`asciinema`](https://asciinema.org/): <https://asciinema.org/a/VK8qDRJIIAkgwqLL9RLYkJNGG>
 

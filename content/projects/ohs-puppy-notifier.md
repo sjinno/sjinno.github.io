@@ -3,7 +3,7 @@ title = "OHS Puppy Notifier"
 date = 2021-02-10
 +++
 
-# Description
+## Description
 
 Website watcher to watch Oregon Humane Society's new puppy posts and notify via Telegram if any. Currently manual activation required as I have not deployed it yet. 🐶
 
@@ -13,9 +13,8 @@ Website watcher to watch Oregon Humane Society's new puppy posts and notify via 
 
 \
 \
-\
 
-# Description:
+## Description:
 
 Just a clone version of the project above entirely rewritten in Rust. 🐶
 

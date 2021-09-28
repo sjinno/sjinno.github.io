@@ -1,11 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Mono&family=Manrope:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Merriweather:wght@400;700&display=swap');
 
-$mainFont: 'Manrope',
-'Helvetica Neue',
-'Helvetica',
-sans-serif;
-$monoFont: 'DM Mono',
-'Liberation Mono',
-'Consolas',
-'Menlo',
-monospace;
+$ssFont: 'Helvetica Neue', 'Helvetica', sans-serif;
+$serifFont: 'Merriweather';
+$monoFont: 'JetBrains Mono';

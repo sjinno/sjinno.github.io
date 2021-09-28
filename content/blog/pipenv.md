@@ -3,6 +3,8 @@ title = "Pipenv"
 date = 2021-03-20
 [taxonomies]
 tags = ["pipenv", "python"]
+categories = ["programming"]
+
 +++
 
 - Create a virtual enronment with `pipenv`:

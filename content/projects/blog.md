@@ -3,7 +3,7 @@ title = "Blog"
 date = 2021-08-11
 +++
 
-# Description
+## Description
 
 A personal blog website built from scratch with [**Zola**](https://www.getzola.org/), the Rust static site generator. This blog website does not depend on any CSS frameworks.
 

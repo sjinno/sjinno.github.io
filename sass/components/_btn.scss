@@ -1,34 +1,25 @@
 .btn {
-    text-decoration: none;
-    color: white;
-    border-radius: 2.8rem;
     font-weight: 700;
+    font-family: $ssFont;
+    text-transform: capitalize;
+    font-size: 1.4rem;
 
-    &--more {
+    border-radius: 2.8rem;
+
+    text-decoration: none;
+    padding: .75rem 1.5rem;
+    color: white;
+    background: linear-gradient(to right, $clrBrightBlue, $clrBlue);
+
+    &__wrapper {
         display: flex;
         justify-content: center;
-        align-items: center;
-        background-color: black;
-        width: 29rem;
-        height: 5.5rem;
-        margin: 6rem auto 6rem auto;
-        font-size: 2.8rem;
     }
 
-    &--repo {
-        text-decoration: none;
-        background-color: $clrBrightBlue;
-        color: white;
-        padding: .6rem 2.8rem;
-        border-radius: 5rem;
-        letter-spacing: 1px;
-        position: relative;
-        font-size: 1.6rem;
-    }
-
-    @include desktop {
-        &:hover {
-            opacity: .8;
-        }
+    &--more {
+        font-size: 1.8rem;
+        font-family: $serifFont;
+        border-radius: 0;
+        background: linear-gradient(to right,  #313131, black);
     }
 }

@@ -1,14 +1,17 @@
-{% extends "base.html" %} {% block content %}
-<div class="home">
-  <div class="home__image">
-    <!-- <img src="/images/puppy.webp" alt="Profile picture"> -->
-  </div>
-  <div class="home__title">Shohei's Blog</div>
-  <div class="home__subtitle"></div>
-  <div class="home__links">
-    <a href="/blog" class="home__link home__link--blog">Blog</a>
-    <a href="/projects" class="home__link home__link--projects">Projects</a>
+{% extends "base.html" %}
 
-  </div>
-</div>
+{% import "components/header.html" as header %}
+{% import "components/footer.html" as footer %}
+
+
+<!-- SITE NAME ========== -->
+{% block title %} Shohei Jinno {% endblock title %}
+
+
+<!-- MAIN CONTENT ========== -->
+{% block content %}
+Hi! I'm Shohei. I like programming, playing sports, playing go (board game), hiking, biking, and more! I love dogs,
+especially Oliver the Golden Retriever, who was the greatest dog I've ever lived with. I just simply
+like enjoying my
+life.
 {% endblock content %}

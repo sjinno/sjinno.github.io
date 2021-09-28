@@ -2,7 +2,9 @@
 title = "Hugo Quickstart"
 date = 2020-12-01
 [taxonomies]
-tags = ["hugo", "webdevelopment"]
+tags = ["hugo", "web-development"]
+categories = ["programming"]
+
 +++
 
 Here is a quick tutorial on how to get started with Hugo, the super fast framework for building websites. (Although this website is built with Zola...)
@@ -20,7 +22,7 @@ There will be two parts:
 \
 \
 
-# Part 1: Quickstart
+## Part 1: Quickstart
 
 I assume that you already have hugo installed on your machine, so I'll skip that part.
 
@@ -38,15 +40,15 @@ I assume that you already have hugo installed on your machine, so I'll skip that
 
 7. `my-first-post.md` should look like the following.
 
-    ```bash
-    ---
-    title: "My First Post"
-    date: 2019-03-26T08:47:11+01:00
-    draft: true
-    ---
-    ```
+   ```bash
+   ---
+   title: "My First Post"
+   date: 2019-03-26T08:47:11+01:00
+   draft: true
+   ---
+   ```
 
-    Sometimes, it's `+++` instead of `---`, so you might have to modify that manually.
+   Sometimes, it's `+++` instead of `---`, so you might have to modify that manually.
 
 8. Write anything you want in `my-first-post.md` and that's pretty much it for the first part!
 
@@ -55,7 +57,7 @@ I assume that you already have hugo installed on your machine, so I'll skip that
 \
 \
 
-# Part 2: Deploying to GitHub Pages
+## Part 2: Deploying to GitHub Pages
 
 I assume that you already have a GitHub account.
 

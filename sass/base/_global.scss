@@ -1,7 +1,7 @@
 *, *::before, *::after {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: 0;
 }
 
 html {
@@ -9,48 +9,58 @@ html {
 }
 
 body {
-    /* Dimension */
+    font-family: $serifFont;
+    font-size: 1.5rem;
+    line-height: 1.8;
+
+    padding-top: 7rem;
     min-height: 100vh;
 
-    /* Typography */
-    font-family: $mainFont;
-    font-size: 1.5rem;
-    color: $clrBlack;
-
-    /* Position */
-    position: relative;
-
-    /* Miscellaneous */
-    scroll-behavior: smooth;
-
+    display: flex;
+    flex-direction: column;
 }
 
-a {
-    text-decoration: none;
-    color: $clrAnchor;
+.container {
+    flex-grow: 1;
+    padding: 1.5rem 1rem;
 }
 
-hr {
-    border: 0.32rem solid black;
-    margin: 1rem 0;
-}
 
+/* LIST ========== */
 ul {
     list-style: none;
 }
 
-.container {
-    padding: 1.5rem 1rem;
+ol {
+    margin: 1rem 1.5rem;
 }
 
-@include tablet {
-    html {
-        font-size: 81.25%;
-    }
+li {
+    margin: .5rem 0;
+}
+/* ========== */
+
+
+a {
+
 }
 
-@include desktop {
-    html {
-        font-size: 100%;
-    }
+
+/* TEXT PADDINGS ========== */
+h1, h2 {
+    padding: .25rem 0;
 }
+
+h2 {
+    font-size: 1.9rem;
+}
+
+h3 {
+    font-size: 1.7rem;
+}
+
+p {
+    padding: .75rem 0;
+}
+/* ========== */
+

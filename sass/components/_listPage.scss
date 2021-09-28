@@ -1,0 +1,14 @@
+.listPage {
+    &__title {
+
+        &--taxonomy, &--categories {
+            font-family: $monoFont;
+        }
+
+        &--categories {
+            font-size: 1.4rem;
+            font-weight: 400;
+            margin-left: .5rem;
+        }
+    }
+}

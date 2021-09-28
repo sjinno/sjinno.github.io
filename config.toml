@@ -13,6 +13,7 @@ highlight_theme = "demain"
 build_search_index = true
 
 taxonomies = [
+  {name = "categories", feed = true},
   {name = "tags", feed = true}, # each tag will have its own feed  # {name = "categories", feed = true}, # 5 items per page for a term
 ]
 

@@ -1,14 +1,16 @@
 {% extends "base.html" %} {% block content %}
 <section class="post">
   <h1 class="post__title">{{ page.title }}</h1>
-  <h2 class="post__date">{{ page.date }}</h2>
+  <h3 class="post__date">{{ page.date }}</h3>
   <div class="post__reading-time">{{ page.reading_time }} minute read</div>
   <div class="post__tags">
     {% for tag in page.taxonomies.tags %}
-    <a class="post__tags__tag" href="/tags/{{ tag | safe }}">{{ tag }}</a>&nbsp;
+    <a class="post__tags__tag" href="/tags/{{ tag | safe }}">#{{ tag }}</a>&nbsp;
     {% endfor %}
   </div>
   <div class="post__content">{{ page.content | safe }}</div>
-  <a href="/blog" class="btn btn--more">Read more posts</a>
+  <div class="btn__wrapper">
+    <a href="/blog" class="btn btn--more">Read more posts</a>
+  </div>
 </section>
 {% endblock content %}

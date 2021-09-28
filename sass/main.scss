@@ -1,27 +1,14 @@
-@import './abstracts/colors';
-@import './abstracts/fonts';
+@import 'abstracts/colors';
+@import 'abstracts/fonts';
 
-@import './base/mixins';
-@import './base/global';
+@import 'base/mixins';
+@import 'base/global';
 
-/*  */
-/* @import './components/btn';
-@import './components/section';
-@import './components/table'; */
-
-/* header */
-@import './components/header/header';
-// @import './components/nav';
-// @import './components/hamburger';
-
-/* main */
-/* @import './components/main';
-@import './components/home';
-@import './components/post';
-@import './components/project';
-@import './components/tags';
-@import './components/tag'; */
-
-/* footer */
-/* @import './components/footer';
- */
+@import 'components/btn';
+@import 'components/header/nav';
+@import 'components/header/hamburger';
+@import 'components/table';
+@import 'components/post';
+@import 'components/listPage';
+@import 'components/list';
+@import 'components/footer';

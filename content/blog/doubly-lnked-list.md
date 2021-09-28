@@ -2,21 +2,23 @@
 title = "Doubly Linked List"
 date = 2020-12-05
 [taxonomies]
-tags = ["linkedlist", "datastructures", "python"]
+tags = ["linked-list", "data-structures", "python", "algorithm"]
+categories = ["programming"]
+
 +++
 
 Here is the implementation of doubly linked list. I sort of wanted to write myself a note on how to implement it because I somehow forget it all the time. 😂
 
 Basically, doubly linked list has:
 
--   `check_if_node_has_value` method
--   `remove` method
--   `remove_node_bindings` method to help remove method out
--   `insert_before_node` method
--   `insert_after` method
--   `set_head` method
--   `set_tail` method
--   `insert_at_specific_position` method
+- `check_if_node_has_value` method
+- `remove` method
+- `remove_node_bindings` method to help remove method out
+- `insert_before_node` method
+- `insert_after` method
+- `set_head` method
+- `set_tail` method
+- `insert_at_specific_position` method
 
 and... that's about it.
 
@@ -134,7 +136,7 @@ We are going to write **set head**, **set tail**, and finally **insert at positi
 
 \
 
-## _Setting head_
+### _Setting head_
 
 ```py
     def set_head(self, node):
@@ -147,7 +149,7 @@ We are going to write **set head**, **set tail**, and finally **insert at positi
 
 \
 
-## _Setting tail_
+### _Setting tail_
 
 ```py
     def set_tail(self, node):
@@ -186,7 +188,7 @@ Thank you! &#128513;
 \
 \
 
-# Final code
+## Final code
 
 ```py
 class Node:
