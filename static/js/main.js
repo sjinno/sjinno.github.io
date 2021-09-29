@@ -55,6 +55,34 @@ function toggleMenu(btn, menu, patty1, patty2, openState) {
   });
 }
 
+function applyRippleEffectToRippleBtn(rippleBtn, rippleSource) {
+  rippleBtn.addEventListener('click', async (evt) => {
+    const absXPos = evt.pageX;
+    const absYPos = evt.pageY;
+    const btnOffsetLeft = evt.target.offsetLeft;
+    const btnOffsetTop = evt.target.offsetTop;
+    const posX = absXPos - btnOffsetLeft;
+    const posY = absYPos - btnOffsetTop;
+    // console.log(evt);
+    console.log(posX, posY);
+    rippleSource.style.top = `${posY}px`;
+    rippleSource.style.left = `${posX}px`;
+
+    // console.log(rippleSource.classList);
+    // console.log(rippleSource.style.top);
+    // console.log(rippleSource.style.left);
+    // rippleSource.classList.add('btn--ripple__animate');
+
+    setTimeout(() => {
+      // console.log(evt.clientX);
+      rippleSource.classList.add('btn--ripple__animate');
+    });
+    // await rippleSource.classList.add('btn--ripple__animate');
+
+    rippleSource.classList.remove('btn--ripple__animate');
+  });
+}
+
 function main() {
   const currentYear = document.querySelector('#currentYear');
   setCurrentYear(currentYear);
@@ -90,6 +118,11 @@ function main() {
     scrollingDown = this.oldScroll < this.scrollY;
     this.oldScroll = this.scrollY;
   };
+
+  // Ripple effect
+  const rippleBtn = document.querySelector('.btn--ripple');
+  const rippleSource = document.querySelector('.btn--ripple__source');
+  if (rippleBtn) applyRippleEffectToRippleBtn(rippleBtn, rippleSource);
 }
 
 main();
