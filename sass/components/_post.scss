@@ -41,9 +41,11 @@
         pre {
             padding: 1.5rem 0 1.5rem 1rem;
             overflow-x: auto;
-            background-color: $clrPale !important;
         }
 
+        code, pre {
+            background-color: $clrPale !important;
+        }
         /* ========== */
     }
 
