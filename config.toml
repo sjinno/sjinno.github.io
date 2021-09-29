@@ -20,3 +20,4 @@ taxonomies = [
 [extra]
 # Put all your custom variables here
 author = "Shohei Jinno"
+favicon = "/images/pepe-16-270481.png"

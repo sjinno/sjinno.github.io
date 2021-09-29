@@ -136,7 +136,7 @@ We are going to write **set head**, **set tail**, and finally **insert at positi
 
 \
 
-### _Setting head_
+**Setting head**
 
 ```py
     def set_head(self, node):
@@ -149,7 +149,7 @@ We are going to write **set head**, **set tail**, and finally **insert at positi
 
 \
 
-### _Setting tail_
+**Setting tail**
 
 ```py
     def set_tail(self, node):
@@ -161,7 +161,7 @@ We are going to write **set head**, **set tail**, and finally **insert at positi
 
 \
 
-Finally... **_Inert at position_**
+Finally, **Insert at position**
 
 ```py
     def insert_at_postion(self, position, node_to_insert):
@@ -188,7 +188,7 @@ Thank you! &#128513;
 \
 \
 
-## Final code
+### Final code
 
 ```py
 class Node:
