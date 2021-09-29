@@ -5,7 +5,8 @@
   <table class="table">
     {% for page in section.pages %}
     <tr>
-      <td class="table__data table__data--date table__data--narrow">&nbsp;&nbsp;<strong>&bull;</strong> {{ page.date }}
+      <td class="table__data table__data--date table__data--narrow">&nbsp;&nbsp;<strong>&bull;</strong> <span
+          class="date date--list">{{ page.date }}</span>
       </td>
       <td class="table__data table__data--wide">
         <a href="{{ page.permalink | safe }}">{{ page.title }}</a>

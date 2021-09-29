@@ -76,3 +76,11 @@ p {
     font-family: $monoFont;
     font-weight: 700;
 }
+
+
+.date {
+    &--list {
+        font-family: $monoFont;
+        font-size: 1.4rem;
+    }
+}

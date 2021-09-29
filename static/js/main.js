@@ -83,6 +83,46 @@ function applyRippleEffectToRippleBtn(rippleBtn, rippleSource) {
   });
 }
 
+function convertMonthToString(month) {
+  switch (month) {
+    case '01':
+      return 'Janurary';
+    case '02':
+      return 'February';
+    case '03':
+      return 'March';
+    case '04':
+      return 'April';
+    case '05':
+      return 'May';
+    case '06':
+      return 'June';
+    case '07':
+      return 'July';
+    case '08':
+      return 'August';
+    case '09':
+      return 'September';
+    case '10':
+      return 'October';
+    case '11':
+      return 'November';
+    case '12':
+      return 'December';
+    default:
+      return '';
+  }
+}
+
+function formatDate(date, isDateList) {
+  const split = date.split('-');
+  let month = convertMonthToString(split[1]);
+  month = isDateList ? month.slice(0, 3) : month;
+  const day = split[2][0] === '0' ? `&nbsp;${split[2][1]}` : split[2];
+  const year = split[0];
+  return `${month} ${day}, ${year}`;
+}
+
 function main() {
   const currentYear = document.querySelector('#currentYear');
   setCurrentYear(currentYear);
@@ -123,6 +163,15 @@ function main() {
   const rippleBtn = document.querySelector('.btn--ripple');
   const rippleSource = document.querySelector('.btn--ripple__source');
   if (rippleBtn) applyRippleEffectToRippleBtn(rippleBtn, rippleSource);
+
+  // Formate date
+  const dates = document.querySelectorAll('.date');
+  if (dates.length) {
+    const isDateList = dates[0].classList[1] === 'date--list';
+    dates.forEach((date) => {
+      date.innerHTML = formatDate(date.innerHTML, isDateList);
+    });
+  }
 }
 
 main();
