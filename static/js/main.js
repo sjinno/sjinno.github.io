@@ -68,8 +68,28 @@ function main() {
 
   // Hide header on scroll-down, and show on scroll-up
   const header = document.querySelector('.nav');
-  const body = document.body;
   let scrollingDown = false;
+
+  window.onscroll = function (_evt) {
+    if (this.scrollY > 80) {
+      header.style.visibility = 'hidden';
+      header.style.opacity = '0';
+      header.style.height = '0';
+      btn.style.visibility = 'hidden';
+      btn.style.opacity = '0';
+    }
+
+    if (!scrollingDown) {
+      header.style.visibility = 'visible';
+      header.style.opacity = '1';
+      header.style.height = '6.4rem';
+      btn.style.visibility = 'visible';
+      btn.style.opacity = '1';
+    }
+
+    scrollingDown = this.oldScroll < this.scrollY;
+    this.oldScroll = this.scrollY;
+  };
 }
 
 main();

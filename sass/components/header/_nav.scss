@@ -5,7 +5,7 @@
     top: 0;
     left: 0;
     right: 0;
-    height: 5.5rem;
+    height: 6.4rem;
     padding-left: 1rem;
 
     max-width: 72.8rem;
@@ -20,9 +20,14 @@
     background-color: white;
     border-bottom: 1px solid $clrBlack;
 
+    transition: visibility .4s ease, opacity .6s ease, height .6s ease;
+
     &__home {
         font-size: 2rem;
         font-weight: 700;
+        height: 2.5rem;
+        display: flex;
+        align-items: center;
     }
 
     &__menu {
@@ -41,6 +46,6 @@
 
     &__list {
         width: 18rem;
-        padding: 4.2rem 1rem 2rem 2rem;
+        padding: 5.5rem 1rem 2rem 2rem;
     }
 }
