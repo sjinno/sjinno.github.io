@@ -2,8 +2,8 @@
 title = "pgAdmin4 on Fedora 33"
 date = 2021-04-15
 [taxonomies]
-tags = ["postgres", "pgadmin", "setup", "tutorial", "fedora", "database"]
-categories = ["programming"]
+tags = ["database", "fedora", "pgadmin", "postgres", "setup", "tutorial"]
+categories = ["Database"]
 
 +++
 

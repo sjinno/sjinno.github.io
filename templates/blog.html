@@ -1,7 +1,7 @@
 {% extends "base.html" %} {% block content %}
 <section class="listPage">
-  <h1 class="listPage__title">{{ section.title }} <a href="/categories"
-      class="listPage__title--categories">[categories]</a></h1>
+  <h1 class="listPage__title">{{ section.title }} <a href="/categories" class="listPage__link">[ categories
+      ]</a> <a href="/tags" class="listPage__link">[ all tags ]</a></h1>
   <table class="table">
     {% for page in section.pages %}
     <tr>

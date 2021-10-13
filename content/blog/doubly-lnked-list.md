@@ -2,8 +2,8 @@
 title = "Doubly Linked List"
 date = 2020-12-05
 [taxonomies]
-tags = ["linked-list", "data-structures", "python", "algorithm"]
-categories = ["programming"]
+tags = ["linked-list", "doubly-linked-list", "dsa", "python"]
+categories = ["Data Structures and Algorithms"]
 
 +++
 

@@ -3,7 +3,7 @@ title = "DNF"
 date = 2021-03-17
 [taxonomies]
 tags = ["dnf", "fedora"]
-categories = ["programming"]
+categories = ["Fedora"]
 +++
 
 - How not to include specific packages to update:

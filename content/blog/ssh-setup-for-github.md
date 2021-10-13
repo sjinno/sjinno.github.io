@@ -1,9 +1,9 @@
 +++
-title = "SSH Basics"
+title = "SSH Setup for GitHub"
 date = 2020-12-11
 [taxonomies]
 tags = ["ssh", "tutorial"]
-categories = ["programming"]
+categories = ["SSH"]
 +++
 
 ## Setting up SSH keys

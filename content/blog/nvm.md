@@ -3,7 +3,7 @@ title = "Node Version Manager"
 date = 2021-08-13
 [taxonomies]
 tags = ["nvm"]
-categories = ["programming"]
+categories = ["Node.js", "Version Management"]
 
 +++
 

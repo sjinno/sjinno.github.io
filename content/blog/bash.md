@@ -2,8 +2,8 @@
 title = "Bash"
 date = 2020-12-03
 [taxonomies]
-tags = ["bash", "shell", "scripting", "linux", "unix"]
-categories = ["programming"]
+tags = ["bash", "scripting", "linux", "unix"]
+categories = ["Shell Scripting"]
 +++
 
 ```bash

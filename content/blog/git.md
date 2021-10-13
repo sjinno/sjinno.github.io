@@ -3,7 +3,7 @@ title = "Git"
 date = 2020-12-02
 [taxonomies]
 tags = ["git", "tutorial", "version-control"]
-categories = ["programming"]
+categories = ["Version Control"]
 
 +++
 

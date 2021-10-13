@@ -3,7 +3,7 @@ title = "Rust: I/O"
 date = 2020-12-04
 [taxonomies]
 tags = ["rust"]
-categories = ["programming"]
+categories = ["Rust"]
 
 +++
 

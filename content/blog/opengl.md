@@ -2,8 +2,8 @@
 title = "OpenGL on Fedora 33"
 date = 2021-04-14
 [taxonomies]
-tags = ["opengl", "tutorial", "fedora", "glfw", "glad"]
-categories = ["programming"]
+tags = ["c++", "fedora", "glfw", "glad", "opengl", "tutorial"]
+categories = ["OpenGL", "Shaders"]
 
 +++
 

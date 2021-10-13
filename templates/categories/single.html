@@ -1,6 +1,6 @@
 {% extends "base.html" %} {% block content %}
 <section class="listPage">
-    <h1 class="listPage__title listPage__title--taxonomy">{{ term.name | safe }}</h1>
+    <h1 class="listPage__title listPage__title--categories">{{ term.name | safe }}</h1>
     <table class="table">
         {% for page in term.pages %}
         <tr>

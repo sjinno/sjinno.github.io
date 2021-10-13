@@ -2,8 +2,8 @@
 title = "Hugo Quickstart"
 date = 2020-12-01
 [taxonomies]
-tags = ["hugo", "web-development"]
-categories = ["programming"]
+tags = ["hugo", "static-site", "web-development"]
+categories = ["Web Development"]
 
 +++
 
