@@ -179,7 +179,7 @@ And...that really should be it?
 
 ### Optional:
 
-_Let's create a test database!_
+Let's create a test database!
 
 ```bash
 su - postgres

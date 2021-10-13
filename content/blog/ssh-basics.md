@@ -89,19 +89,19 @@ Hi your_user_name! You've successfully authenticated, but GitHub does not provid
 \
 \
 
-### _So now, how about adding another account...?_
+### So now, how about adding another account?
 
 \
 \
 \
 
-**CAREFULLY** run:
+**Carefully** run:
 
 ```bash
 ssh-keygen -t rsa -b 4096 -C your_email@example.com
 ```
 
-**BUT**, this time, you will have to change the file name **MANUALLY**.
+But, this time, **_you will have to change the file name manually._**
 
 When you run the command above, you should see the following messages:
 
@@ -112,7 +112,7 @@ Enter file in which to save the key (/home/username/.ssh/id_rsa):
 
 When you generated a set of keys for the first time, you didn't really need to specify the file name even though you could have if you wanted to.
 
-_But as you generate more keys, you **MUST** specify the file name._
+But as you generate more keys, **_you must specify the file name._**
 
 For example, if you are generating a key for your work, then you might want to enter something like:
 
@@ -162,7 +162,7 @@ In this example, we have configured multiple accounts for GitHub.
 
 \
 
-## 4. How do you switch between identities??
+## 4. How do you switch between identities?
 
 Every terminal session, you will have to `ssh-add ~/.ssh/<identity_file>` to add the identity you want to use.
 

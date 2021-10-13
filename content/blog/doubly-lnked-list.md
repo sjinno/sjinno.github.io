@@ -7,7 +7,7 @@ categories = ["programming"]
 
 +++
 
-Here is the implementation of doubly linked list. I sort of wanted to write myself a note on how to implement it because I somehow forget it all the time. 😂
+Here is the implementation of doubly linked list. I sort of wanted to write myself a note on how to implement it because I somehow forget it all the time.
 
 Basically, doubly linked list has:
 
@@ -20,7 +20,7 @@ Basically, doubly linked list has:
 - `set_tail` method
 - `insert_at_specific_position` method
 
-and... that's about it.
+and that's about it.
 
 So in total, we will need to write 8 methods, which isn't so bad. Let's just dive right into it!
 
@@ -161,7 +161,7 @@ We are going to write **set head**, **set tail**, and finally **insert at positi
 
 \
 
-Finally, **Insert at position**
+Finally, **insert at position**
 
 ```py
     def insert_at_postion(self, position, node_to_insert):

@@ -9,20 +9,20 @@ categories = ["programming"]
 
 Here is a quick tutorial on how to get started with Hugo, the super fast framework for building websites. (Although this website is built with Zola...)
 
-I'm glad if this post could help someone get started with it too! &#128521;
+I'm glad if this post could help someone get started with it too!
 
 \
 
 There will be two parts:
 
-### _Part 1 Quickstart_
+#### 1. Quickstart
 
-### _Part 2 Deploying to GitHub Pages_
+#### 2. Deploying to GitHub Pages
 
 \
 \
 
-## Part 1: Quickstart
+## 1. Quickstart
 
 I assume that you already have hugo installed on your machine, so I'll skip that part.
 
@@ -52,12 +52,12 @@ I assume that you already have hugo installed on your machine, so I'll skip that
 
 8. Write anything you want in `my-first-post.md` and that's pretty much it for the first part!
 
-9. `hugo server -D` or `hugo server -t <your-theme>` (if you use a theme) to see what your website looks like. &#128521;
+9. `hugo server -D` or `hugo server -t <your-theme>` (if you use a theme) to see what your website looks like.
 
 \
 \
 
-## Part 2: Deploying to GitHub Pages
+## 2. Deploying to GitHub Pages
 
 I assume that you already have a GitHub account.
 

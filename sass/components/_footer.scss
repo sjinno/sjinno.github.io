@@ -23,10 +23,10 @@
             &::after {
                 content: '';
                 position: absolute;
-                top: -.25rem;
-                bottom: -.25rem;
-                left: -.5rem;
-                right: -.5rem;
+                top: -.1rem;
+                bottom: -.1rem;
+                left: -.3rem;
+                right: -.3rem;
                 background-color: $clrBrightLightPurple;
 
                 z-index: -1;

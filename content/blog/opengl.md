@@ -82,7 +82,7 @@ After installing GLAD,
 
 \
 
-## Finally...
+## Finally
 
 If this didn't help, you should be missing more required packages and you want to google until you find an answer. I don't know anything about C/ C++, so it was kind of confusing to learn how to link stuff and whatnot, but eventually I found the answers I needed. :)
 

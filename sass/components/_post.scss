@@ -47,6 +47,10 @@
             background-color: $clrPale !important;
         }
         /* ========== */
+
+        em {
+            background-color: rgba($clrBrightYellow, .5);
+        }
     }
 
 }
