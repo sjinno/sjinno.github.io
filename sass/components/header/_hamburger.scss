@@ -2,27 +2,17 @@
     border: none;
     background-color: transparent;
 
-    position: absolute;
-    top: .45rem;
-    right: 1rem;
+    position: relative;
+    margin-right: 1rem;
     width: 5.5rem;
     height: 5.5rem;
-    // background-color: antiquewhite;
 
     z-index: 10;
 
     cursor: pointer;
 
-    // display: flex;
-    // justify-content: center;
-    // align-items: center;
-    // font-size: 2.8rem;
+    transition: visibility .4s ease, opacity .6s ease, height .6s ease;
 
-    // transition: top .8s ease, right .8s ease;
-
-
-
-    transition: top .8s ease, right .8s ease, visibility .4s ease, opacity .6s ease;
 
     &::after {
         content: '';
@@ -50,6 +40,7 @@
     &__patty1 {
         position: absolute;
         top: 2.25rem;
+        bottom: auto;
         left: 1.5rem;
         right: 1.5rem;
         border-top: .5px solid rgba($clrBlack, .8);
@@ -64,6 +55,7 @@
 
     &__patty2 {
         position: absolute;
+        top: auto;
         bottom: 2.25rem;
         right: 1.5rem;
         left: 1.5rem;

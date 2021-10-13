@@ -27,6 +27,7 @@ function toggleMenu(btn, menu, patty1, patty2, openState) {
 
       // Cross 1
       patty1.style.top = '2.75rem';
+      patty1.style.bottom = 'auto';
       patty1.style.left = '1.5rem';
       patty1.style.right = '1.5rem';
       patty1.style.transform = 'rotate(45deg)';
@@ -42,6 +43,7 @@ function toggleMenu(btn, menu, patty1, patty2, openState) {
 
       // Cross 1
       patty1.style.top = '2.25rem';
+      patty1.style.bottom = 'auto';
       patty1.style.left = '1.5rem';
       patty1.style.right = '1.5rem';
       patty1.style.transform = 'rotate(0deg)';
@@ -143,16 +145,12 @@ function main() {
       header.style.visibility = 'hidden';
       header.style.opacity = '0';
       header.style.height = '0';
-      btn.style.visibility = 'hidden';
-      btn.style.opacity = '0';
     }
 
     if (!scrollingDown) {
       header.style.visibility = 'visible';
       header.style.opacity = '1';
       header.style.height = '6.4rem';
-      btn.style.visibility = 'visible';
-      btn.style.opacity = '1';
     }
 
     scrollingDown = this.oldScroll < this.scrollY;
