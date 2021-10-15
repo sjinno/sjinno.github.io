@@ -40,14 +40,14 @@ After installing GLFW,
 
 After installing GLAD,
 
-1. ```bash
-   sudo ln -s <path/to/glad> /usr/local/include/glad
+1.  ```bash
+    sudo ln -s <path/to/glad> /usr/local/include/glad
 
-   # In my case,
-   sudo ln -s ~/glad/include/glad /usr/local/include/glad
-   ```
+    # In my case,
+    sudo ln -s ~/glad/include/glad /usr/local/include/glad
+    ```
 
-2. You will need `glad.c` when compiling, so put it in the project directory or wherever you can remember.
+2.  You will need `glad.c` when compiling, so put it in the project directory or wherever you can remember.
 
 \
 
