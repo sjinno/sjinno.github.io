@@ -5,7 +5,7 @@ date = 2021-04-03
 
 ## Description
 
-CLI app of Othello a.k.a. Reversi.
+CLI app of Othello aka Reversi.
 
 **Languages & tools:** Rust
 
