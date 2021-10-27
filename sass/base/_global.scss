@@ -84,3 +84,17 @@ p {
         font-size: 1.3rem;
     }
 }
+
+.arms {
+    position: relative;
+
+    &::before {
+        content: '[';
+        padding-right: .25rem;
+    }
+
+    &::after {
+        content: ']';
+        padding-left: 0.25rem;
+    }
+}
