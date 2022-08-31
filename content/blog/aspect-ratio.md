@@ -1,5 +1,5 @@
 +++
-title = "Aspact Ratio"
+title = "Aspect Ratio"
 date = 2021-10-21
 [taxonomies]
 tags = ["aspect-ratio", "css"]
