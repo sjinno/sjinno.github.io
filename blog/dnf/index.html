@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/main.css">
+    <title>Shohei Jinno</title>
+    <link rel="shortcut icon" href=&#x2F;images&#x2F;pepe-16-270481.png type="image/x-icon">
+</head>
+
+<body>
+    
+<nav class="nav">
+    <a href="/" class="nav__home">Shohei Jinno</a>
+    <button class="hamburger">
+        <span class="hamburger__patty1"></span>
+        <span class="hamburger__patty2"></span>
+    </button>
+
+    <div class="nav__menu">
+        <ul class="nav__list">
+            <li class="nav__item"><a href="/blog">Blog</a></li>
+            <li class="nav__item"><a href="/projects">Projects</a></li>
+            <li class="nav__item">
+                <a href="http://github.com/sjinno" target="_blank">
+                    <span class="upper-right-arrow">↗</span> <span class="nav__item">GitHub</span>
+                </a>
+            </li>
+            <li><a href="http://www.linkedin.com/in/shohei-jinno-947a88121" target="_blank"><span class="upper-right-arrow">↗</span>
+                    LinkedIn</a>
+            </li>
+            <li><a href="http://www.instagram.com/shoelric" target="_blank"><span class="upper-right-arrow">↗</span> Instagram</a>
+            </li>
+            <li><a href="http://stackoverflow.com/users/4909849/syohey" target="_blank"><span class="upper-right-arrow">↗</span>
+                    Stack Overflow</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+
+
+    <div class="container">
+        
+<section class="post">
+  <h1 class="post__title">DNF</h1>
+  <h3 class="post__date"><span class="date">2021-03-17</span></h3>
+  <div class="post__reading-time">1 minute read</div>
+  <div class="post__tags">
+    
+    <a class="post__tags__tag" href="/tags/dnf">#dnf</a>&nbsp;
+    
+    <a class="post__tags__tag" href="/tags/fedora">#fedora</a>&nbsp;
+    
+  </div>
+  <div class="post__content"><ul>
+<li>
+<p>How not to include specific packages to update:</p>
+<pre style="background-color:#f9f9f9;">
+<code><span style="color:#8e908c;"># Formula:
+</span><span style="color:#c82728;">sudo</span><span style="color:#4271ae;"> dnf update</span><span style="color:#f07219;"> --exclude</span><span style="color:#3e999f;">=&lt;</span><span style="color:#4271ae;">pkg-name</span><span style="color:#3e999f;">&gt;
+
+</span><span style="color:#8e908c;"># For example, if you want to skip `texlive-...` to update,
+</span><span style="color:#8e908c;"># then you would run:
+</span><span style="color:#c82728;">sudo</span><span style="color:#4271ae;"> dnf update</span><span style="color:#f07219;"> --exclude</span><span style="color:#3e999f;">=</span><span style="color:#4271ae;">texlive-</span><span style="color:#f07219;">\*
+</span></code></pre></li>
+<li>
+<p>Search specific package:</p>
+<pre style="background-color:#f9f9f9;">
+<code><span style="color:#8e908c;"># Formula:
+</span><span style="color:#c82728;">sudo</span><span style="color:#4271ae;"> dnf search </span><span style="color:#3e999f;">&lt;</span><span style="color:#4271ae;">pkg-name</span><span style="color:#3e999f;">&gt;
+
+</span><span style="color:#8e908c;"># e.g.
+</span><span style="color:#c82728;">sudo</span><span style="color:#4271ae;"> dnf search sox
+</span></code></pre></li>
+<li>
+<p>Check if specific package is installed:</p>
+<pre style="background-color:#f9f9f9;">
+<code><span style="color:#8e908c;"># Formula:
+</span><span style="color:#c82728;">dnf</span><span style="color:#4271ae;"> list installed </span><span style="color:#839c00;">&quot;pkg-name&quot;
+
+</span><span style="color:#8e908c;"># e.g.
+</span><span style="color:#c82728;">dnf</span><span style="color:#4271ae;"> list installed </span><span style="color:#839c00;">&quot;postgresql*&quot;
+
+</span><span style="color:#8e908c;"># Alternatively, you can also do this:
+</span><span style="color:#c82728;">dnf</span><span style="color:#4271ae;"> list installed </span><span style="color:#3e999f;">| </span><span style="color:#c82728;">grep</span><span style="color:#4271ae;"> postgresql
+</span></code></pre></li>
+<li>
+<p>Remove specif package:</p>
+<pre style="background-color:#f9f9f9;">
+<code><span style="color:#8e908c;"># Formula:
+</span><span style="color:#c82728;">sudo</span><span style="color:#4271ae;"> dnf remove </span><span style="color:#3e999f;">&lt;</span><span style="color:#4271ae;">pkg-name</span><span style="color:#3e999f;">&gt;
+
+</span><span style="color:#8e908c;"># e.g.
+</span><span style="color:#c82728;">sudo</span><span style="color:#4271ae;"> dnf remove zathura
+</span></code></pre></li>
+</ul>
+</div>
+  <div class="btn__wrapper">
+    <a href="/blog" class="btn btn--more btn--ripple btn--more--post"><span class="btn--ripple__source"></span>Read
+      more
+      posts</a>
+  </div>
+</section>
+
+    </div>
+    
+<footer class="footer">
+    <p>&copy; <span id="currentYear"></span> <a href="http://github.com/sjinno" class="footer__author"
+            target="_blank">Shohei Jinno</a>
+    </p>
+    <p>
+        <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank" class="footer__cc">
+            <img alt="Creative Commons License" style="border-width:0"
+                src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" />
+        </a>
+    </p>
+</footer>
+
+
+    <script src="/js/main.js"></script>
+
+</html>

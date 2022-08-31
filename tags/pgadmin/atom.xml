@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+	<title> - pgadmin</title>
+	<link href="https://sjinno.xyz/tags/pgadmin/atom.xml" rel="self" type="application/atom+xml"/>
+  <link href="https://sjinno.xyz"/>
+	<generator uri="https://www.getzola.org/">Zola</generator>
+	<updated>2021-04-15T00:00:00+00:00</updated>
+	<id>https://sjinno.xyz/tags/pgadmin/atom.xml</id>
+	<entry xml:lang="en">
+		<title>pgAdmin4 on Fedora 33</title>
+		<published>2021-04-15T00:00:00+00:00</published>
+		<updated>2021-04-15T00:00:00+00:00</updated>
+		<link href="https://sjinno.xyz/blog/pgadmin/" type="text/html"/>
+		<id>https://sjinno.xyz/blog/pgadmin/</id>
+		<content type="html">&lt;h2 id=&quot;useful-links&quot;&gt;Useful links:&lt;&#x2F;h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v=jDQjRHPRcgM&amp;amp;list=PL061tjwVHN1gJIfXCHk4jc9aRacY0D9vR&amp;amp;index=1&amp;amp;t=581s&quot;&gt;PostgreSQL Server Setup &amp;amp; Monitor&lt;&#x2F;a&gt; (YouTube)&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https:&#x2F;&#x2F;computingforgeeks.com&#x2F;how-to-install-postgresql-12-on-fedora&#x2F;&quot;&gt;How To Install PostgreSQL 12 on Fedora 33&#x2F;32&#x2F;31&#x2F;30&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https:&#x2F;&#x2F;computingforgeeks.com&#x2F;how-to-install-pgadmin-on-centos-fedora&#x2F;&quot;&gt;Install pgAdmin 4 on CentOS 7 &amp;amp; Fedora 33&#x2F;32&#x2F;31&#x2F;30&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;useful-commands&quot;&gt;Useful commands:&lt;&#x2F;h2&gt;
+&lt;pre style=&quot;background-color:#f9f9f9;&quot;&gt;
+&lt;code&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; dnf search postgresql12
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;dnf&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; list installed &lt;&#x2F;span&gt;&lt;span style=&quot;color:#3e999f;&quot;&gt;| &lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;grep&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; postgresql12
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;systemctl&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; status httpd
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;systemctl&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; status postgresql-12
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;systemctl&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; start httpd
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;systemctl&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; start postgresql-12
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;systemctl&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; stop httpd
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;systemctl&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; stop postgresql-12
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;systemctl&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; restart httpd
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;systemctl&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; restart postgresql-12
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;man&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; firewall-cmd
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; netstat&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07219;&quot;&gt; -tupln
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;&lt;br &#x2F;&gt;
+&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;step-1-install-postgresql&quot;&gt;Step 1: Install PostgreSQL&lt;&#x2F;h2&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;First of all, update the system packages&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#f9f9f9;&quot;&gt;
+&lt;code&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; dnf update&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07219;&quot;&gt; -y &lt;&#x2F;span&gt;&lt;span style=&quot;color:#3e999f;&quot;&gt;&amp;amp;&amp;amp; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;reboot
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;Add the PostgreSQL yum repository&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;strong&gt;Download link:&lt;&#x2F;strong&gt; &lt;a href=&quot;https:&#x2F;&#x2F;www.postgresql.org&#x2F;download&#x2F;linux&#x2F;redhat&#x2F;&quot;&gt;https:&#x2F;&#x2F;www.postgresql.org&#x2F;download&#x2F;linux&#x2F;redhat&#x2F;&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#f9f9f9;&quot;&gt;
+&lt;code&gt;&lt;span style=&quot;color:#8e908c;&quot;&gt;# Install the repository RPM:
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; dnf install&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07219;&quot;&gt; -y&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; https:&#x2F;&#x2F;download.postgresql.org&#x2F;pub&#x2F;repos&#x2F;yum&#x2F;reporpms&#x2F;F-33-x86_64&#x2F; pgdg-fedora-repo-latest.noarch.rpm
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8e908c;&quot;&gt;# Install PostgreSQL:
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; dnf install&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07219;&quot;&gt; -y&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; postgresql12-server postgresql12
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8e908c;&quot;&gt;# Initialize the database and enable automatic start:
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; postgresql-12-setup initdb
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8e908c;&quot;&gt;# If the above didn&amp;#39;t work, then try the following:
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; &#x2F;usr&#x2F;pgsql-12&#x2F;bin&#x2F;postgresql-12-setup initdb
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8e908c;&quot;&gt;# Enable postgres server to start on boot:
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; systemctl enable postgresql-12
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8e908c;&quot;&gt;# Start postgres server:
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; systemctl start postgresql-12
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;Firewall setting&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#f9f9f9;&quot;&gt;
+&lt;code&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; firewall-cmd&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07219;&quot;&gt; --add-port&lt;&#x2F;span&gt;&lt;span style=&quot;color:#3e999f;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt;5432&#x2F;tcp&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07219;&quot;&gt; --permanent
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; firewall-cmd&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07219;&quot;&gt; --reload
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;Edit &lt;code&gt;&#x2F;var&#x2F;lib&#x2F;pgsql&#x2F;12&#x2F;data&#x2F;postgresql.conf&lt;&#x2F;code&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;Edit the line where it says &lt;code&gt;listen_addresses = &#x27;...&#x27;&lt;&#x2F;code&gt; to &lt;code&gt;listen_addresses = &#x27;*&#x27;&lt;&#x2F;code&gt; for remote access.&lt;&#x2F;p&gt;
+&lt;p&gt;Mine is just set to &lt;code&gt;listen_addresses = &#x27;localhost&#x27;&lt;&#x2F;code&gt; or &lt;code&gt;listen_addresses = &#x27;127.0.0.1&#x27;&lt;&#x2F;code&gt; since I don&#x27;t need to remotely access to the database right now.&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;Notice that there is now &lt;code&gt;potgres&lt;&#x2F;code&gt; user with:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#f9f9f9;&quot;&gt;
+&lt;code&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;more&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; &#x2F;etc&#x2F;&#x2F;passwd &lt;&#x2F;span&gt;&lt;span style=&quot;color:#3e999f;&quot;&gt;| &lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;grep&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; postgres
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8e908c;&quot;&gt;# And then set the admin password with:
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; passwd postgres
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;&lt;strong&gt;IMPORTANT:&lt;&#x2F;strong&gt; Try not to forget the password.&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;Set PostgreSQL admin user’s password&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#f9f9f9;&quot;&gt;
+&lt;code&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; su - postgres
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8e908c;&quot;&gt;# After running the line below,
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8e908c;&quot;&gt;# it should print out `ALTER ROLE` if successful.
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;psql&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07219;&quot;&gt; -d&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; template1&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07219;&quot;&gt; -c &lt;&#x2F;span&gt;&lt;span style=&quot;color:#839c00;&quot;&gt;&amp;quot;ALTER USER postgres WITH PASSWORD &amp;#39;ReallyGoodPasswd&amp;#39;;&amp;quot;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;p&gt;And that should be it for the installation of PostgreSQL!&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;step-2-set-up-pgadmin4&quot;&gt;Step 2: Set up pgAdmin4&lt;&#x2F;h2&gt;
+&lt;p&gt;This one is fairly easier, so let&#x27;s just do it :)&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;strong&gt;Instruction link:&lt;&#x2F;strong&gt; &lt;a href=&quot;https:&#x2F;&#x2F;www.pgadmin.org&#x2F;download&#x2F;pgadmin-4-rpm&#x2F;&quot;&gt;https:&#x2F;&#x2F;www.pgadmin.org&#x2F;download&#x2F;pgadmin-4-rpm&#x2F;&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Uninstall any pgAdmin repo packages that you may already have installed:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#f9f9f9;&quot;&gt;
+&lt;code&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; rpm&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07219;&quot;&gt; -e&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; pgadmin4-fedora-repo
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;Set up the repository:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#f9f9f9;&quot;&gt;
+&lt;code&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; rpm&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07219;&quot;&gt; -i&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; https:&#x2F;&#x2F;ftp.postgresql.org&#x2F;pub&#x2F;pgadmin&#x2F;pgadmin4&#x2F;yum&#x2F;pgadmin4-fedora-repo-1-1.noarch.rpm
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;Search for package:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#f9f9f9;&quot;&gt;
+&lt;code&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; dnf search pgadmin4
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;Install the package:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#f9f9f9;&quot;&gt;
+&lt;code&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; dnf install pgadmin4.noarch
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;Finally, run the web setup script to configure the system to run in web mode:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#f9f9f9;&quot;&gt;
+&lt;code&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; &#x2F;usr&#x2F;pgadmin4&#x2F;bin&#x2F;setup-web.sh
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;p&gt;That should be it for the installation of pgAdmin4, though I could be missing somthing. If that seems like the case, please go to &lt;a href=&quot;https:&#x2F;&#x2F;computingforgeeks.com&#x2F;how-to-install-pgadmin-on-centos-fedora&#x2F;&quot;&gt;Install pgAdmin 4 on CentOS 7 &amp;amp; Fedora 33&#x2F;32&#x2F;31&#x2F;30&lt;&#x2F;a&gt; and try to figure it out.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;finally&quot;&gt;Finally&lt;&#x2F;h2&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;You might have to open &lt;code&gt;&#x2F;var&#x2F;lib&#x2F;pgsql&#x2F;12&#x2F;data&#x2F;pg_hba.conf&lt;&#x2F;code&gt; with:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#f9f9f9;&quot;&gt;
+&lt;code&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; nano &#x2F;var&#x2F;lib&#x2F;pgsql&#x2F;12&#x2F;data&#x2F;pg_hba.conf
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;And change &lt;code&gt;peer&lt;&#x2F;code&gt; and &lt;code&gt;ident&lt;&#x2F;code&gt; to &lt;code&gt;md5&lt;&#x2F;code&gt;.&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#f9f9f9;&quot;&gt;
+&lt;code&gt;&lt;span style=&quot;color:#8e908c;&quot;&gt;# TYPE  DATABASE        USER            ADDRESS                 METHOD
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8e908c;&quot;&gt;# &amp;quot;local&amp;quot; is for Unix domain socket connections only
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8959a8;&quot;&gt;local   &lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;all             all                                     md5
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8e908c;&quot;&gt;# IPv4 local connections:
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;host&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt;    all             all             127.0.0.1&#x2F;32            md5
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;p&gt;And...that really should be it?&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;br &#x2F;&gt;
+&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;optional&quot;&gt;Optional:&lt;&#x2F;h3&gt;
+&lt;p&gt;Let&#x27;s create a test database!&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#f9f9f9;&quot;&gt;
+&lt;code&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;su&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; - postgres
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;&lt;pre style=&quot;background-color:#f9f9f9;&quot;&gt;
+&lt;code&gt;&lt;span style=&quot;color:#8e908c;&quot;&gt;# Create a new test database:
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;createdb&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; newtestdb
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;&lt;pre style=&quot;background-color:#f9f9f9;&quot;&gt;
+&lt;code&gt;&lt;span style=&quot;color:#111111;&quot;&gt;psql newtestdb
+
+# List all the databases:
+\l
+
+CREATE TABLE employees (eid int, fname varchar, lname varchar);
+
+INSERT INTO employees VALUES (1, &amp;#39;Peter&amp;#39;, &amp;#39;Smith&amp;#39;);
+
+SELECT * FROM employees;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;To exit &lt;code&gt;psql&lt;&#x2F;code&gt;, run&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#f9f9f9;&quot;&gt;
+&lt;code&gt;&lt;span style=&quot;color:#111111;&quot;&gt;\q
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;And to exit &lt;code&gt;postgres user&lt;&#x2F;code&gt;, run&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#f9f9f9;&quot;&gt;
+&lt;code&gt;&lt;span style=&quot;color:#111111;&quot;&gt;exit
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Now you can also open up your pgAdmin4 by going to &lt;code&gt;localhost&#x2F;pgadmin4&lt;&#x2F;code&gt; or maybe &lt;code&gt;127.0.0.1&#x2F;pgadmin4&lt;&#x2F;code&gt; and you should be able to see the database created!&lt;&#x2F;p&gt;
+&lt;p&gt;Though, if it&#x27;s your first time ever opening up pgAdmin4, &lt;strong&gt;&lt;em&gt;you will have to connect it to the postgres server.&lt;&#x2F;em&gt;&lt;&#x2F;strong&gt; So just simply follow the very last part of &lt;a href=&quot;https:&#x2F;&#x2F;computingforgeeks.com&#x2F;how-to-install-pgadmin-on-centos-fedora&#x2F;&quot;&gt;Install pgAdmin 4 on CentOS 7 &amp;amp; Fedora 33&#x2F;32&#x2F;31&#x2F;30&lt;&#x2F;a&gt;, and you should be good to go.&lt;&#x2F;p&gt;
+&lt;p&gt;Also, don&#x27;t forget to:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#f9f9f9;&quot;&gt;
+&lt;code&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;systemctl&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; start httpd
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;systemctl&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; start postgresql-12
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;You can check if they&#x27;re running with:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#f9f9f9;&quot;&gt;
+&lt;code&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;systemctl&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; status httpd
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;systemctl&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; status postgresql-12
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;I hope it helped!&lt;&#x2F;p&gt;
+</content>
+	</entry>
+</feed>

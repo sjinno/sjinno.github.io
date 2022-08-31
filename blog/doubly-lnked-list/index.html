@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/main.css">
+    <title>Shohei Jinno</title>
+    <link rel="shortcut icon" href=&#x2F;images&#x2F;pepe-16-270481.png type="image/x-icon">
+</head>
+
+<body>
+    
+<nav class="nav">
+    <a href="/" class="nav__home">Shohei Jinno</a>
+    <button class="hamburger">
+        <span class="hamburger__patty1"></span>
+        <span class="hamburger__patty2"></span>
+    </button>
+
+    <div class="nav__menu">
+        <ul class="nav__list">
+            <li class="nav__item"><a href="/blog">Blog</a></li>
+            <li class="nav__item"><a href="/projects">Projects</a></li>
+            <li class="nav__item">
+                <a href="http://github.com/sjinno" target="_blank">
+                    <span class="upper-right-arrow">↗</span> <span class="nav__item">GitHub</span>
+                </a>
+            </li>
+            <li><a href="http://www.linkedin.com/in/shohei-jinno-947a88121" target="_blank"><span class="upper-right-arrow">↗</span>
+                    LinkedIn</a>
+            </li>
+            <li><a href="http://www.instagram.com/shoelric" target="_blank"><span class="upper-right-arrow">↗</span> Instagram</a>
+            </li>
+            <li><a href="http://stackoverflow.com/users/4909849/syohey" target="_blank"><span class="upper-right-arrow">↗</span>
+                    Stack Overflow</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+
+
+    <div class="container">
+        
+<section class="post">
+  <h1 class="post__title">Doubly Linked List</h1>
+  <h3 class="post__date"><span class="date">2020-12-05</span></h3>
+  <div class="post__reading-time">4 minute read</div>
+  <div class="post__tags">
+    
+    <a class="post__tags__tag" href="/tags/linked-list">#linked-list</a>&nbsp;
+    
+    <a class="post__tags__tag" href="/tags/doubly-linked-list">#doubly-linked-list</a>&nbsp;
+    
+    <a class="post__tags__tag" href="/tags/dsa">#dsa</a>&nbsp;
+    
+    <a class="post__tags__tag" href="/tags/python">#python</a>&nbsp;
+    
+  </div>
+  <div class="post__content"><p>Here is the implementation of doubly linked list. I sort of wanted to write myself a note on how to implement it because I somehow forget it all the time.</p>
+<p>Basically, doubly linked list has:</p>
+<ul>
+<li><code>check_if_node_has_value</code> method</li>
+<li><code>remove</code> method</li>
+<li><code>remove_node_bindings</code> method to help remove method out</li>
+<li><code>insert_before_node</code> method</li>
+<li><code>insert_after</code> method</li>
+<li><code>set_head</code> method</li>
+<li><code>set_tail</code> method</li>
+<li><code>insert_at_specific_position</code> method</li>
+</ul>
+<p>and that's about it.</p>
+<p>So in total, we will need to write 8 methods, which isn't so bad. Let's just dive right into it!</p>
+<p></p>
+<p>Firstly, let us make a <code>Node</code> class.</p>
+<pre style="background-color:#f9f9f9;">
+<code><span style="color:#8959a8;">class </span><span style="color:#c99e00;">Node</span><span style="color:#111111;">:
+    </span><span style="color:#8959a8;">def </span><span style="color:#4271ae;">__init__</span><span style="color:#111111;">(</span><span style="color:#f07219;">self</span><span style="color:#111111;">, </span><span style="color:#f07219;">value</span><span style="color:#111111;">):
+        </span><span style="color:#c82728;">self</span><span style="color:#111111;">.value </span><span style="color:#3e999f;">= </span><span style="color:#111111;">value
+        </span><span style="color:#c82728;">self</span><span style="color:#111111;">.prev </span><span style="color:#3e999f;">= </span><span style="color:#f07219;">None
+        </span><span style="color:#c82728;">self</span><span style="color:#111111;">.next </span><span style="color:#3e999f;">= </span><span style="color:#f07219;">None
+</span></code></pre>
+<p>And, now let's also write an init method for our doubly linked list.</p>
+<pre style="background-color:#f9f9f9;">
+<code><span style="color:#8959a8;">class </span><span style="color:#c99e00;">DoublyLinkedList</span><span style="color:#111111;">:
+    </span><span style="color:#8959a8;">def </span><span style="color:#4271ae;">__init__</span><span style="color:#111111;">(</span><span style="color:#f07219;">self</span><span style="color:#111111;">):
+        </span><span style="color:#c82728;">self</span><span style="color:#111111;">.head </span><span style="color:#3e999f;">= </span><span style="color:#f07219;">None
+        </span><span style="color:#c82728;">self</span><span style="color:#111111;">.tail </span><span style="color:#3e999f;">= </span><span style="color:#f07219;">None
+</span></code></pre>
+<p>Ok, so now I would like to start with <strong>check if node has value</strong> method, which returns <code>True</code> if there is a value(data) or <code>False</code> if <code>null</code>.</p>
+<p>So inside <code>DoublyLinkedList</code> class, write</p>
+<pre style="background-color:#f9f9f9;">
+<code><span style="color:#111111;">    </span><span style="color:#8959a8;">def </span><span style="color:#4271ae;">node_has_value</span><span style="color:#111111;">(</span><span style="color:#f07219;">self</span><span style="color:#111111;">, </span><span style="color:#f07219;">value</span><span style="color:#111111;">):
+        </span><span style="color:#8e908c;"># Set node to head.
+        </span><span style="color:#111111;">node </span><span style="color:#3e999f;">= </span><span style="color:#c82728;">self</span><span style="color:#111111;">.head
+        </span><span style="color:#8e908c;"># Iterate over each node to see if node has value.
+        </span><span style="color:#8959a8;">while </span><span style="color:#111111;">node </span><span style="color:#3e999f;">is not </span><span style="color:#f07219;">None </span><span style="color:#3e999f;">and </span><span style="color:#111111;">node.value </span><span style="color:#3e999f;">!= </span><span style="color:#111111;">value:
+            node </span><span style="color:#3e999f;">= </span><span style="color:#111111;">node.next
+        </span><span style="color:#8e908c;"># Should return `False` if there isn&#39;t.
+        # Should return `True` if there is.
+        </span><span style="color:#8959a8;">return </span><span style="color:#111111;">node </span><span style="color:#3e999f;">is not </span><span style="color:#f07219;">None
+</span></code></pre>
+<p>Now, let's do a <strong>remove</strong> method.</p>
+<pre style="background-color:#f9f9f9;">
+<code><span style="color:#111111;">    </span><span style="color:#8959a8;">def </span><span style="color:#4271ae;">remove</span><span style="color:#111111;">(</span><span style="color:#f07219;">self</span><span style="color:#111111;">, </span><span style="color:#f07219;">node</span><span style="color:#111111;">):
+        </span><span style="color:#8959a8;">if </span><span style="color:#111111;">node </span><span style="color:#3e999f;">== </span><span style="color:#c82728;">self</span><span style="color:#111111;">.head:
+            </span><span style="color:#c82728;">self</span><span style="color:#111111;">.head </span><span style="color:#3e999f;">= </span><span style="color:#c82728;">self</span><span style="color:#111111;">.head.next
+        </span><span style="color:#8959a8;">if </span><span style="color:#111111;">node </span><span style="color:#3e999f;">== </span><span style="color:#c82728;">self</span><span style="color:#111111;">.tail:
+            </span><span style="color:#c82728;">self</span><span style="color:#111111;">.tail </span><span style="color:#3e999f;">== </span><span style="color:#c82728;">self</span><span style="color:#111111;">.tail.prev
+        </span><span style="color:#c82728;">self</span><span style="color:#4271ae;">.</span><span style="color:#c82728;">remove_bindings</span><span style="color:#4271ae;">(node)
+</span></code></pre>
+<p>...which now leads us to writing a helper method to the <strong>remove</strong> method we just wrote.</p>
+<pre style="background-color:#f9f9f9;">
+<code><span style="color:#111111;">    </span><span style="color:#8959a8;">def </span><span style="color:#4271ae;">remove_bindings</span><span style="color:#111111;">(</span><span style="color:#f07219;">self</span><span style="color:#111111;">, </span><span style="color:#f07219;">node</span><span style="color:#111111;">):
+        </span><span style="color:#8959a8;">if </span><span style="color:#111111;">node.prev </span><span style="color:#3e999f;">is not </span><span style="color:#f07219;">None</span><span style="color:#111111;">:
+            node.prev.next </span><span style="color:#3e999f;">= </span><span style="color:#111111;">node.next
+        </span><span style="color:#8959a8;">if </span><span style="color:#111111;">node.next </span><span style="color:#3e999f;">is not </span><span style="color:#f07219;">None</span><span style="color:#111111;">:
+            node.next.prev </span><span style="color:#3e999f;">= </span><span style="color:#111111;">node.prev
+        node.prev </span><span style="color:#3e999f;">= </span><span style="color:#f07219;">None
+        </span><span style="color:#111111;">node.next </span><span style="color:#3e999f;">= </span><span style="color:#f07219;">None
+</span></code></pre>
+<p>And now, we are going to remove a node that has a value.</p>
+<pre style="background-color:#f9f9f9;">
+<code><span style="color:#111111;">    </span><span style="color:#8959a8;">def </span><span style="color:#4271ae;">remove_node_with_value</span><span style="color:#111111;">(</span><span style="color:#f07219;">self</span><span style="color:#111111;">, </span><span style="color:#f07219;">value</span><span style="color:#111111;">):
+        node </span><span style="color:#3e999f;">= </span><span style="color:#c82728;">self</span><span style="color:#111111;">.head
+        </span><span style="color:#8959a8;">while </span><span style="color:#111111;">node </span><span style="color:#3e999f;">is not </span><span style="color:#f07219;">None</span><span style="color:#111111;">:
+            node_to_remove </span><span style="color:#3e999f;">= </span><span style="color:#111111;">node
+            node </span><span style="color:#3e999f;">= </span><span style="color:#111111;">node.next
+            </span><span style="color:#8959a8;">if </span><span style="color:#111111;">node_to_remove.value </span><span style="color:#3e999f;">== </span><span style="color:#111111;">value:
+                </span><span style="color:#c82728;">self</span><span style="color:#4271ae;">.</span><span style="color:#c82728;">remove</span><span style="color:#4271ae;">(node_to_remove)
+</span></code></pre>
+<p>Cool!</p>
+<p>Ok, so now... Let us write <strong>insert before</strong> method which takes two parameters --- <code>node</code> to insert before and <code>node_to_insert</code>.</p>
+<pre style="background-color:#f9f9f9;">
+<code><span style="color:#111111;">    </span><span style="color:#8959a8;">def </span><span style="color:#4271ae;">insert_before</span><span style="color:#111111;">(</span><span style="color:#f07219;">self</span><span style="color:#111111;">, </span><span style="color:#f07219;">node</span><span style="color:#111111;">, </span><span style="color:#f07219;">node_to_insert</span><span style="color:#111111;">):
+        </span><span style="color:#8959a8;">if </span><span style="color:#111111;">node_to_insert </span><span style="color:#3e999f;">== </span><span style="color:#c82728;">self</span><span style="color:#111111;">.head </span><span style="color:#3e999f;">and </span><span style="color:#111111;">node_to_insert </span><span style="color:#3e999f;">== </span><span style="color:#c82728;">self</span><span style="color:#111111;">.tail:
+            </span><span style="color:#8959a8;">return
+        </span><span style="color:#c82728;">self</span><span style="color:#4271ae;">.</span><span style="color:#c82728;">remove</span><span style="color:#4271ae;">(node_to_insert)
+        </span><span style="color:#111111;">node_to_insert.prev </span><span style="color:#3e999f;">= </span><span style="color:#111111;">node.prev
+        node_to_insert.next </span><span style="color:#3e999f;">= </span><span style="color:#111111;">node
+        </span><span style="color:#8959a8;">if </span><span style="color:#111111;">node.prev </span><span style="color:#3e999f;">is </span><span style="color:#f07219;">None</span><span style="color:#111111;">:
+            </span><span style="color:#c82728;">self</span><span style="color:#111111;">.head </span><span style="color:#3e999f;">= </span><span style="color:#111111;">node_to_insert
+        </span><span style="color:#8959a8;">else</span><span style="color:#111111;">:
+            node.prev.next </span><span style="color:#3e999f;">= </span><span style="color:#111111;">node_to_insert
+        node.prev </span><span style="color:#3e999f;">= </span><span style="color:#111111;">node_to_insert
+</span></code></pre>
+<p>Very similarly, <strong>insert after</strong> method will look likw...</p>
+<pre style="background-color:#f9f9f9;">
+<code><span style="color:#111111;">    </span><span style="color:#8959a8;">def </span><span style="color:#4271ae;">insert_after</span><span style="color:#111111;">(</span><span style="color:#f07219;">self</span><span style="color:#111111;">, </span><span style="color:#f07219;">node</span><span style="color:#111111;">, </span><span style="color:#f07219;">node_to_insert</span><span style="color:#111111;">):
+        </span><span style="color:#8959a8;">if </span><span style="color:#111111;">node_to_insert </span><span style="color:#3e999f;">== </span><span style="color:#c82728;">self</span><span style="color:#111111;">.head </span><span style="color:#3e999f;">and </span><span style="color:#111111;">node_to_insert </span><span style="color:#3e999f;">== </span><span style="color:#c82728;">self</span><span style="color:#111111;">.tail:
+            </span><span style="color:#8959a8;">return
+        </span><span style="color:#c82728;">self</span><span style="color:#4271ae;">.</span><span style="color:#c82728;">remove</span><span style="color:#4271ae;">(node_to_insert)
+        </span><span style="color:#111111;">node_to_insert.prev </span><span style="color:#3e999f;">= </span><span style="color:#111111;">node
+        node_to_insert.next </span><span style="color:#3e999f;">= </span><span style="color:#111111;">node.next
+        </span><span style="color:#8959a8;">if </span><span style="color:#111111;">node.next </span><span style="color:#3e999f;">is </span><span style="color:#f07219;">None</span><span style="color:#111111;">:
+            </span><span style="color:#c82728;">self</span><span style="color:#111111;">.tail </span><span style="color:#3e999f;">= </span><span style="color:#111111;">node_to_insert
+        </span><span style="color:#8959a8;">else</span><span style="color:#111111;">:
+            node.next.prev </span><span style="color:#3e999f;">= </span><span style="color:#111111;">node_to_insert
+        node.next </span><span style="color:#3e999f;">= </span><span style="color:#111111;">node_to_insert
+</span></code></pre>
+<p>Phew, almost there...</p>
+<p>We are going to write <strong>set head</strong>, <strong>set tail</strong>, and finally <strong>insert at position</strong> method, and we are done!</p>
+<p></p>
+<p><strong>Setting head</strong></p>
+<pre style="background-color:#f9f9f9;">
+<code><span style="color:#111111;">    </span><span style="color:#8959a8;">def </span><span style="color:#4271ae;">set_head</span><span style="color:#111111;">(</span><span style="color:#f07219;">self</span><span style="color:#111111;">, </span><span style="color:#f07219;">node</span><span style="color:#111111;">):
+        </span><span style="color:#8959a8;">if </span><span style="color:#c82728;">self</span><span style="color:#111111;">.head </span><span style="color:#3e999f;">is </span><span style="color:#f07219;">None</span><span style="color:#111111;">:
+            </span><span style="color:#c82728;">self</span><span style="color:#111111;">.head </span><span style="color:#3e999f;">= </span><span style="color:#111111;">node
+            </span><span style="color:#c82728;">self</span><span style="color:#111111;">.tail </span><span style="color:#3e999f;">= </span><span style="color:#111111;">node
+            </span><span style="color:#8959a8;">return
+        </span><span style="color:#c82728;">self</span><span style="color:#4271ae;">.</span><span style="color:#c82728;">insert_before</span><span style="color:#4271ae;">(</span><span style="color:#c82728;">self</span><span style="color:#4271ae;">.head, node)
+</span></code></pre>
+<p></p>
+<p><strong>Setting tail</strong></p>
+<pre style="background-color:#f9f9f9;">
+<code><span style="color:#111111;">    </span><span style="color:#8959a8;">def </span><span style="color:#4271ae;">set_tail</span><span style="color:#111111;">(</span><span style="color:#f07219;">self</span><span style="color:#111111;">, </span><span style="color:#f07219;">node</span><span style="color:#111111;">):
+        </span><span style="color:#8959a8;">if </span><span style="color:#c82728;">self</span><span style="color:#111111;">.tail </span><span style="color:#3e999f;">is </span><span style="color:#f07219;">None</span><span style="color:#111111;">:
+            </span><span style="color:#c82728;">self</span><span style="color:#4271ae;">.</span><span style="color:#c82728;">set_head</span><span style="color:#4271ae;">(node)
+            </span><span style="color:#8959a8;">return
+        </span><span style="color:#c82728;">self</span><span style="color:#4271ae;">.</span><span style="color:#c82728;">insert_after</span><span style="color:#4271ae;">(</span><span style="color:#c82728;">self</span><span style="color:#4271ae;">.tail, node)
+</span></code></pre>
+<p></p>
+<p>Finally, <strong>insert at position</strong></p>
+<pre style="background-color:#f9f9f9;">
+<code><span style="color:#111111;">    </span><span style="color:#8959a8;">def </span><span style="color:#4271ae;">insert_at_postion</span><span style="color:#111111;">(</span><span style="color:#f07219;">self</span><span style="color:#111111;">, </span><span style="color:#f07219;">position</span><span style="color:#111111;">, </span><span style="color:#f07219;">node_to_insert</span><span style="color:#111111;">):
+        </span><span style="color:#8959a8;">if </span><span style="color:#111111;">position </span><span style="color:#3e999f;">== </span><span style="color:#f07219;">1</span><span style="color:#111111;">:
+            </span><span style="color:#c82728;">self</span><span style="color:#4271ae;">.</span><span style="color:#c82728;">set_head</span><span style="color:#4271ae;">(node_to_insert)
+            </span><span style="color:#8959a8;">return
+        </span><span style="color:#111111;">node </span><span style="color:#3e999f;">= </span><span style="color:#c82728;">self</span><span style="color:#111111;">.head
+        current_position </span><span style="color:#3e999f;">= </span><span style="color:#f07219;">1
+        </span><span style="color:#8959a8;">while </span><span style="color:#111111;">node </span><span style="color:#3e999f;">is not </span><span style="color:#f07219;">None </span><span style="color:#3e999f;">and </span><span style="color:#111111;">current_position </span><span style="color:#3e999f;">!= </span><span style="color:#111111;">position:
+            node </span><span style="color:#3e999f;">= </span><span style="color:#111111;">node.next
+            current_position </span><span style="color:#3e999f;">+= </span><span style="color:#f07219;">1
+        </span><span style="color:#8959a8;">if </span><span style="color:#111111;">node </span><span style="color:#3e999f;">is not </span><span style="color:#f07219;">None</span><span style="color:#111111;">:
+            </span><span style="color:#c82728;">self</span><span style="color:#4271ae;">.</span><span style="color:#c82728;">insert_before</span><span style="color:#4271ae;">(node, node_to_insert)
+        </span><span style="color:#8959a8;">else</span><span style="color:#111111;">:
+            </span><span style="color:#c82728;">self</span><span style="color:#4271ae;">.</span><span style="color:#c82728;">set_tail</span><span style="color:#4271ae;">(node_to_insert)
+</span></code></pre>
+<p>And..., that's it!!</p>
+<p>I would like to add a unittest, but I will do it later.</p>
+<p>Thank you! 😁</p>
+<p><br />
+</p>
+<h3 id="final-code">Final code</h3>
+<pre style="background-color:#f9f9f9;">
+<code><span style="color:#8959a8;">class </span><span style="color:#c99e00;">Node</span><span style="color:#111111;">:
+    </span><span style="color:#8959a8;">def </span><span style="color:#4271ae;">__init__</span><span style="color:#111111;">(</span><span style="color:#f07219;">self</span><span style="color:#111111;">, </span><span style="color:#f07219;">value</span><span style="color:#111111;">):
+        </span><span style="color:#c82728;">self</span><span style="color:#111111;">.value </span><span style="color:#3e999f;">= </span><span style="color:#111111;">value
+        </span><span style="color:#c82728;">self</span><span style="color:#111111;">.prev </span><span style="color:#3e999f;">= </span><span style="color:#f07219;">None
+        </span><span style="color:#c82728;">self</span><span style="color:#111111;">.next </span><span style="color:#3e999f;">= </span><span style="color:#f07219;">None
+
+</span><span style="color:#8959a8;">class </span><span style="color:#c99e00;">DoublyLinkedList</span><span style="color:#111111;">:
+    </span><span style="color:#8959a8;">def </span><span style="color:#4271ae;">__init__</span><span style="color:#111111;">(</span><span style="color:#f07219;">self</span><span style="color:#111111;">):
+        </span><span style="color:#c82728;">self</span><span style="color:#111111;">.head </span><span style="color:#3e999f;">= </span><span style="color:#f07219;">None
+        </span><span style="color:#c82728;">self</span><span style="color:#111111;">.tail </span><span style="color:#3e999f;">= </span><span style="color:#f07219;">None
+
+    </span><span style="color:#8959a8;">def </span><span style="color:#4271ae;">set_head</span><span style="color:#111111;">(</span><span style="color:#f07219;">self</span><span style="color:#111111;">, </span><span style="color:#f07219;">node</span><span style="color:#111111;">):
+        </span><span style="color:#8959a8;">if </span><span style="color:#c82728;">self</span><span style="color:#111111;">.head </span><span style="color:#3e999f;">is </span><span style="color:#f07219;">None</span><span style="color:#111111;">:
+            </span><span style="color:#c82728;">self</span><span style="color:#111111;">.head </span><span style="color:#3e999f;">= </span><span style="color:#111111;">node
+            </span><span style="color:#c82728;">self</span><span style="color:#111111;">.tail </span><span style="color:#3e999f;">= </span><span style="color:#111111;">node
+            </span><span style="color:#8959a8;">return
+        </span><span style="color:#c82728;">self</span><span style="color:#4271ae;">.</span><span style="color:#c82728;">insert_before</span><span style="color:#4271ae;">(</span><span style="color:#c82728;">self</span><span style="color:#4271ae;">.head, node)
+
+    </span><span style="color:#8959a8;">def </span><span style="color:#4271ae;">set_tail</span><span style="color:#111111;">(</span><span style="color:#f07219;">self</span><span style="color:#111111;">, </span><span style="color:#f07219;">node</span><span style="color:#111111;">):
+        </span><span style="color:#8959a8;">if </span><span style="color:#c82728;">self</span><span style="color:#111111;">.tail </span><span style="color:#3e999f;">is </span><span style="color:#f07219;">None</span><span style="color:#111111;">:
+            </span><span style="color:#c82728;">self</span><span style="color:#4271ae;">.</span><span style="color:#c82728;">set_head</span><span style="color:#4271ae;">(node)
+            </span><span style="color:#8959a8;">return
+        </span><span style="color:#c82728;">self</span><span style="color:#4271ae;">.</span><span style="color:#c82728;">insert_after</span><span style="color:#4271ae;">(</span><span style="color:#c82728;">self</span><span style="color:#4271ae;">.tail, node)
+
+    </span><span style="color:#8959a8;">def </span><span style="color:#4271ae;">insert_at_postion</span><span style="color:#111111;">(</span><span style="color:#f07219;">self</span><span style="color:#111111;">, </span><span style="color:#f07219;">position</span><span style="color:#111111;">, </span><span style="color:#f07219;">node_to_insert</span><span style="color:#111111;">):
+        </span><span style="color:#8959a8;">if </span><span style="color:#111111;">position </span><span style="color:#3e999f;">== </span><span style="color:#f07219;">1</span><span style="color:#111111;">:
+            </span><span style="color:#c82728;">self</span><span style="color:#4271ae;">.</span><span style="color:#c82728;">set_head</span><span style="color:#4271ae;">(node_to_insert)
+            </span><span style="color:#8959a8;">return
+        </span><span style="color:#111111;">node </span><span style="color:#3e999f;">= </span><span style="color:#c82728;">self</span><span style="color:#111111;">.head
+        current_position </span><span style="color:#3e999f;">= </span><span style="color:#f07219;">1
+        </span><span style="color:#8959a8;">while </span><span style="color:#111111;">node </span><span style="color:#3e999f;">is not </span><span style="color:#f07219;">None </span><span style="color:#3e999f;">and </span><span style="color:#111111;">current_position </span><span style="color:#3e999f;">!= </span><span style="color:#111111;">position:
+            node </span><span style="color:#3e999f;">= </span><span style="color:#111111;">node.next
+            current_position </span><span style="color:#3e999f;">+= </span><span style="color:#f07219;">1
+        </span><span style="color:#8959a8;">if </span><span style="color:#111111;">node </span><span style="color:#3e999f;">is not </span><span style="color:#f07219;">None</span><span style="color:#111111;">:
+            </span><span style="color:#c82728;">self</span><span style="color:#4271ae;">.</span><span style="color:#c82728;">insert_before</span><span style="color:#4271ae;">(node, node_to_insert)
+        </span><span style="color:#8959a8;">else</span><span style="color:#111111;">:
+            </span><span style="color:#c82728;">self</span><span style="color:#4271ae;">.</span><span style="color:#c82728;">set_tail</span><span style="color:#4271ae;">(node_to_insert)
+
+    </span><span style="color:#8959a8;">def </span><span style="color:#4271ae;">insert_before</span><span style="color:#111111;">(</span><span style="color:#f07219;">self</span><span style="color:#111111;">, </span><span style="color:#f07219;">node</span><span style="color:#111111;">, </span><span style="color:#f07219;">node_to_insert</span><span style="color:#111111;">):
+        </span><span style="color:#8959a8;">if </span><span style="color:#111111;">node_to_insert </span><span style="color:#3e999f;">== </span><span style="color:#c82728;">self</span><span style="color:#111111;">.head </span><span style="color:#3e999f;">and </span><span style="color:#111111;">node_to_insert </span><span style="color:#3e999f;">== </span><span style="color:#c82728;">self</span><span style="color:#111111;">.tail:
+            </span><span style="color:#8959a8;">return
+        </span><span style="color:#c82728;">self</span><span style="color:#4271ae;">.</span><span style="color:#c82728;">remove</span><span style="color:#4271ae;">(node_to_insert)
+        </span><span style="color:#111111;">node_to_insert.prev </span><span style="color:#3e999f;">= </span><span style="color:#111111;">node.prev
+        node_to_insert.next </span><span style="color:#3e999f;">= </span><span style="color:#111111;">node
+        </span><span style="color:#8959a8;">if </span><span style="color:#111111;">node.prev </span><span style="color:#3e999f;">is </span><span style="color:#f07219;">None</span><span style="color:#111111;">:
+            </span><span style="color:#c82728;">self</span><span style="color:#111111;">.head </span><span style="color:#3e999f;">= </span><span style="color:#111111;">node_to_insert
+        </span><span style="color:#8959a8;">else</span><span style="color:#111111;">:
+            node.prev.next </span><span style="color:#3e999f;">= </span><span style="color:#111111;">node_to_insert
+        node.prev </span><span style="color:#3e999f;">= </span><span style="color:#111111;">node_to_insert
+
+    </span><span style="color:#8959a8;">def </span><span style="color:#4271ae;">insert_after</span><span style="color:#111111;">(</span><span style="color:#f07219;">self</span><span style="color:#111111;">, </span><span style="color:#f07219;">node</span><span style="color:#111111;">, </span><span style="color:#f07219;">node_to_insert</span><span style="color:#111111;">):
+        </span><span style="color:#8959a8;">if </span><span style="color:#111111;">node_to_insert </span><span style="color:#3e999f;">== </span><span style="color:#c82728;">self</span><span style="color:#111111;">.head </span><span style="color:#3e999f;">and </span><span style="color:#111111;">node_to_insert </span><span style="color:#3e999f;">== </span><span style="color:#c82728;">self</span><span style="color:#111111;">.tail:
+            </span><span style="color:#8959a8;">return
+        </span><span style="color:#c82728;">self</span><span style="color:#4271ae;">.</span><span style="color:#c82728;">remove</span><span style="color:#4271ae;">(node_to_insert)
+        </span><span style="color:#111111;">node_to_insert.prev </span><span style="color:#3e999f;">= </span><span style="color:#111111;">node
+        node_to_insert.next </span><span style="color:#3e999f;">= </span><span style="color:#111111;">node.next
+        </span><span style="color:#8959a8;">if </span><span style="color:#111111;">node.next </span><span style="color:#3e999f;">is </span><span style="color:#f07219;">None</span><span style="color:#111111;">:
+            </span><span style="color:#c82728;">self</span><span style="color:#111111;">.tail </span><span style="color:#3e999f;">= </span><span style="color:#111111;">node_to_insert
+        </span><span style="color:#8959a8;">else</span><span style="color:#111111;">:
+            node.next.prev </span><span style="color:#3e999f;">= </span><span style="color:#111111;">node_to_insert
+        node.next </span><span style="color:#3e999f;">= </span><span style="color:#111111;">node_to_insert
+
+    </span><span style="color:#8959a8;">def </span><span style="color:#4271ae;">remove_node_with_value</span><span style="color:#111111;">(</span><span style="color:#f07219;">self</span><span style="color:#111111;">, </span><span style="color:#f07219;">value</span><span style="color:#111111;">):
+        node </span><span style="color:#3e999f;">= </span><span style="color:#c82728;">self</span><span style="color:#111111;">.head
+        </span><span style="color:#8959a8;">while </span><span style="color:#111111;">node </span><span style="color:#3e999f;">is not </span><span style="color:#f07219;">None</span><span style="color:#111111;">:
+            node_to_remove </span><span style="color:#3e999f;">= </span><span style="color:#111111;">node
+            node </span><span style="color:#3e999f;">= </span><span style="color:#111111;">node.next
+            </span><span style="color:#8959a8;">if </span><span style="color:#111111;">node_to_remove.value </span><span style="color:#3e999f;">== </span><span style="color:#111111;">value:
+                </span><span style="color:#c82728;">self</span><span style="color:#4271ae;">.</span><span style="color:#c82728;">remove</span><span style="color:#4271ae;">(node_to_remove)
+
+    </span><span style="color:#8959a8;">def </span><span style="color:#4271ae;">remove</span><span style="color:#111111;">(</span><span style="color:#f07219;">self</span><span style="color:#111111;">, </span><span style="color:#f07219;">node</span><span style="color:#111111;">):
+        </span><span style="color:#8959a8;">if </span><span style="color:#111111;">node </span><span style="color:#3e999f;">== </span><span style="color:#c82728;">self</span><span style="color:#111111;">.head:
+            </span><span style="color:#c82728;">self</span><span style="color:#111111;">.head </span><span style="color:#3e999f;">= </span><span style="color:#c82728;">self</span><span style="color:#111111;">.head.next
+        </span><span style="color:#8959a8;">if </span><span style="color:#111111;">node </span><span style="color:#3e999f;">== </span><span style="color:#c82728;">self</span><span style="color:#111111;">.tail:
+            </span><span style="color:#c82728;">self</span><span style="color:#111111;">.tail </span><span style="color:#3e999f;">== </span><span style="color:#c82728;">self</span><span style="color:#111111;">.tail.prev
+        </span><span style="color:#c82728;">self</span><span style="color:#4271ae;">.</span><span style="color:#c82728;">remove_bindings</span><span style="color:#4271ae;">(node)
+
+    </span><span style="color:#8959a8;">def </span><span style="color:#4271ae;">remove_bindings</span><span style="color:#111111;">(</span><span style="color:#f07219;">self</span><span style="color:#111111;">, </span><span style="color:#f07219;">node</span><span style="color:#111111;">):
+        </span><span style="color:#8959a8;">if </span><span style="color:#111111;">node.prev </span><span style="color:#3e999f;">is not </span><span style="color:#f07219;">None</span><span style="color:#111111;">:
+            node.prev.next </span><span style="color:#3e999f;">= </span><span style="color:#111111;">node.next
+        </span><span style="color:#8959a8;">if </span><span style="color:#111111;">node.next </span><span style="color:#3e999f;">is not </span><span style="color:#f07219;">None</span><span style="color:#111111;">:
+            node.next.prev </span><span style="color:#3e999f;">= </span><span style="color:#111111;">node.prev
+        node.prev </span><span style="color:#3e999f;">= </span><span style="color:#f07219;">None
+        </span><span style="color:#111111;">node.next </span><span style="color:#3e999f;">= </span><span style="color:#f07219;">None
+
+    </span><span style="color:#8959a8;">def </span><span style="color:#4271ae;">node_has_value</span><span style="color:#111111;">(</span><span style="color:#f07219;">self</span><span style="color:#111111;">, </span><span style="color:#f07219;">value</span><span style="color:#111111;">):
+        node </span><span style="color:#3e999f;">= </span><span style="color:#c82728;">self</span><span style="color:#111111;">.head
+        </span><span style="color:#8959a8;">while </span><span style="color:#111111;">node </span><span style="color:#3e999f;">is not </span><span style="color:#f07219;">None </span><span style="color:#3e999f;">and </span><span style="color:#111111;">node.value </span><span style="color:#3e999f;">!= </span><span style="color:#111111;">value:
+            node </span><span style="color:#3e999f;">= </span><span style="color:#111111;">node.next
+        </span><span style="color:#8959a8;">return </span><span style="color:#111111;">node </span><span style="color:#3e999f;">is not </span><span style="color:#f07219;">None
+</span></code></pre></div>
+  <div class="btn__wrapper">
+    <a href="/blog" class="btn btn--more btn--ripple btn--more--post"><span class="btn--ripple__source"></span>Read
+      more
+      posts</a>
+  </div>
+</section>
+
+    </div>
+    
+<footer class="footer">
+    <p>&copy; <span id="currentYear"></span> <a href="http://github.com/sjinno" class="footer__author"
+            target="_blank">Shohei Jinno</a>
+    </p>
+    <p>
+        <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank" class="footer__cc">
+            <img alt="Creative Commons License" style="border-width:0"
+                src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" />
+        </a>
+    </p>
+</footer>
+
+
+    <script src="/js/main.js"></script>
+
+</html>

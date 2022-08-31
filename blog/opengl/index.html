@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/main.css">
+    <title>Shohei Jinno</title>
+    <link rel="shortcut icon" href=&#x2F;images&#x2F;pepe-16-270481.png type="image/x-icon">
+</head>
+
+<body>
+    
+<nav class="nav">
+    <a href="/" class="nav__home">Shohei Jinno</a>
+    <button class="hamburger">
+        <span class="hamburger__patty1"></span>
+        <span class="hamburger__patty2"></span>
+    </button>
+
+    <div class="nav__menu">
+        <ul class="nav__list">
+            <li class="nav__item"><a href="/blog">Blog</a></li>
+            <li class="nav__item"><a href="/projects">Projects</a></li>
+            <li class="nav__item">
+                <a href="http://github.com/sjinno" target="_blank">
+                    <span class="upper-right-arrow">↗</span> <span class="nav__item">GitHub</span>
+                </a>
+            </li>
+            <li><a href="http://www.linkedin.com/in/shohei-jinno-947a88121" target="_blank"><span class="upper-right-arrow">↗</span>
+                    LinkedIn</a>
+            </li>
+            <li><a href="http://www.instagram.com/shoelric" target="_blank"><span class="upper-right-arrow">↗</span> Instagram</a>
+            </li>
+            <li><a href="http://stackoverflow.com/users/4909849/syohey" target="_blank"><span class="upper-right-arrow">↗</span>
+                    Stack Overflow</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+
+
+    <div class="container">
+        
+<section class="post">
+  <h1 class="post__title">OpenGL on Fedora 33</h1>
+  <h3 class="post__date"><span class="date">2021-04-14</span></h3>
+  <div class="post__reading-time">2 minute read</div>
+  <div class="post__tags">
+    
+    <a class="post__tags__tag" href="/tags/c++">#c++</a>&nbsp;
+    
+    <a class="post__tags__tag" href="/tags/fedora">#fedora</a>&nbsp;
+    
+    <a class="post__tags__tag" href="/tags/glfw">#glfw</a>&nbsp;
+    
+    <a class="post__tags__tag" href="/tags/glad">#glad</a>&nbsp;
+    
+    <a class="post__tags__tag" href="/tags/opengl">#opengl</a>&nbsp;
+    
+    <a class="post__tags__tag" href="/tags/tutorial">#tutorial</a>&nbsp;
+    
+  </div>
+  <div class="post__content"><h2 id="installation-requirements">Installation requirements:</h2>
+<ul>
+<li>
+<p><strong>GLFW:</strong> <a href="https://www.glfw.org/download.html">https://www.glfw.org/download.html</a></p>
+</li>
+<li>
+<p><strong>GLAD:</strong> <a href="https://github.com/Dav1dde/glad">https://github.com/Dav1dde/glad</a> or <a href="https://glad.dav1d.de">https://glad.dav1d.de</a></p>
+</li>
+</ul>
+<p></p>
+<h2 id="useful-links">Useful links:</h2>
+<ul>
+<li>
+<p><a href="https://stackoverflow.com/questions/17768008/how-to-build-install-glfw-3-and-use-it-in-a-linux-project"><strong>How to build &amp; install GLFW 3 and use it in a Linux project</strong> (Stack Overflow)</a></p>
+</li>
+<li>
+<p><a href="https://www.reddit.com/r/opengl/comments/blqgoy/issue_compiling_with_glad_c/"><strong>Issue compiling with GLAD - C++</strong> (Reddit)</a></p>
+</li>
+</ul>
+<p><br />
+</p>
+<h2 id="step-1-install-glfw-and-glad">Step 1: Install GLFW and GLAD</h2>
+<p>After installing GLFW,</p>
+<ol>
+<li>
+<p><code>cd &lt;source-directory&gt;</code></p>
+</li>
+<li>
+<p><code>cmake -G &quot;Unix Makefiles&quot;</code></p>
+</li>
+<li>
+<p><code>sudo dnf install dnf-utils glfw</code></p>
+</li>
+<li>
+<p><code>make</code></p>
+</li>
+<li>
+<p><code>sudo make install</code></p>
+</li>
+</ol>
+<p>After installing GLAD,</p>
+<ol>
+<li><pre style="background-color:#f9f9f9;">
+<code><span style="color:#c82728;">sudo</span><span style="color:#4271ae;"> ln</span><span style="color:#f07219;"> -s </span><span style="color:#3e999f;">&lt;</span><span style="color:#4271ae;">path/to/glad</span><span style="color:#3e999f;">&gt;</span><span style="color:#4271ae;"> /usr/local/include/glad
+
+</span><span style="color:#8e908c;"># In my case,
+</span><span style="color:#c82728;">sudo</span><span style="color:#4271ae;"> ln</span><span style="color:#f07219;"> -s </span><span style="color:#c82728;">~</span><span style="color:#4271ae;">/glad/include/glad /usr/local/include/glad
+</span></code></pre></li>
+<li>
+<p>You will need <code>glad.c</code> when compiling, so put it in the project directory or wherever you can remember.</p>
+</li>
+</ol>
+<p></p>
+<h2 id="step-2-compile">Step 2: Compile</h2>
+<ol>
+<li>
+<p>Grab an example code from <a href="https://learnopengl.com/code_viewer_gh.php?code=src/1.getting_started/3.2.shaders_interpolation/shaders_interpolation.cpp">here</a> and name it <code>shaders.cpp</code>.</p>
+</li>
+<li>
+<p>Compile <code>shaders.cpp</code> with:</p>
+<pre style="background-color:#f9f9f9;">
+<code><span style="color:#c82728;">g++</span><span style="color:#f07219;"> -std</span><span style="color:#3e999f;">=</span><span style="color:#4271ae;">c++11</span><span style="color:#f07219;"> -c</span><span style="color:#4271ae;"> shaders.cpp </span><span style="color:#3e999f;">&lt;</span><span style="color:#4271ae;">path/to/glad.c</span><span style="color:#3e999f;">&gt;
+
+</span><span style="color:#8e908c;"># In my case,
+</span><span style="color:#c82728;">g++</span><span style="color:#f07219;"> -std</span><span style="color:#3e999f;">=</span><span style="color:#4271ae;">c++11</span><span style="color:#f07219;"> -c</span><span style="color:#4271ae;"> shaders.cpp </span><span style="color:#c82728;">~</span><span style="color:#4271ae;">/glad/src/glad.c
+</span></code></pre></li>
+<li>
+<p>Output an executable file with:</p>
+<pre style="background-color:#f9f9f9;">
+<code><span style="color:#c82728;">g++</span><span style="color:#4271ae;"> shaders.o glad.o</span><span style="color:#f07219;"> -o</span><span style="color:#4271ae;"> shaders.exec</span><span style="color:#f07219;"> -lGL -lglfw3 -lX11 -lpthread -ldl
+</span></code></pre></li>
+<li>
+<p>Finally execute with:</p>
+<pre style="background-color:#f9f9f9;">
+<code><span style="color:#c82728;">./shaders.exec
+</span></code></pre>
+<p>And you should see something like this:</p>
+<p><img src="/images/blog/shaders.webp" alt="triangle" /></p>
+</li>
+</ol>
+<p></p>
+<h2 id="finally">Finally</h2>
+<p>If this didn't help, you should be missing more required packages and you want to google until you find an answer. I don't know anything about C/ C++, so it was kind of confusing to learn how to link stuff and whatnot, but eventually I found the answers I needed. :)</p>
+<p>Good luck!</p>
+</div>
+  <div class="btn__wrapper">
+    <a href="/blog" class="btn btn--more btn--ripple btn--more--post"><span class="btn--ripple__source"></span>Read
+      more
+      posts</a>
+  </div>
+</section>
+
+    </div>
+    
+<footer class="footer">
+    <p>&copy; <span id="currentYear"></span> <a href="http://github.com/sjinno" class="footer__author"
+            target="_blank">Shohei Jinno</a>
+    </p>
+    <p>
+        <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank" class="footer__cc">
+            <img alt="Creative Commons License" style="border-width:0"
+                src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" />
+        </a>
+    </p>
+</footer>
+
+
+    <script src="/js/main.js"></script>
+
+</html>

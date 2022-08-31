@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/main.css">
+    <title>Shohei Jinno</title>
+    <link rel="shortcut icon" href=&#x2F;images&#x2F;pepe-16-270481.png type="image/x-icon">
+</head>
+
+<body>
+    
+<nav class="nav">
+    <a href="/" class="nav__home">Shohei Jinno</a>
+    <button class="hamburger">
+        <span class="hamburger__patty1"></span>
+        <span class="hamburger__patty2"></span>
+    </button>
+
+    <div class="nav__menu">
+        <ul class="nav__list">
+            <li class="nav__item"><a href="/blog">Blog</a></li>
+            <li class="nav__item"><a href="/projects">Projects</a></li>
+            <li class="nav__item">
+                <a href="http://github.com/sjinno" target="_blank">
+                    <span class="upper-right-arrow">↗</span> <span class="nav__item">GitHub</span>
+                </a>
+            </li>
+            <li><a href="http://www.linkedin.com/in/shohei-jinno-947a88121" target="_blank"><span class="upper-right-arrow">↗</span>
+                    LinkedIn</a>
+            </li>
+            <li><a href="http://www.instagram.com/shoelric" target="_blank"><span class="upper-right-arrow">↗</span> Instagram</a>
+            </li>
+            <li><a href="http://stackoverflow.com/users/4909849/syohey" target="_blank"><span class="upper-right-arrow">↗</span>
+                    Stack Overflow</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+
+
+    <div class="container">
+        
+<section class="post">
+  <h1 class="post__title">Pipenv</h1>
+  <h3 class="post__date"><span class="date">2021-03-20</span></h3>
+  <div class="post__reading-time">1 minute read</div>
+  <div class="post__tags">
+    
+    <a class="post__tags__tag" href="/tags/pipenv">#pipenv</a>&nbsp;
+    
+    <a class="post__tags__tag" href="/tags/python">#python</a>&nbsp;
+    
+  </div>
+  <div class="post__content"><ul>
+<li>
+<p>Create a virtual enronment with <code>pipenv</code>:</p>
+<pre style="background-color:#f9f9f9;">
+<code><span style="color:#c82728;">pipenv</span><span style="color:#4271ae;"> shell
+</span></code></pre></li>
+<li>
+<p>Run python files:</p>
+<pre style="background-color:#f9f9f9;">
+<code><span style="color:#8e908c;"># 1. If you are in the environment, then
+</span><span style="color:#c82728;">python </span><span style="color:#3e999f;">&lt;</span><span style="color:#4271ae;">file-name</span><span style="color:#3e999f;">&gt;
+
+</span><span style="color:#8e908c;"># 2. If not, then
+</span><span style="color:#c82728;">pipenv</span><span style="color:#4271ae;"> run python </span><span style="color:#3e999f;">&lt;</span><span style="color:#4271ae;">file-name</span><span style="color:#3e999f;">&gt;
+</span></code></pre></li>
+<li>
+<p>Install packages:</p>
+<pre style="background-color:#f9f9f9;">
+<code><span style="color:#c82728;">pipenv</span><span style="color:#4271ae;"> install </span><span style="color:#3e999f;">&lt;</span><span style="color:#4271ae;">pkg-name</span><span style="color:#3e999f;">&gt;
+
+</span><span style="color:#8e908c;"># Or if it&#39;s a dev-dependency, e.g. autopep8
+</span><span style="color:#c82728;">pipenv</span><span style="color:#4271ae;"> install </span><span style="color:#3e999f;">&lt;</span><span style="color:#4271ae;">pkg-name</span><span style="color:#3e999f;">&gt; </span><span style="color:#4271ae;">--dev
+</span></code></pre></li>
+<li>
+<p>Other frequently used commands:</p>
+<pre style="background-color:#f9f9f9;">
+<code><span style="color:#8e908c;"># List installed packages:
+</span><span style="color:#c82728;">pipenv</span><span style="color:#4271ae;"> lock</span><span style="color:#f07219;"> -r
+
+</span><span style="color:#8e908c;"># Check package vulnerabilities:
+</span><span style="color:#c82728;">pipenv</span><span style="color:#4271ae;"> check
+
+</span><span style="color:#8e908c;"># After editing `pyton_version` in `Pipfile` to whatever version you want to use,
+</span><span style="color:#8e908c;"># run tis command to apply the update.
+</span><span style="color:#8e908c;"># This will remove the currenct environment and create a new one with the updated version.
+</span><span style="color:#c82728;">pipenv</span><span style="color:#f07219;"> --python </span><span style="color:#3e999f;">&lt;</span><span style="color:#4271ae;">python-ver</span><span style="color:#3e999f;">&gt;
+
+</span><span style="color:#8e908c;"># Uninstall package(s):
+</span><span style="color:#c82728;">pipenv</span><span style="color:#4271ae;"> uninstall </span><span style="color:#3e999f;">&lt;</span><span style="color:#4271ae;">pkg-name</span><span style="color:#3e999f;">&gt;
+
+</span><span style="color:#8e908c;"># Remove the current virtual environment:
+</span><span style="color:#c82728;">pipenv</span><span style="color:#f07219;"> --rm
+</span></code></pre></li>
+</ul>
+</div>
+  <div class="btn__wrapper">
+    <a href="/blog" class="btn btn--more btn--ripple btn--more--post"><span class="btn--ripple__source"></span>Read
+      more
+      posts</a>
+  </div>
+</section>
+
+    </div>
+    
+<footer class="footer">
+    <p>&copy; <span id="currentYear"></span> <a href="http://github.com/sjinno" class="footer__author"
+            target="_blank">Shohei Jinno</a>
+    </p>
+    <p>
+        <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank" class="footer__cc">
+            <img alt="Creative Commons License" style="border-width:0"
+                src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" />
+        </a>
+    </p>
+</footer>
+
+
+    <script src="/js/main.js"></script>
+
+</html>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+	<title> - Environment Management</title>
+	<link href="https://sjinno.xyz/categories/environment-management/atom.xml" rel="self" type="application/atom+xml"/>
+  <link href="https://sjinno.xyz"/>
+	<generator uri="https://www.getzola.org/">Zola</generator>
+	<updated>2021-03-20T00:00:00+00:00</updated>
+	<id>https://sjinno.xyz/categories/environment-management/atom.xml</id>
+	<entry xml:lang="en">
+		<title>Pipenv</title>
+		<published>2021-03-20T00:00:00+00:00</published>
+		<updated>2021-03-20T00:00:00+00:00</updated>
+		<link href="https://sjinno.xyz/blog/pipenv/" type="text/html"/>
+		<id>https://sjinno.xyz/blog/pipenv/</id>
+		<content type="html">&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Create a virtual enronment with &lt;code&gt;pipenv&lt;&#x2F;code&gt;:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#f9f9f9;&quot;&gt;
+&lt;code&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;pipenv&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; shell
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;Run python files:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#f9f9f9;&quot;&gt;
+&lt;code&gt;&lt;span style=&quot;color:#8e908c;&quot;&gt;# 1. If you are in the environment, then
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;python &lt;&#x2F;span&gt;&lt;span style=&quot;color:#3e999f;&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt;file-name&lt;&#x2F;span&gt;&lt;span style=&quot;color:#3e999f;&quot;&gt;&amp;gt;
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8e908c;&quot;&gt;# 2. If not, then
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;pipenv&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; run python &lt;&#x2F;span&gt;&lt;span style=&quot;color:#3e999f;&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt;file-name&lt;&#x2F;span&gt;&lt;span style=&quot;color:#3e999f;&quot;&gt;&amp;gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;Install packages:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#f9f9f9;&quot;&gt;
+&lt;code&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;pipenv&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; install &lt;&#x2F;span&gt;&lt;span style=&quot;color:#3e999f;&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt;pkg-name&lt;&#x2F;span&gt;&lt;span style=&quot;color:#3e999f;&quot;&gt;&amp;gt;
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8e908c;&quot;&gt;# Or if it&amp;#39;s a dev-dependency, e.g. autopep8
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;pipenv&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; install &lt;&#x2F;span&gt;&lt;span style=&quot;color:#3e999f;&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt;pkg-name&lt;&#x2F;span&gt;&lt;span style=&quot;color:#3e999f;&quot;&gt;&amp;gt; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt;--dev
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;Other frequently used commands:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#f9f9f9;&quot;&gt;
+&lt;code&gt;&lt;span style=&quot;color:#8e908c;&quot;&gt;# List installed packages:
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;pipenv&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; lock&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07219;&quot;&gt; -r
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8e908c;&quot;&gt;# Check package vulnerabilities:
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;pipenv&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; check
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8e908c;&quot;&gt;# After editing `pyton_version` in `Pipfile` to whatever version you want to use,
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8e908c;&quot;&gt;# run tis command to apply the update.
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8e908c;&quot;&gt;# This will remove the currenct environment and create a new one with the updated version.
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;pipenv&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07219;&quot;&gt; --python &lt;&#x2F;span&gt;&lt;span style=&quot;color:#3e999f;&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt;python-ver&lt;&#x2F;span&gt;&lt;span style=&quot;color:#3e999f;&quot;&gt;&amp;gt;
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8e908c;&quot;&gt;# Uninstall package(s):
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;pipenv&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; uninstall &lt;&#x2F;span&gt;&lt;span style=&quot;color:#3e999f;&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt;pkg-name&lt;&#x2F;span&gt;&lt;span style=&quot;color:#3e999f;&quot;&gt;&amp;gt;
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8e908c;&quot;&gt;# Remove the current virtual environment:
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;pipenv&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07219;&quot;&gt; --rm
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+</content>
+	</entry>
+</feed>

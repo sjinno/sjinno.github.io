@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+	<title> - Fedora</title>
+	<link href="https://sjinno.xyz/categories/fedora/atom.xml" rel="self" type="application/atom+xml"/>
+  <link href="https://sjinno.xyz"/>
+	<generator uri="https://www.getzola.org/">Zola</generator>
+	<updated>2021-03-17T00:00:00+00:00</updated>
+	<id>https://sjinno.xyz/categories/fedora/atom.xml</id>
+	<entry xml:lang="en">
+		<title>DNF</title>
+		<published>2021-03-17T00:00:00+00:00</published>
+		<updated>2021-03-17T00:00:00+00:00</updated>
+		<link href="https://sjinno.xyz/blog/dnf/" type="text/html"/>
+		<id>https://sjinno.xyz/blog/dnf/</id>
+		<content type="html">&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;How not to include specific packages to update:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#f9f9f9;&quot;&gt;
+&lt;code&gt;&lt;span style=&quot;color:#8e908c;&quot;&gt;# Formula:
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; dnf update&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07219;&quot;&gt; --exclude&lt;&#x2F;span&gt;&lt;span style=&quot;color:#3e999f;&quot;&gt;=&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt;pkg-name&lt;&#x2F;span&gt;&lt;span style=&quot;color:#3e999f;&quot;&gt;&amp;gt;
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8e908c;&quot;&gt;# For example, if you want to skip `texlive-...` to update,
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8e908c;&quot;&gt;# then you would run:
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; dnf update&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07219;&quot;&gt; --exclude&lt;&#x2F;span&gt;&lt;span style=&quot;color:#3e999f;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt;texlive-&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07219;&quot;&gt;\*
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;Search specific package:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#f9f9f9;&quot;&gt;
+&lt;code&gt;&lt;span style=&quot;color:#8e908c;&quot;&gt;# Formula:
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; dnf search &lt;&#x2F;span&gt;&lt;span style=&quot;color:#3e999f;&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt;pkg-name&lt;&#x2F;span&gt;&lt;span style=&quot;color:#3e999f;&quot;&gt;&amp;gt;
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8e908c;&quot;&gt;# e.g.
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; dnf search sox
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;Check if specific package is installed:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#f9f9f9;&quot;&gt;
+&lt;code&gt;&lt;span style=&quot;color:#8e908c;&quot;&gt;# Formula:
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;dnf&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; list installed &lt;&#x2F;span&gt;&lt;span style=&quot;color:#839c00;&quot;&gt;&amp;quot;pkg-name&amp;quot;
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8e908c;&quot;&gt;# e.g.
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;dnf&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; list installed &lt;&#x2F;span&gt;&lt;span style=&quot;color:#839c00;&quot;&gt;&amp;quot;postgresql*&amp;quot;
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8e908c;&quot;&gt;# Alternatively, you can also do this:
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;dnf&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; list installed &lt;&#x2F;span&gt;&lt;span style=&quot;color:#3e999f;&quot;&gt;| &lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;grep&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; postgresql
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;Remove specif package:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#f9f9f9;&quot;&gt;
+&lt;code&gt;&lt;span style=&quot;color:#8e908c;&quot;&gt;# Formula:
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; dnf remove &lt;&#x2F;span&gt;&lt;span style=&quot;color:#3e999f;&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt;pkg-name&lt;&#x2F;span&gt;&lt;span style=&quot;color:#3e999f;&quot;&gt;&amp;gt;
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8e908c;&quot;&gt;# e.g.
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; dnf remove zathura
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+</content>
+	</entry>
+</feed>

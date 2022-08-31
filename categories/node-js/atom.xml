@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+	<title> - Node.js</title>
+	<link href="https://sjinno.xyz/categories/node-js/atom.xml" rel="self" type="application/atom+xml"/>
+  <link href="https://sjinno.xyz"/>
+	<generator uri="https://www.getzola.org/">Zola</generator>
+	<updated>2021-08-13T00:00:00+00:00</updated>
+	<id>https://sjinno.xyz/categories/node-js/atom.xml</id>
+	<entry xml:lang="en">
+		<title>Node Version Manager</title>
+		<published>2021-08-13T00:00:00+00:00</published>
+		<updated>2021-08-13T00:00:00+00:00</updated>
+		<link href="https://sjinno.xyz/blog/nvm/" type="text/html"/>
+		<id>https://sjinno.xyz/blog/nvm/</id>
+		<content type="html">&lt;p&gt;You can get nvm here: &lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;nvm-sh&#x2F;nvm&quot;&gt;https:&#x2F;&#x2F;github.com&#x2F;nvm-sh&#x2F;nvm&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Check which version of node you currently use&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;pre style=&quot;background-color:#f9f9f9;&quot;&gt;
+&lt;code&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;nvm&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; current
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;ul&gt;
+&lt;li&gt;List all versions of node you have installed on your machine&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;pre style=&quot;background-color:#f9f9f9;&quot;&gt;
+&lt;code&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;nvm&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; ls
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;ul&gt;
+&lt;li&gt;Install a specific version of node&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;pre style=&quot;background-color:#f9f9f9;&quot;&gt;
+&lt;code&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;nvm&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; install 14.17.5
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8e908c;&quot;&gt;# will install v14.17.5
+
+# Or you can also do
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt;nvm install&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07219;&quot;&gt; --lts
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8e908c;&quot;&gt;# to install the latest LTS release
+# --lts means only select from LTS (long-term support) versions
+
+# And then,
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07219;&quot;&gt;nvm&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; use 14.17.5
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8e908c;&quot;&gt;# to switch to a specific version
+
+# And then, run
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt;nvm install-latest-npm
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8e908c;&quot;&gt;# to upgrade to the latest working `npm` on the current node version
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;</content>
+	</entry>
+</feed>

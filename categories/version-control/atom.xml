@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+	<title> - Version Control</title>
+	<link href="https://sjinno.xyz/categories/version-control/atom.xml" rel="self" type="application/atom+xml"/>
+  <link href="https://sjinno.xyz"/>
+	<generator uri="https://www.getzola.org/">Zola</generator>
+	<updated>2020-12-02T00:00:00+00:00</updated>
+	<id>https://sjinno.xyz/categories/version-control/atom.xml</id>
+	<entry xml:lang="en">
+		<title>Git</title>
+		<published>2020-12-02T00:00:00+00:00</published>
+		<updated>2020-12-02T00:00:00+00:00</updated>
+		<link href="https://sjinno.xyz/blog/git/" type="text/html"/>
+		<id>https://sjinno.xyz/blog/git/</id>
+		<content type="html">&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Remove files that are listed in the .gitignore but still on the remote repository:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#f9f9f9;&quot;&gt;
+&lt;code&gt;&lt;span style=&quot;color:#8e908c;&quot;&gt;# Remove the file(s) that you want to untrack from .gitignore
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8e908c;&quot;&gt;# 1. Remove them with:
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;git&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; rm&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07219;&quot;&gt; --cached&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; file1 file2 dir&#x2F;file3
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8e908c;&quot;&gt;# Or, if you have a lot of files:
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;git&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; rm&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07219;&quot;&gt; --cached &lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt;`&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;git&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; ls-files&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07219;&quot;&gt; -i --exclude-from&lt;&#x2F;span&gt;&lt;span style=&quot;color:#3e999f;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt;.gitignore`
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Here is &lt;a href=&quot;https:&#x2F;&#x2F;stackoverflow.com&#x2F;questions&#x2F;13541615&#x2F;how-to-remove-files-that-are-listed-in-the-gitignore-but-still-on-the-repositor&quot;&gt;the stackoverflow link&lt;&#x2F;a&gt; for reference.&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;Quick way to create a branch and check it out in one line:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#f9f9f9;&quot;&gt;
+&lt;code&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;git&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; checkout&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07219;&quot;&gt; -b&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; branch1
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;Split git commit into multiple commits:&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Suppose you have a commit that &lt;code&gt;README.md&lt;&#x2F;code&gt; and &lt;code&gt;file1.txt&lt;&#x2F;code&gt; have changes,
+and you want to split the commit into one with just &lt;code&gt;README.md&lt;&#x2F;code&gt; and another with &lt;code&gt;file1.txt&lt;&#x2F;code&gt;.&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;pre style=&quot;background-color:#f9f9f9;&quot;&gt;
+&lt;code&gt;&lt;span style=&quot;color:#8e908c;&quot;&gt;# 1. Run interactive rebase
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8e908c;&quot;&gt;# Change `n` to appropriate number.
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8e908c;&quot;&gt;# For example, if the commit is located in the second from HEAD,
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8e908c;&quot;&gt;# then you would run `git rebase -i HEAD~2`
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8e908c;&quot;&gt;# If it&amp;#39;s the very first commit, then `git rebase -i --root`.
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;git&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; rebase&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07219;&quot;&gt; -i&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; HEAD&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;~&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt;n
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8e908c;&quot;&gt;# 2. pick -&amp;gt; edit
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8e908c;&quot;&gt;# 3. git reset HEAD^
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8e908c;&quot;&gt;# 4. Add, commit, and continue with `git rebase --continue`.
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8e908c;&quot;&gt;# 5. Repeat until you are done splitting the commit.
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8e908c;&quot;&gt;# 6. Force push?
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;List tracked files:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#f9f9f9;&quot;&gt;
+&lt;code&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;git&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; ls-files
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+</content>
+	</entry>
+</feed>

@@ -1,0 +1,483 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+	<title> - tutorial</title>
+	<link href="https://sjinno.xyz/tags/tutorial/atom.xml" rel="self" type="application/atom+xml"/>
+  <link href="https://sjinno.xyz"/>
+	<generator uri="https://www.getzola.org/">Zola</generator>
+	<updated>2021-04-15T00:00:00+00:00</updated>
+	<id>https://sjinno.xyz/tags/tutorial/atom.xml</id>
+	<entry xml:lang="en">
+		<title>pgAdmin4 on Fedora 33</title>
+		<published>2021-04-15T00:00:00+00:00</published>
+		<updated>2021-04-15T00:00:00+00:00</updated>
+		<link href="https://sjinno.xyz/blog/pgadmin/" type="text/html"/>
+		<id>https://sjinno.xyz/blog/pgadmin/</id>
+		<content type="html">&lt;h2 id=&quot;useful-links&quot;&gt;Useful links:&lt;&#x2F;h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v=jDQjRHPRcgM&amp;amp;list=PL061tjwVHN1gJIfXCHk4jc9aRacY0D9vR&amp;amp;index=1&amp;amp;t=581s&quot;&gt;PostgreSQL Server Setup &amp;amp; Monitor&lt;&#x2F;a&gt; (YouTube)&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https:&#x2F;&#x2F;computingforgeeks.com&#x2F;how-to-install-postgresql-12-on-fedora&#x2F;&quot;&gt;How To Install PostgreSQL 12 on Fedora 33&#x2F;32&#x2F;31&#x2F;30&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https:&#x2F;&#x2F;computingforgeeks.com&#x2F;how-to-install-pgadmin-on-centos-fedora&#x2F;&quot;&gt;Install pgAdmin 4 on CentOS 7 &amp;amp; Fedora 33&#x2F;32&#x2F;31&#x2F;30&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;useful-commands&quot;&gt;Useful commands:&lt;&#x2F;h2&gt;
+&lt;pre style=&quot;background-color:#f9f9f9;&quot;&gt;
+&lt;code&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; dnf search postgresql12
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;dnf&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; list installed &lt;&#x2F;span&gt;&lt;span style=&quot;color:#3e999f;&quot;&gt;| &lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;grep&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; postgresql12
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;systemctl&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; status httpd
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;systemctl&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; status postgresql-12
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;systemctl&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; start httpd
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;systemctl&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; start postgresql-12
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;systemctl&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; stop httpd
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;systemctl&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; stop postgresql-12
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;systemctl&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; restart httpd
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;systemctl&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; restart postgresql-12
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;man&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; firewall-cmd
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; netstat&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07219;&quot;&gt; -tupln
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;&lt;br &#x2F;&gt;
+&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;step-1-install-postgresql&quot;&gt;Step 1: Install PostgreSQL&lt;&#x2F;h2&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;First of all, update the system packages&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#f9f9f9;&quot;&gt;
+&lt;code&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; dnf update&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07219;&quot;&gt; -y &lt;&#x2F;span&gt;&lt;span style=&quot;color:#3e999f;&quot;&gt;&amp;amp;&amp;amp; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;reboot
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;Add the PostgreSQL yum repository&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;strong&gt;Download link:&lt;&#x2F;strong&gt; &lt;a href=&quot;https:&#x2F;&#x2F;www.postgresql.org&#x2F;download&#x2F;linux&#x2F;redhat&#x2F;&quot;&gt;https:&#x2F;&#x2F;www.postgresql.org&#x2F;download&#x2F;linux&#x2F;redhat&#x2F;&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#f9f9f9;&quot;&gt;
+&lt;code&gt;&lt;span style=&quot;color:#8e908c;&quot;&gt;# Install the repository RPM:
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; dnf install&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07219;&quot;&gt; -y&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; https:&#x2F;&#x2F;download.postgresql.org&#x2F;pub&#x2F;repos&#x2F;yum&#x2F;reporpms&#x2F;F-33-x86_64&#x2F; pgdg-fedora-repo-latest.noarch.rpm
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8e908c;&quot;&gt;# Install PostgreSQL:
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; dnf install&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07219;&quot;&gt; -y&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; postgresql12-server postgresql12
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8e908c;&quot;&gt;# Initialize the database and enable automatic start:
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; postgresql-12-setup initdb
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8e908c;&quot;&gt;# If the above didn&amp;#39;t work, then try the following:
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; &#x2F;usr&#x2F;pgsql-12&#x2F;bin&#x2F;postgresql-12-setup initdb
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8e908c;&quot;&gt;# Enable postgres server to start on boot:
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; systemctl enable postgresql-12
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8e908c;&quot;&gt;# Start postgres server:
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; systemctl start postgresql-12
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;Firewall setting&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#f9f9f9;&quot;&gt;
+&lt;code&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; firewall-cmd&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07219;&quot;&gt; --add-port&lt;&#x2F;span&gt;&lt;span style=&quot;color:#3e999f;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt;5432&#x2F;tcp&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07219;&quot;&gt; --permanent
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; firewall-cmd&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07219;&quot;&gt; --reload
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;Edit &lt;code&gt;&#x2F;var&#x2F;lib&#x2F;pgsql&#x2F;12&#x2F;data&#x2F;postgresql.conf&lt;&#x2F;code&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;Edit the line where it says &lt;code&gt;listen_addresses = &#x27;...&#x27;&lt;&#x2F;code&gt; to &lt;code&gt;listen_addresses = &#x27;*&#x27;&lt;&#x2F;code&gt; for remote access.&lt;&#x2F;p&gt;
+&lt;p&gt;Mine is just set to &lt;code&gt;listen_addresses = &#x27;localhost&#x27;&lt;&#x2F;code&gt; or &lt;code&gt;listen_addresses = &#x27;127.0.0.1&#x27;&lt;&#x2F;code&gt; since I don&#x27;t need to remotely access to the database right now.&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;Notice that there is now &lt;code&gt;potgres&lt;&#x2F;code&gt; user with:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#f9f9f9;&quot;&gt;
+&lt;code&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;more&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; &#x2F;etc&#x2F;&#x2F;passwd &lt;&#x2F;span&gt;&lt;span style=&quot;color:#3e999f;&quot;&gt;| &lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;grep&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; postgres
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8e908c;&quot;&gt;# And then set the admin password with:
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; passwd postgres
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;&lt;strong&gt;IMPORTANT:&lt;&#x2F;strong&gt; Try not to forget the password.&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;Set PostgreSQL admin user’s password&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#f9f9f9;&quot;&gt;
+&lt;code&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; su - postgres
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8e908c;&quot;&gt;# After running the line below,
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8e908c;&quot;&gt;# it should print out `ALTER ROLE` if successful.
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;psql&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07219;&quot;&gt; -d&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; template1&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07219;&quot;&gt; -c &lt;&#x2F;span&gt;&lt;span style=&quot;color:#839c00;&quot;&gt;&amp;quot;ALTER USER postgres WITH PASSWORD &amp;#39;ReallyGoodPasswd&amp;#39;;&amp;quot;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;p&gt;And that should be it for the installation of PostgreSQL!&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;step-2-set-up-pgadmin4&quot;&gt;Step 2: Set up pgAdmin4&lt;&#x2F;h2&gt;
+&lt;p&gt;This one is fairly easier, so let&#x27;s just do it :)&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;strong&gt;Instruction link:&lt;&#x2F;strong&gt; &lt;a href=&quot;https:&#x2F;&#x2F;www.pgadmin.org&#x2F;download&#x2F;pgadmin-4-rpm&#x2F;&quot;&gt;https:&#x2F;&#x2F;www.pgadmin.org&#x2F;download&#x2F;pgadmin-4-rpm&#x2F;&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Uninstall any pgAdmin repo packages that you may already have installed:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#f9f9f9;&quot;&gt;
+&lt;code&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; rpm&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07219;&quot;&gt; -e&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; pgadmin4-fedora-repo
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;Set up the repository:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#f9f9f9;&quot;&gt;
+&lt;code&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; rpm&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07219;&quot;&gt; -i&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; https:&#x2F;&#x2F;ftp.postgresql.org&#x2F;pub&#x2F;pgadmin&#x2F;pgadmin4&#x2F;yum&#x2F;pgadmin4-fedora-repo-1-1.noarch.rpm
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;Search for package:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#f9f9f9;&quot;&gt;
+&lt;code&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; dnf search pgadmin4
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;Install the package:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#f9f9f9;&quot;&gt;
+&lt;code&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; dnf install pgadmin4.noarch
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;Finally, run the web setup script to configure the system to run in web mode:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#f9f9f9;&quot;&gt;
+&lt;code&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; &#x2F;usr&#x2F;pgadmin4&#x2F;bin&#x2F;setup-web.sh
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;p&gt;That should be it for the installation of pgAdmin4, though I could be missing somthing. If that seems like the case, please go to &lt;a href=&quot;https:&#x2F;&#x2F;computingforgeeks.com&#x2F;how-to-install-pgadmin-on-centos-fedora&#x2F;&quot;&gt;Install pgAdmin 4 on CentOS 7 &amp;amp; Fedora 33&#x2F;32&#x2F;31&#x2F;30&lt;&#x2F;a&gt; and try to figure it out.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;finally&quot;&gt;Finally&lt;&#x2F;h2&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;You might have to open &lt;code&gt;&#x2F;var&#x2F;lib&#x2F;pgsql&#x2F;12&#x2F;data&#x2F;pg_hba.conf&lt;&#x2F;code&gt; with:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#f9f9f9;&quot;&gt;
+&lt;code&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; nano &#x2F;var&#x2F;lib&#x2F;pgsql&#x2F;12&#x2F;data&#x2F;pg_hba.conf
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;And change &lt;code&gt;peer&lt;&#x2F;code&gt; and &lt;code&gt;ident&lt;&#x2F;code&gt; to &lt;code&gt;md5&lt;&#x2F;code&gt;.&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#f9f9f9;&quot;&gt;
+&lt;code&gt;&lt;span style=&quot;color:#8e908c;&quot;&gt;# TYPE  DATABASE        USER            ADDRESS                 METHOD
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8e908c;&quot;&gt;# &amp;quot;local&amp;quot; is for Unix domain socket connections only
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8959a8;&quot;&gt;local   &lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;all             all                                     md5
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8e908c;&quot;&gt;# IPv4 local connections:
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;host&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt;    all             all             127.0.0.1&#x2F;32            md5
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;p&gt;And...that really should be it?&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;br &#x2F;&gt;
+&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;optional&quot;&gt;Optional:&lt;&#x2F;h3&gt;
+&lt;p&gt;Let&#x27;s create a test database!&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#f9f9f9;&quot;&gt;
+&lt;code&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;su&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; - postgres
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;&lt;pre style=&quot;background-color:#f9f9f9;&quot;&gt;
+&lt;code&gt;&lt;span style=&quot;color:#8e908c;&quot;&gt;# Create a new test database:
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;createdb&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; newtestdb
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;&lt;pre style=&quot;background-color:#f9f9f9;&quot;&gt;
+&lt;code&gt;&lt;span style=&quot;color:#111111;&quot;&gt;psql newtestdb
+
+# List all the databases:
+\l
+
+CREATE TABLE employees (eid int, fname varchar, lname varchar);
+
+INSERT INTO employees VALUES (1, &amp;#39;Peter&amp;#39;, &amp;#39;Smith&amp;#39;);
+
+SELECT * FROM employees;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;To exit &lt;code&gt;psql&lt;&#x2F;code&gt;, run&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#f9f9f9;&quot;&gt;
+&lt;code&gt;&lt;span style=&quot;color:#111111;&quot;&gt;\q
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;And to exit &lt;code&gt;postgres user&lt;&#x2F;code&gt;, run&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#f9f9f9;&quot;&gt;
+&lt;code&gt;&lt;span style=&quot;color:#111111;&quot;&gt;exit
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Now you can also open up your pgAdmin4 by going to &lt;code&gt;localhost&#x2F;pgadmin4&lt;&#x2F;code&gt; or maybe &lt;code&gt;127.0.0.1&#x2F;pgadmin4&lt;&#x2F;code&gt; and you should be able to see the database created!&lt;&#x2F;p&gt;
+&lt;p&gt;Though, if it&#x27;s your first time ever opening up pgAdmin4, &lt;strong&gt;&lt;em&gt;you will have to connect it to the postgres server.&lt;&#x2F;em&gt;&lt;&#x2F;strong&gt; So just simply follow the very last part of &lt;a href=&quot;https:&#x2F;&#x2F;computingforgeeks.com&#x2F;how-to-install-pgadmin-on-centos-fedora&#x2F;&quot;&gt;Install pgAdmin 4 on CentOS 7 &amp;amp; Fedora 33&#x2F;32&#x2F;31&#x2F;30&lt;&#x2F;a&gt;, and you should be good to go.&lt;&#x2F;p&gt;
+&lt;p&gt;Also, don&#x27;t forget to:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#f9f9f9;&quot;&gt;
+&lt;code&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;systemctl&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; start httpd
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;systemctl&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; start postgresql-12
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;You can check if they&#x27;re running with:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#f9f9f9;&quot;&gt;
+&lt;code&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;systemctl&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; status httpd
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;systemctl&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; status postgresql-12
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;I hope it helped!&lt;&#x2F;p&gt;
+</content>
+	</entry>
+	<entry xml:lang="en">
+		<title>OpenGL on Fedora 33</title>
+		<published>2021-04-14T00:00:00+00:00</published>
+		<updated>2021-04-14T00:00:00+00:00</updated>
+		<link href="https://sjinno.xyz/blog/opengl/" type="text/html"/>
+		<id>https://sjinno.xyz/blog/opengl/</id>
+		<content type="html">&lt;h2 id=&quot;installation-requirements&quot;&gt;Installation requirements:&lt;&#x2F;h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;GLFW:&lt;&#x2F;strong&gt; &lt;a href=&quot;https:&#x2F;&#x2F;www.glfw.org&#x2F;download.html&quot;&gt;https:&#x2F;&#x2F;www.glfw.org&#x2F;download.html&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;GLAD:&lt;&#x2F;strong&gt; &lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;Dav1dde&#x2F;glad&quot;&gt;https:&#x2F;&#x2F;github.com&#x2F;Dav1dde&#x2F;glad&lt;&#x2F;a&gt; or &lt;a href=&quot;https:&#x2F;&#x2F;glad.dav1d.de&quot;&gt;https:&#x2F;&#x2F;glad.dav1d.de&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;useful-links&quot;&gt;Useful links:&lt;&#x2F;h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https:&#x2F;&#x2F;stackoverflow.com&#x2F;questions&#x2F;17768008&#x2F;how-to-build-install-glfw-3-and-use-it-in-a-linux-project&quot;&gt;&lt;strong&gt;How to build &amp;amp; install GLFW 3 and use it in a Linux project&lt;&#x2F;strong&gt; (Stack Overflow)&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https:&#x2F;&#x2F;www.reddit.com&#x2F;r&#x2F;opengl&#x2F;comments&#x2F;blqgoy&#x2F;issue_compiling_with_glad_c&#x2F;&quot;&gt;&lt;strong&gt;Issue compiling with GLAD - C++&lt;&#x2F;strong&gt; (Reddit)&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;&lt;br &#x2F;&gt;
+&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;step-1-install-glfw-and-glad&quot;&gt;Step 1: Install GLFW and GLAD&lt;&#x2F;h2&gt;
+&lt;p&gt;After installing GLFW,&lt;&#x2F;p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;cd &amp;lt;source-directory&amp;gt;&lt;&#x2F;code&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;cmake -G &amp;quot;Unix Makefiles&amp;quot;&lt;&#x2F;code&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;sudo dnf install dnf-utils glfw&lt;&#x2F;code&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;make&lt;&#x2F;code&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;sudo make install&lt;&#x2F;code&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;p&gt;After installing GLAD,&lt;&#x2F;p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;pre style=&quot;background-color:#f9f9f9;&quot;&gt;
+&lt;code&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; ln&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07219;&quot;&gt; -s &lt;&#x2F;span&gt;&lt;span style=&quot;color:#3e999f;&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt;path&#x2F;to&#x2F;glad&lt;&#x2F;span&gt;&lt;span style=&quot;color:#3e999f;&quot;&gt;&amp;gt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; &#x2F;usr&#x2F;local&#x2F;include&#x2F;glad
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8e908c;&quot;&gt;# In my case,
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; ln&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07219;&quot;&gt; -s &lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;~&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt;&#x2F;glad&#x2F;include&#x2F;glad &#x2F;usr&#x2F;local&#x2F;include&#x2F;glad
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;You will need &lt;code&gt;glad.c&lt;&#x2F;code&gt; when compiling, so put it in the project directory or wherever you can remember.&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;p&gt;&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;step-2-compile&quot;&gt;Step 2: Compile&lt;&#x2F;h2&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Grab an example code from &lt;a href=&quot;https:&#x2F;&#x2F;learnopengl.com&#x2F;code_viewer_gh.php?code=src&#x2F;1.getting_started&#x2F;3.2.shaders_interpolation&#x2F;shaders_interpolation.cpp&quot;&gt;here&lt;&#x2F;a&gt; and name it &lt;code&gt;shaders.cpp&lt;&#x2F;code&gt;.&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;Compile &lt;code&gt;shaders.cpp&lt;&#x2F;code&gt; with:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#f9f9f9;&quot;&gt;
+&lt;code&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;g++&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07219;&quot;&gt; -std&lt;&#x2F;span&gt;&lt;span style=&quot;color:#3e999f;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt;c++11&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07219;&quot;&gt; -c&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; shaders.cpp &lt;&#x2F;span&gt;&lt;span style=&quot;color:#3e999f;&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt;path&#x2F;to&#x2F;glad.c&lt;&#x2F;span&gt;&lt;span style=&quot;color:#3e999f;&quot;&gt;&amp;gt;
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8e908c;&quot;&gt;# In my case,
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;g++&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07219;&quot;&gt; -std&lt;&#x2F;span&gt;&lt;span style=&quot;color:#3e999f;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt;c++11&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07219;&quot;&gt; -c&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; shaders.cpp &lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;~&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt;&#x2F;glad&#x2F;src&#x2F;glad.c
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;Output an executable file with:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#f9f9f9;&quot;&gt;
+&lt;code&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;g++&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; shaders.o glad.o&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07219;&quot;&gt; -o&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; shaders.exec&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07219;&quot;&gt; -lGL -lglfw3 -lX11 -lpthread -ldl
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;Finally execute with:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#f9f9f9;&quot;&gt;
+&lt;code&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;.&#x2F;shaders.exec
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;And you should see something like this:&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;&#x2F;images&#x2F;blog&#x2F;shaders.webp&quot; alt=&quot;triangle&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;p&gt;&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;finally&quot;&gt;Finally&lt;&#x2F;h2&gt;
+&lt;p&gt;If this didn&#x27;t help, you should be missing more required packages and you want to google until you find an answer. I don&#x27;t know anything about C&#x2F; C++, so it was kind of confusing to learn how to link stuff and whatnot, but eventually I found the answers I needed. :)&lt;&#x2F;p&gt;
+&lt;p&gt;Good luck!&lt;&#x2F;p&gt;
+</content>
+	</entry>
+	<entry xml:lang="en">
+		<title>SSH Setup for GitHub</title>
+		<published>2020-12-11T00:00:00+00:00</published>
+		<updated>2020-12-11T00:00:00+00:00</updated>
+		<link href="https://sjinno.xyz/blog/ssh-setup-for-github/" type="text/html"/>
+		<id>https://sjinno.xyz/blog/ssh-setup-for-github/</id>
+		<content type="html">&lt;h2 id=&quot;setting-up-ssh-keys&quot;&gt;Setting up SSH keys&lt;&#x2F;h2&gt;
+&lt;p&gt;&lt;strong&gt;References:&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;www.freecodecamp.org&#x2F;news&#x2F;git-ssh-how-to&#x2F;&quot;&gt;How to Get and Configure Your Git and GitHub SSH Keys&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;www.freecodecamp.org&#x2F;news&#x2F;the-ultimate-guide-to-ssh-setting-up-ssh-keys&#x2F;&quot;&gt;The Ultimate Guide to SSH - Setting Up SSH Keys&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;p&gt;If you follow those references above, you will be proabably all set. But I am just going to leave the summary on how to go about setting up multiple SSH keys so that if you have multiple GitHub accounts or some other accounts with GitLab or BitBucket, this post might give you an idea.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;1-check-for-existing-keys&quot;&gt;1. Check for existing keys&lt;&#x2F;h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Run &lt;code&gt;ls -al ~&#x2F;.ssh&lt;&#x2F;code&gt; to see if you have any &lt;strong&gt;existing&lt;&#x2F;strong&gt; SSH keys.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;If you see something like the following output, you should already have an SSH key.&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#f9f9f9;&quot;&gt;
+&lt;code&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;-rw-------&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt;  1 user_name user_name  1766 Jul  7  2018 id_rsa
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;-rw-r--r--&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt;  1 user_name user_name   414 Jul  7  2018 id_rsa.pub
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;-rw-------&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt;  1 user_name user_name 12892 Feb  5 18:39 known_hosts
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;If you don&#x27;t see any output, you probably don&#x27;t have any SSH keys.&lt;&#x2F;p&gt;
+&lt;p&gt;So run &lt;code&gt;mkdir $HOME&#x2F;.ssh&lt;&#x2F;code&gt; to create a &lt;code&gt;.ssh&lt;&#x2F;code&gt; directory.&lt;&#x2F;p&gt;
+&lt;p&gt;Then generate a new set of keys:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#f9f9f9;&quot;&gt;
+&lt;code&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;ssh-keygen&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07219;&quot;&gt; -t&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; rsa&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07219;&quot;&gt; -b&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; 4096&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07219;&quot;&gt; -C&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; your_email@example.com
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Now run &lt;code&gt;ls -la ~&#x2F;.ssh&lt;&#x2F;code&gt; again to see if the set of keys has been generated successfully. 😎&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;2-ssh-agent&quot;&gt;2. ssh-agent&lt;&#x2F;h2&gt;
+&lt;p&gt;Run the following command to see if the agent is running:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#f9f9f9;&quot;&gt;
+&lt;code&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt;eval &lt;&#x2F;span&gt;&lt;span style=&quot;color:#839c00;&quot;&gt;&amp;quot;$(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;ssh-agent&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07219;&quot;&gt; -s&lt;&#x2F;span&gt;&lt;span style=&quot;color:#839c00;&quot;&gt;)&amp;quot; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8e908c;&quot;&gt;# for Mac and Linux
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;or&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#f9f9f9;&quot;&gt;
+&lt;code&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt;eval `&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;ssh-agent&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07219;&quot;&gt; -s&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt;`
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;ssh-agent&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07219;&quot;&gt; -s &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8e908c;&quot;&gt;# for Windows
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Then add your private key to &lt;code&gt;ssh-agent&lt;&#x2F;code&gt;:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#f9f9f9;&quot;&gt;
+&lt;code&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;ssh-add ~&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt;&#x2F;.ssh&#x2F;id_rsa
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;After that,&lt;&#x2F;p&gt;
+&lt;ol&gt;
+&lt;li&gt;Copy your &lt;strong&gt;public key&lt;&#x2F;strong&gt;(&lt;code&gt;id_rsa.pub&lt;&#x2F;code&gt;).&lt;&#x2F;li&gt;
+&lt;li&gt;Sign in to your GitHub account.&lt;&#x2F;li&gt;
+&lt;li&gt;From your account dropdown, go to &lt;em&gt;Settings&lt;&#x2F;em&gt; -&amp;gt; &lt;em&gt;SSH and GPG keys&lt;&#x2F;em&gt;.&lt;&#x2F;li&gt;
+&lt;li&gt;Click on &amp;quot;&lt;strong&gt;New SSH key&lt;&#x2F;strong&gt;&amp;quot; button.&lt;&#x2F;li&gt;
+&lt;li&gt;Paste the &lt;strong&gt;copied public key&lt;&#x2F;strong&gt; into the textarea of &amp;quot;&lt;strong&gt;Key&lt;&#x2F;strong&gt;&amp;quot;.&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;p&gt;Lstly, check your authentication:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#f9f9f9;&quot;&gt;
+&lt;code&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;ssh&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07219;&quot;&gt; -T&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; git@github.com
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;If you see the following message, your SSH key has been successfully set up! 🖖&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#f9f9f9;&quot;&gt;
+&lt;code&gt;&lt;span style=&quot;color:#111111;&quot;&gt;Hi your_user_name! You&amp;#39;ve successfully authenticated, but GitHub does not provide shell access.
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;&lt;br &#x2F;&gt;
+&lt;br &#x2F;&gt;
+&lt;br &#x2F;&gt;
+&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;so-now-how-about-adding-another-account&quot;&gt;So now, how about adding another account?&lt;&#x2F;h3&gt;
+&lt;p&gt;&lt;br &#x2F;&gt;
+&lt;br &#x2F;&gt;
+&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;strong&gt;Carefully&lt;&#x2F;strong&gt; run:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#f9f9f9;&quot;&gt;
+&lt;code&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;ssh-keygen&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07219;&quot;&gt; -t&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; rsa&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07219;&quot;&gt; -b&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; 4096&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07219;&quot;&gt; -C&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; your_email@example.com
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;But, this time, &lt;strong&gt;&lt;em&gt;you will have to change the file name manually.&lt;&#x2F;em&gt;&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;When you run the command above, you should see the following messages:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#f9f9f9;&quot;&gt;
+&lt;code&gt;&lt;span style=&quot;color:#111111;&quot;&gt;Generating public&#x2F;private rsa key pair.
+Enter file in which to save the key (&#x2F;home&#x2F;username&#x2F;.ssh&#x2F;id_rsa):
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;When you generated a set of keys for the first time, you didn&#x27;t really need to specify the file name even though you could have if you wanted to.&lt;&#x2F;p&gt;
+&lt;p&gt;But as you generate more keys, &lt;strong&gt;&lt;em&gt;you must specify the file name.&lt;&#x2F;em&gt;&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;For example, if you are generating a key for your work, then you might want to enter something like:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#f9f9f9;&quot;&gt;
+&lt;code&gt;&lt;span style=&quot;color:#111111;&quot;&gt;&#x2F;home&#x2F;&amp;lt;your_username&amp;gt;&#x2F;.ssh&#x2F;id_rsa_work
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Now, when you run &lt;code&gt;ls -la ~&#x2F;.ssh&lt;&#x2F;code&gt;, you should see the following output or something similar:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#f9f9f9;&quot;&gt;
+&lt;code&gt;&lt;span style=&quot;color:#111111;&quot;&gt;-rw-------  1 user_name user_name  1766 Jul  7  2018 id_rsa
+-rw-r--r--  1 user_name user_name   414 Jul  7  2018 id_rsa.pub
+-rw-------  1 user_name user_name  1766 Jul  7  2018 id_rsa_work
+-rw-r--r--  1 user_name user_name   414 Jul  7  2018 id_rsa_work.pub
+-rw-------  1 user_name user_name 12892 Feb  5 18:39 known_hosts
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Lastly, &lt;code&gt;ssh-add ~&#x2F;.ssh&#x2F;id_rsa_work&lt;&#x2F;code&gt; and when you &lt;code&gt;ssh-add -l&lt;&#x2F;code&gt;, you should see all your identities in the output.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;3-create-ssh-config&quot;&gt;3. Create &lt;code&gt;~&#x2F;.ssh&#x2F;config&lt;&#x2F;code&gt;&lt;&#x2F;h2&gt;
+&lt;p&gt;When you have multiple SSH keys, creating &lt;code&gt;config&lt;&#x2F;code&gt; file under your &lt;code&gt;.ssh&lt;&#x2F;code&gt; directory is a must.&lt;&#x2F;p&gt;
+&lt;p&gt;So let&#x27;s do that.&lt;&#x2F;p&gt;
+&lt;p&gt;Run &lt;code&gt;touch ~&#x2F;.ssh&#x2F;config&lt;&#x2F;code&gt; to create &lt;code&gt;config&lt;&#x2F;code&gt; file, and then open it with your favorite text editor.&lt;&#x2F;p&gt;
+&lt;p&gt;Copy and paste the following as a template:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#f9f9f9;&quot;&gt;
+&lt;code&gt;&lt;span style=&quot;color:#8e908c;&quot;&gt;# personal
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;Host&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; github.com &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8e908c;&quot;&gt;# Change `github.com` to the name of your like.
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt;  HostName github.com
+  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;User&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; git
+  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;IdentityFile ~&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt;&#x2F;.ssh&#x2F;id_rsa_personal &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8e908c;&quot;&gt;# Change it to the correct path.
+
+# work
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt;Host github.com-work &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8e908c;&quot;&gt;# Change `github.com-work` to the name of your like.
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt;  HostName github.com
+  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;User&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; git
+  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;IdentityFile ~&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt;&#x2F;.ssh&#x2F;id_rsa_work &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8e908c;&quot;&gt;# Change it to the correct path.
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;In this example, we have configured multiple accounts for GitHub.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;4-how-do-you-switch-between-identities&quot;&gt;4. How do you switch between identities?&lt;&#x2F;h2&gt;
+&lt;p&gt;Every terminal session, you will have to &lt;code&gt;ssh-add ~&#x2F;.ssh&#x2F;&amp;lt;identity_file&amp;gt;&lt;&#x2F;code&gt; to add the identity you want to use.&lt;&#x2F;p&gt;
+&lt;p&gt;If an identity is somehow already set and you want to switch to a different one, then you will have to &lt;code&gt;ssh-add -D&lt;&#x2F;code&gt; to drop that identity and &lt;code&gt;ssh-add ~&#x2F;.ssh&#x2F;&amp;lt;identity_file&amp;gt;&lt;&#x2F;code&gt; to add the identity you want to use.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;you-cannot-use-multiple-identities-during-the-same-session&quot;&gt;&lt;em&gt;You cannot use multiple identities during the same session.&lt;&#x2F;em&gt;&lt;&#x2F;h3&gt;
+&lt;p&gt;And I think that&#x27;s about it.&lt;&#x2F;p&gt;
+&lt;p&gt;One thing to keep in mind is that, if you have globally set github username and email, you might want to configure your &lt;code&gt;.git&lt;&#x2F;code&gt; whenever you initialize a git repo:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#f9f9f9;&quot;&gt;
+&lt;code&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;git&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; config user.name &lt;&#x2F;span&gt;&lt;span style=&quot;color:#839c00;&quot;&gt;&amp;quot;Your name&amp;quot;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;git&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; config user.email your_email@example.com
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;</content>
+	</entry>
+	<entry xml:lang="en">
+		<title>Git</title>
+		<published>2020-12-02T00:00:00+00:00</published>
+		<updated>2020-12-02T00:00:00+00:00</updated>
+		<link href="https://sjinno.xyz/blog/git/" type="text/html"/>
+		<id>https://sjinno.xyz/blog/git/</id>
+		<content type="html">&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Remove files that are listed in the .gitignore but still on the remote repository:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#f9f9f9;&quot;&gt;
+&lt;code&gt;&lt;span style=&quot;color:#8e908c;&quot;&gt;# Remove the file(s) that you want to untrack from .gitignore
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8e908c;&quot;&gt;# 1. Remove them with:
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;git&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; rm&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07219;&quot;&gt; --cached&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; file1 file2 dir&#x2F;file3
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8e908c;&quot;&gt;# Or, if you have a lot of files:
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;git&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; rm&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07219;&quot;&gt; --cached &lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt;`&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;git&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; ls-files&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07219;&quot;&gt; -i --exclude-from&lt;&#x2F;span&gt;&lt;span style=&quot;color:#3e999f;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt;.gitignore`
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Here is &lt;a href=&quot;https:&#x2F;&#x2F;stackoverflow.com&#x2F;questions&#x2F;13541615&#x2F;how-to-remove-files-that-are-listed-in-the-gitignore-but-still-on-the-repositor&quot;&gt;the stackoverflow link&lt;&#x2F;a&gt; for reference.&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;Quick way to create a branch and check it out in one line:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#f9f9f9;&quot;&gt;
+&lt;code&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;git&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; checkout&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07219;&quot;&gt; -b&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; branch1
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;Split git commit into multiple commits:&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Suppose you have a commit that &lt;code&gt;README.md&lt;&#x2F;code&gt; and &lt;code&gt;file1.txt&lt;&#x2F;code&gt; have changes,
+and you want to split the commit into one with just &lt;code&gt;README.md&lt;&#x2F;code&gt; and another with &lt;code&gt;file1.txt&lt;&#x2F;code&gt;.&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;pre style=&quot;background-color:#f9f9f9;&quot;&gt;
+&lt;code&gt;&lt;span style=&quot;color:#8e908c;&quot;&gt;# 1. Run interactive rebase
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8e908c;&quot;&gt;# Change `n` to appropriate number.
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8e908c;&quot;&gt;# For example, if the commit is located in the second from HEAD,
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8e908c;&quot;&gt;# then you would run `git rebase -i HEAD~2`
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8e908c;&quot;&gt;# If it&amp;#39;s the very first commit, then `git rebase -i --root`.
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;git&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; rebase&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07219;&quot;&gt; -i&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; HEAD&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;~&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt;n
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8e908c;&quot;&gt;# 2. pick -&amp;gt; edit
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8e908c;&quot;&gt;# 3. git reset HEAD^
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8e908c;&quot;&gt;# 4. Add, commit, and continue with `git rebase --continue`.
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8e908c;&quot;&gt;# 5. Repeat until you are done splitting the commit.
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8e908c;&quot;&gt;# 6. Force push?
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;List tracked files:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#f9f9f9;&quot;&gt;
+&lt;code&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;git&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; ls-files
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+</content>
+	</entry>
+</feed>

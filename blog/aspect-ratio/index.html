@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/main.css">
+    <title>Shohei Jinno</title>
+    <link rel="shortcut icon" href=&#x2F;images&#x2F;pepe-16-270481.png type="image/x-icon">
+</head>
+
+<body>
+    
+<nav class="nav">
+    <a href="/" class="nav__home">Shohei Jinno</a>
+    <button class="hamburger">
+        <span class="hamburger__patty1"></span>
+        <span class="hamburger__patty2"></span>
+    </button>
+
+    <div class="nav__menu">
+        <ul class="nav__list">
+            <li class="nav__item"><a href="/blog">Blog</a></li>
+            <li class="nav__item"><a href="/projects">Projects</a></li>
+            <li class="nav__item">
+                <a href="http://github.com/sjinno" target="_blank">
+                    <span class="upper-right-arrow">↗</span> <span class="nav__item">GitHub</span>
+                </a>
+            </li>
+            <li><a href="http://www.linkedin.com/in/shohei-jinno-947a88121" target="_blank"><span class="upper-right-arrow">↗</span>
+                    LinkedIn</a>
+            </li>
+            <li><a href="http://www.instagram.com/shoelric" target="_blank"><span class="upper-right-arrow">↗</span> Instagram</a>
+            </li>
+            <li><a href="http://stackoverflow.com/users/4909849/syohey" target="_blank"><span class="upper-right-arrow">↗</span>
+                    Stack Overflow</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+
+
+    <div class="container">
+        
+<section class="post">
+  <h1 class="post__title">Aspect Ratio</h1>
+  <h3 class="post__date"><span class="date">2021-10-21</span></h3>
+  <div class="post__reading-time">1 minute read</div>
+  <div class="post__tags">
+    
+    <a class="post__tags__tag" href="/tags/aspect-ratio">#aspect-ratio</a>&nbsp;
+    
+    <a class="post__tags__tag" href="/tags/css">#css</a>&nbsp;
+    
+  </div>
+  <div class="post__content"><p>Suppose you want to insert an image and fix the image size to aspect ratio of <code>16:9</code>.</p>
+<p>For example, if you want the width of image to be <code>1600px</code>, then the height will be <code>900px</code>.</p>
+<p>First, you will need a wrapper that wraps the image, so think it as a picture frame.</p>
+<pre style="background-color:#f9f9f9;">
+<code><span style="color:#8e908c;">&lt;!-- aspect-ratio.html --&gt;
+
+</span><span style="color:#5d9be5;">&lt;</span><span style="color:#c82728;">div class</span><span style="color:#5d9ae5;">=</span><span style="color:#839c00;">&quot;wrapper&gt;
+    &lt;img
+      src=&quot;</span><span style="color:#c82728;">https:</span><span style="color:#5d9ae5;">//</span><span style="color:#c82728;">images.unsplash.com</span><span style="color:#5d9ae5;">/</span><span style="color:#c82728;">photo-1551103782-8ab07afd45c1?ixid</span><span style="color:#5d9ae5;">=</span><span style="color:#839c00;">MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=600&amp;q=80</span><span style="font-style:italic;color:#c82829;">&quot;
+      </span><span style="color:#c82728;">alt</span><span style="color:#5d9ae5;">=</span><span style="color:#839c00;">&quot;Mario&quot;</span><span style="color:#5d9ae5;">
+    /</span><span style="color:#5d9be5;">&gt;
+&lt;/</span><span style="color:#c82728;">div</span><span style="color:#5d9be5;">&gt;
+</span></code></pre><pre style="background-color:#f9f9f9;">
+<code><span style="color:#8e908c;">/* styles.css */
+
+</span><span style="color:#c82728;">.wrapper </span><span style="color:#111111;">{
+  </span><span style="color:#839c00;">position</span><span style="color:#111111;">: </span><span style="color:#3e999f;">relative</span><span style="color:#111111;">;
+  </span><span style="color:#839c00;">width</span><span style="color:#111111;">: </span><span style="color:#f07219;">100%</span><span style="color:#111111;">;
+  </span><span style="color:#839c00;">padding-top</span><span style="color:#111111;">: </span><span style="color:#f07219;">56.25%</span><span style="color:#111111;">;
+}
+</span></code></pre>
+<p>Since the wrapper will be the frame for the image, we make the position relative.</p>
+<p>Next, we will finally insert an image to the frame with CSS.</p>
+<pre style="background-color:#f9f9f9;">
+<code><span style="color:#8e908c;">/* styles.css */
+
+/* ... */
+
+/* Added */
+</span><span style="color:#c82728;">img </span><span style="color:#111111;">{
+  </span><span style="color:#839c00;">position</span><span style="color:#111111;">: </span><span style="color:#3e999f;">absolute</span><span style="color:#111111;">;
+  </span><span style="color:#839c00;">top</span><span style="color:#111111;">: </span><span style="color:#f07219;">0</span><span style="color:#111111;">;
+  </span><span style="color:#839c00;">bottom</span><span style="color:#111111;">: </span><span style="color:#f07219;">0</span><span style="color:#111111;">;
+  </span><span style="color:#839c00;">left</span><span style="color:#111111;">: </span><span style="color:#f07219;">0</span><span style="color:#111111;">;
+  </span><span style="color:#839c00;">right</span><span style="color:#111111;">: </span><span style="color:#f07219;">0</span><span style="color:#111111;">;
+  </span><span style="color:#839c00;">width</span><span style="color:#111111;">: </span><span style="color:#f07219;">100%</span><span style="color:#111111;">;
+  </span><span style="color:#839c00;">height</span><span style="color:#111111;">: </span><span style="color:#f07219;">100%</span><span style="color:#111111;">;
+  </span><span style="color:#839c00;">object-fit</span><span style="color:#111111;">: </span><span style="color:#3e999f;">cover</span><span style="color:#111111;">;
+}
+</span></code></pre>
+<p>And, that's it.</p>
+<p>The source code can be found <a href="https://codepen.io/sugoier/pen/gOxLwPd">here</a> on CodePen.</p>
+</div>
+  <div class="btn__wrapper">
+    <a href="/blog" class="btn btn--more btn--ripple btn--more--post"><span class="btn--ripple__source"></span>Read
+      more
+      posts</a>
+  </div>
+</section>
+
+    </div>
+    
+<footer class="footer">
+    <p>&copy; <span id="currentYear"></span> <a href="http://github.com/sjinno" class="footer__author"
+            target="_blank">Shohei Jinno</a>
+    </p>
+    <p>
+        <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank" class="footer__cc">
+            <img alt="Creative Commons License" style="border-width:0"
+                src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" />
+        </a>
+    </p>
+</footer>
+
+
+    <script src="/js/main.js"></script>
+
+</html>

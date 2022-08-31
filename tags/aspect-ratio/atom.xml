@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+	<title> - aspect-ratio</title>
+	<link href="https://sjinno.xyz/tags/aspect-ratio/atom.xml" rel="self" type="application/atom+xml"/>
+  <link href="https://sjinno.xyz"/>
+	<generator uri="https://www.getzola.org/">Zola</generator>
+	<updated>2021-10-21T00:00:00+00:00</updated>
+	<id>https://sjinno.xyz/tags/aspect-ratio/atom.xml</id>
+	<entry xml:lang="en">
+		<title>Aspect Ratio</title>
+		<published>2021-10-21T00:00:00+00:00</published>
+		<updated>2021-10-21T00:00:00+00:00</updated>
+		<link href="https://sjinno.xyz/blog/aspect-ratio/" type="text/html"/>
+		<id>https://sjinno.xyz/blog/aspect-ratio/</id>
+		<content type="html">&lt;p&gt;Suppose you want to insert an image and fix the image size to aspect ratio of &lt;code&gt;16:9&lt;&#x2F;code&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;For example, if you want the width of image to be &lt;code&gt;1600px&lt;&#x2F;code&gt;, then the height will be &lt;code&gt;900px&lt;&#x2F;code&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;First, you will need a wrapper that wraps the image, so think it as a picture frame.&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#f9f9f9;&quot;&gt;
+&lt;code&gt;&lt;span style=&quot;color:#8e908c;&quot;&gt;&amp;lt;!-- aspect-ratio.html --&amp;gt;
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#5d9be5;&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;div class&lt;&#x2F;span&gt;&lt;span style=&quot;color:#5d9ae5;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#839c00;&quot;&gt;&amp;quot;wrapper&amp;gt;
+    &amp;lt;img
+      src=&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;https:&lt;&#x2F;span&gt;&lt;span style=&quot;color:#5d9ae5;&quot;&gt;&#x2F;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;images.unsplash.com&lt;&#x2F;span&gt;&lt;span style=&quot;color:#5d9ae5;&quot;&gt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;photo-1551103782-8ab07afd45c1?ixid&lt;&#x2F;span&gt;&lt;span style=&quot;color:#5d9ae5;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#839c00;&quot;&gt;MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;amp;ixlib=rb-1.2.1&amp;amp;auto=format&amp;amp;fit=crop&amp;amp;w=600&amp;amp;q=80&lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#c82829;&quot;&gt;&amp;quot;
+      &lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;alt&lt;&#x2F;span&gt;&lt;span style=&quot;color:#5d9ae5;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#839c00;&quot;&gt;&amp;quot;Mario&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#5d9ae5;&quot;&gt;
+    &#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#5d9be5;&quot;&gt;&amp;gt;
+&amp;lt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;div&lt;&#x2F;span&gt;&lt;span style=&quot;color:#5d9be5;&quot;&gt;&amp;gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;&lt;pre style=&quot;background-color:#f9f9f9;&quot;&gt;
+&lt;code&gt;&lt;span style=&quot;color:#8e908c;&quot;&gt;&#x2F;* styles.css *&#x2F;
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;.wrapper &lt;&#x2F;span&gt;&lt;span style=&quot;color:#111111;&quot;&gt;{
+  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#839c00;&quot;&gt;position&lt;&#x2F;span&gt;&lt;span style=&quot;color:#111111;&quot;&gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#3e999f;&quot;&gt;relative&lt;&#x2F;span&gt;&lt;span style=&quot;color:#111111;&quot;&gt;;
+  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#839c00;&quot;&gt;width&lt;&#x2F;span&gt;&lt;span style=&quot;color:#111111;&quot;&gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07219;&quot;&gt;100%&lt;&#x2F;span&gt;&lt;span style=&quot;color:#111111;&quot;&gt;;
+  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#839c00;&quot;&gt;padding-top&lt;&#x2F;span&gt;&lt;span style=&quot;color:#111111;&quot;&gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07219;&quot;&gt;56.25%&lt;&#x2F;span&gt;&lt;span style=&quot;color:#111111;&quot;&gt;;
+}
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Since the wrapper will be the frame for the image, we make the position relative.&lt;&#x2F;p&gt;
+&lt;p&gt;Next, we will finally insert an image to the frame with CSS.&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#f9f9f9;&quot;&gt;
+&lt;code&gt;&lt;span style=&quot;color:#8e908c;&quot;&gt;&#x2F;* styles.css *&#x2F;
+
+&#x2F;* ... *&#x2F;
+
+&#x2F;* Added *&#x2F;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;img &lt;&#x2F;span&gt;&lt;span style=&quot;color:#111111;&quot;&gt;{
+  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#839c00;&quot;&gt;position&lt;&#x2F;span&gt;&lt;span style=&quot;color:#111111;&quot;&gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#3e999f;&quot;&gt;absolute&lt;&#x2F;span&gt;&lt;span style=&quot;color:#111111;&quot;&gt;;
+  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#839c00;&quot;&gt;top&lt;&#x2F;span&gt;&lt;span style=&quot;color:#111111;&quot;&gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07219;&quot;&gt;0&lt;&#x2F;span&gt;&lt;span style=&quot;color:#111111;&quot;&gt;;
+  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#839c00;&quot;&gt;bottom&lt;&#x2F;span&gt;&lt;span style=&quot;color:#111111;&quot;&gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07219;&quot;&gt;0&lt;&#x2F;span&gt;&lt;span style=&quot;color:#111111;&quot;&gt;;
+  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#839c00;&quot;&gt;left&lt;&#x2F;span&gt;&lt;span style=&quot;color:#111111;&quot;&gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07219;&quot;&gt;0&lt;&#x2F;span&gt;&lt;span style=&quot;color:#111111;&quot;&gt;;
+  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#839c00;&quot;&gt;right&lt;&#x2F;span&gt;&lt;span style=&quot;color:#111111;&quot;&gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07219;&quot;&gt;0&lt;&#x2F;span&gt;&lt;span style=&quot;color:#111111;&quot;&gt;;
+  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#839c00;&quot;&gt;width&lt;&#x2F;span&gt;&lt;span style=&quot;color:#111111;&quot;&gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07219;&quot;&gt;100%&lt;&#x2F;span&gt;&lt;span style=&quot;color:#111111;&quot;&gt;;
+  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#839c00;&quot;&gt;height&lt;&#x2F;span&gt;&lt;span style=&quot;color:#111111;&quot;&gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07219;&quot;&gt;100%&lt;&#x2F;span&gt;&lt;span style=&quot;color:#111111;&quot;&gt;;
+  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#839c00;&quot;&gt;object-fit&lt;&#x2F;span&gt;&lt;span style=&quot;color:#111111;&quot;&gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#3e999f;&quot;&gt;cover&lt;&#x2F;span&gt;&lt;span style=&quot;color:#111111;&quot;&gt;;
+}
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;And, that&#x27;s it.&lt;&#x2F;p&gt;
+&lt;p&gt;The source code can be found &lt;a href=&quot;https:&#x2F;&#x2F;codepen.io&#x2F;sugoier&#x2F;pen&#x2F;gOxLwPd&quot;&gt;here&lt;&#x2F;a&gt; on CodePen.&lt;&#x2F;p&gt;
+</content>
+	</entry>
+</feed>

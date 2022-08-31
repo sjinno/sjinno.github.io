@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/main.css">
+    <title>Shohei Jinno</title>
+    <link rel="shortcut icon" href=&#x2F;images&#x2F;pepe-16-270481.png type="image/x-icon">
+</head>
+
+<body>
+    
+<nav class="nav">
+    <a href="/" class="nav__home">Shohei Jinno</a>
+    <button class="hamburger">
+        <span class="hamburger__patty1"></span>
+        <span class="hamburger__patty2"></span>
+    </button>
+
+    <div class="nav__menu">
+        <ul class="nav__list">
+            <li class="nav__item"><a href="/blog">Blog</a></li>
+            <li class="nav__item"><a href="/projects">Projects</a></li>
+            <li class="nav__item">
+                <a href="http://github.com/sjinno" target="_blank">
+                    <span class="upper-right-arrow">↗</span> <span class="nav__item">GitHub</span>
+                </a>
+            </li>
+            <li><a href="http://www.linkedin.com/in/shohei-jinno-947a88121" target="_blank"><span class="upper-right-arrow">↗</span>
+                    LinkedIn</a>
+            </li>
+            <li><a href="http://www.instagram.com/shoelric" target="_blank"><span class="upper-right-arrow">↗</span> Instagram</a>
+            </li>
+            <li><a href="http://stackoverflow.com/users/4909849/syohey" target="_blank"><span class="upper-right-arrow">↗</span>
+                    Stack Overflow</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+
+
+    <div class="container">
+        
+<section class="post">
+  <h1 class="post__title">Bash</h1>
+  <h3 class="post__date"><span class="date">2020-12-03</span></h3>
+  <div class="post__reading-time">2 minute read</div>
+  <div class="post__tags">
+    
+    <a class="post__tags__tag" href="/tags/bash">#bash</a>&nbsp;
+    
+    <a class="post__tags__tag" href="/tags/scripting">#scripting</a>&nbsp;
+    
+    <a class="post__tags__tag" href="/tags/linux">#linux</a>&nbsp;
+    
+    <a class="post__tags__tag" href="/tags/unix">#unix</a>&nbsp;
+    
+  </div>
+  <div class="post__content"><pre style="background-color:#f9f9f9;">
+<code><span style="color:#8e908c;"># 1. Print output into terminal
+</span><span style="color:#4271ae;">echo </span><span style="color:#839c00;">&quot;Hello, world\!&quot;
+
+
+</span><span style="color:#8e908c;"># 2. Take user input
+</span><span style="color:#4271ae;">read input </span><span style="color:#3e999f;">; </span><span style="color:#4271ae;">echo </span><span style="color:#839c00;">&quot;You typed $</span><span style="color:#c82728;">input</span><span style="color:#839c00;">.&quot;
+
+
+</span><span style="color:#8e908c;"># 3. Take user input in the same line
+</span><span style="color:#4271ae;">echo </span><span style="color:#839c00;">&quot;Type something: \c&quot; </span><span style="color:#3e999f;">; </span><span style="color:#4271ae;">read input </span><span style="color:#3e999f;">; </span><span style="color:#4271ae;">echo </span><span style="color:#839c00;">&quot;You typed $</span><span style="color:#c82728;">input</span><span style="color:#839c00;">.&quot;
+</span><span style="color:#8e908c;"># or
+</span><span style="color:#4271ae;">echo </span><span style="color:#f07219;">-n </span><span style="color:#839c00;">&quot;Type something: &quot; </span><span style="color:#3e999f;">; </span><span style="color:#4271ae;">read input </span><span style="color:#3e999f;">; </span><span style="color:#4271ae;">echo </span><span style="color:#839c00;">&quot;You typed $</span><span style="color:#c82728;">input</span><span style="color:#839c00;">.&quot;
+
+
+</span><span style="color:#8e908c;"># 4. If statement
+</span><span style="color:#4271ae;">echo </span><span style="color:#f07219;">-n </span><span style="color:#839c00;">&quot;Enter a number: &quot; </span><span style="color:#3e999f;">; </span><span style="color:#4271ae;">read num
+</span><span style="color:#8959a8;">if </span><span style="color:#4271ae;">[ $</span><span style="color:#c82728;">num </span><span style="color:#f07219;">-eq</span><span style="color:#4271ae;"> 100 ]</span><span style="color:#3e999f;">; </span><span style="color:#8959a8;">then
+    </span><span style="color:#4271ae;">echo </span><span style="color:#839c00;">&quot;true&quot;
+</span><span style="color:#8959a8;">else
+    </span><span style="color:#4271ae;">echo </span><span style="color:#839c00;">&quot;false&quot;
+</span><span style="color:#8959a8;">fi
+
+</span><span style="color:#8e908c;"># if &lt;expression&gt;; then
+#     &lt;commands&gt;
+# elif &lt;expression&gt;; then
+#     &lt;commands&gt;
+# else
+#     &lt;commands&gt;
+# fi
+
+# if [ &lt;expression&gt; ] &amp;&amp; [ &lt;expression&gt; ]; then
+#     &lt;commands&gt;
+# fi
+
+# if [ &lt;expression&gt; ] || [ &lt;expression&gt; ]; then
+#     &lt;commands&gt;
+# fi
+
+
+# 5. While loop
+</span><span style="color:#4271ae;">count=1
+</span><span style="color:#c82728;">target</span><span style="color:#3e999f;">=</span><span style="color:#839c00;">10
+</span><span style="color:#8959a8;">while </span><span style="color:#4271ae;">[ $</span><span style="color:#c82728;">count </span><span style="color:#f07219;">-ne </span><span style="color:#4271ae;">$</span><span style="color:#c82728;">target </span><span style="color:#4271ae;">]
+</span><span style="color:#8959a8;">do
+    </span><span style="color:#4271ae;">echo </span><span style="color:#839c00;">&quot;$</span><span style="color:#c82728;">count</span><span style="color:#839c00;"> is still less than $</span><span style="color:#c82728;">target</span><span style="color:#839c00;">.&quot;
+    </span><span style="color:#111111;">((count</span><span style="color:#3e999f;">++</span><span style="color:#111111;">))
+</span><span style="color:#8959a8;">done
+</span><span style="color:#4271ae;">echo </span><span style="color:#839c00;">&quot;Now finally $</span><span style="color:#c82728;">count</span><span style="color:#839c00;"> is equal to $</span><span style="color:#c82728;">target</span><span style="color:#839c00;">.&quot;
+</span><span style="color:#8e908c;"># -gt: greater than
+# -lt: less than
+# -eq: equal to
+# -ge: greater than or equal to
+# -le: less than or equal to
+# -ne: not equal to
+
+
+# 6. For loop
+</span><span style="color:#4271ae;">for num in {1..10}
+</span><span style="color:#8959a8;">do
+    </span><span style="color:#4271ae;">echo </span><span style="color:#839c00;">&quot;$</span><span style="color:#c82728;">num</span><span style="color:#839c00;">&quot;
+</span><span style="color:#8959a8;">done
+
+</span><span style="color:#8e908c;"># The following will output `1 11 21 31 41 51 61 71 81 91`.
+</span><span style="color:#4271ae;">for num in {1..100..10}
+</span><span style="color:#8959a8;">do
+    </span><span style="color:#4271ae;">echo </span><span style="color:#f07219;">-n </span><span style="color:#839c00;">&quot;$</span><span style="color:#c82728;">num </span><span style="color:#839c00;">&quot;
+</span><span style="color:#8959a8;">done
+
+
+</span><span style="color:#8e908c;"># 7. Date
+</span><span style="color:#4271ae;">date                             </span><span style="color:#8e908c;"># Output: Thu Mar 18 10:56:29 AM PDT 2021
+</span><span style="color:#4271ae;">date +%</span><span style="color:#c82728;">H</span><span style="color:#4271ae;">:%</span><span style="color:#c82728;">M</span><span style="color:#4271ae;">:%</span><span style="color:#c82728;">S                   </span><span style="color:#8e908c;"># Output: 10:57:14
+</span><span style="color:#4271ae;">date +</span><span style="color:#839c00;">&quot;%dth %B, %Y&quot;              </span><span style="color:#8e908c;"># Output: 18th March, 2021
+</span><span style="color:#4271ae;">date</span><span style="color:#f07219;"> --date</span><span style="color:#3e999f;">=</span><span style="color:#839c00;">&#39;15 days&#39;            </span><span style="color:#8e908c;"># Output: Fri Apr  2 11:00:14 AM PDT 2021
+</span><span style="color:#4271ae;">date</span><span style="color:#f07219;"> --date</span><span style="color:#3e999f;">=</span><span style="color:#839c00;">&#39;15 days ago&#39;        </span><span style="color:#8e908c;"># Output: Wed Mar  3 10:00:22 AM PST 2021
+</span><span style="color:#4271ae;">date</span><span style="color:#f07219;"> --date</span><span style="color:#3e999f;">=</span><span style="color:#839c00;">&#39;5 hours 20 minutes&#39; </span><span style="color:#8e908c;"># Output: Thu Mar 18 04:21:33 PM PDT 2021
+</span><span style="color:#4271ae;">date</span><span style="color:#f07219;"> -d </span><span style="color:#839c00;">&quot;2021-04-01&quot;</span><span style="color:#4271ae;"> +</span><span style="color:#839c00;">&quot;%A&quot;       </span><span style="color:#8e908c;"># Output: Thursday
+
+</span><span style="color:#4271ae;">timediff</span><span style="color:#111111;">() {
+    </span><span style="color:#c82728;">START</span><span style="color:#3e999f;">=</span><span style="color:#4271ae;">`</span><span style="color:#c82728;">date</span><span style="color:#f07219;"> -d </span><span style="color:#4271ae;">$</span><span style="color:#c82728;">1</span><span style="color:#4271ae;"> +%</span><span style="color:#c82728;">s</span><span style="color:#4271ae;">`
+    </span><span style="color:#c82728;">END</span><span style="color:#3e999f;">=</span><span style="color:#4271ae;">`</span><span style="color:#c82728;">date</span><span style="color:#f07219;"> -d </span><span style="color:#4271ae;">$</span><span style="color:#c82728;">2</span><span style="color:#4271ae;"> +%</span><span style="color:#c82728;">s</span><span style="color:#4271ae;">`
+    </span><span style="color:#111111;">((diff</span><span style="color:#3e999f;">=</span><span style="color:#111111;">$</span><span style="color:#c82728;">END</span><span style="color:#3e999f;">-</span><span style="color:#111111;">$</span><span style="color:#c82728;">START</span><span style="color:#111111;">))
+    ((days</span><span style="color:#3e999f;">=</span><span style="color:#111111;">$</span><span style="color:#c82728;">diff</span><span style="color:#3e999f;">/</span><span style="color:#111111;">(</span><span style="color:#f07219;">60</span><span style="color:#3e999f;">*</span><span style="color:#f07219;">60</span><span style="color:#3e999f;">*</span><span style="color:#f07219;">24</span><span style="color:#111111;">)))
+    </span><span style="color:#4271ae;">echo </span><span style="color:#839c00;">&quot;The time escaped = $</span><span style="color:#c82728;">days</span><span style="color:#839c00;"> days.&quot;
+</span><span style="color:#111111;">}
+
+</span><span style="color:#8e908c;"># The following should output `The time escaped = 282 days`.
+</span><span style="color:#c82728;">timediff </span><span style="color:#839c00;">&quot;2021-03-18&quot; &quot;2021-12-25&quot;
+
+
+</span><span style="color:#8e908c;"># 8. Calendar
+</span><span style="color:#4271ae;">cal
+</span><span style="color:#8e908c;">#      March 2021
+# Su Mo Tu We Th Fr Sa
+#     1  2  3  4  5  6
+#  7  8  9 10 11 12 13
+# 14 15 16 17 18 19 20
+# 21 22 23 24 25 26 27
+# 28 29 30 31
+
+# For more info, run `man cal`.
+
+
+# 9. Operators
+</span><span style="color:#3e999f;">&amp;&amp;  </span><span style="color:#8e908c;"># AND op
+</span><span style="color:#3e999f;">||  </span><span style="color:#8e908c;"># OR op
+</span><span style="color:#c82728;">...
+</span></code></pre>
+<p><a href="https://linuxhint.com/category/bash-programming/">More bash programming stuff.</a></p>
+</div>
+  <div class="btn__wrapper">
+    <a href="/blog" class="btn btn--more btn--ripple btn--more--post"><span class="btn--ripple__source"></span>Read
+      more
+      posts</a>
+  </div>
+</section>
+
+    </div>
+    
+<footer class="footer">
+    <p>&copy; <span id="currentYear"></span> <a href="http://github.com/sjinno" class="footer__author"
+            target="_blank">Shohei Jinno</a>
+    </p>
+    <p>
+        <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank" class="footer__cc">
+            <img alt="Creative Commons License" style="border-width:0"
+                src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" />
+        </a>
+    </p>
+</footer>
+
+
+    <script src="/js/main.js"></script>
+
+</html>

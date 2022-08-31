@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+	<title> - Linux</title>
+	<link href="https://sjinno.xyz/categories/linux/atom.xml" rel="self" type="application/atom+xml"/>
+  <link href="https://sjinno.xyz"/>
+	<generator uri="https://www.getzola.org/">Zola</generator>
+	<updated>2021-03-17T00:00:00+00:00</updated>
+	<id>https://sjinno.xyz/categories/linux/atom.xml</id>
+	<entry xml:lang="en">
+		<title>Random Commands</title>
+		<published>2021-03-17T00:00:00+00:00</published>
+		<updated>2021-03-17T00:00:00+00:00</updated>
+		<link href="https://sjinno.xyz/blog/random-commands/" type="text/html"/>
+		<id>https://sjinno.xyz/blog/random-commands/</id>
+		<content type="html">&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Print system information&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#f9f9f9;&quot;&gt;
+&lt;code&gt;&lt;span style=&quot;color:#8e908c;&quot;&gt;# The following should print out `Linux` if you are on linux.
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;uname
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8e908c;&quot;&gt;# The following will print out all the information about your system.
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;uname&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07219;&quot;&gt; -a
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8e908c;&quot;&gt;# I mostly use the following command to get the basic but sufficient information about my current system.
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;uname&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07219;&quot;&gt; -srm
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;View processes&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#f9f9f9;&quot;&gt;
+&lt;code&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;top
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8e908c;&quot;&gt;# Alternatively `htop`, but it needs to be installed.
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8e908c;&quot;&gt;# Example: `sudo dnf install htop`.
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;htop
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;man - an interface to the system reference manuals&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#f9f9f9;&quot;&gt;
+&lt;code&gt;&lt;span style=&quot;color:#8e908c;&quot;&gt;# Basic usage:
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;man &lt;&#x2F;span&gt;&lt;span style=&quot;color:#3e999f;&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt;something&lt;&#x2F;span&gt;&lt;span style=&quot;color:#3e999f;&quot;&gt;&amp;gt;
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;man&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; man
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;man&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; ascii
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+</content>
+	</entry>
+</feed>

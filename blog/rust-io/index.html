@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/main.css">
+    <title>Shohei Jinno</title>
+    <link rel="shortcut icon" href=&#x2F;images&#x2F;pepe-16-270481.png type="image/x-icon">
+</head>
+
+<body>
+    
+<nav class="nav">
+    <a href="/" class="nav__home">Shohei Jinno</a>
+    <button class="hamburger">
+        <span class="hamburger__patty1"></span>
+        <span class="hamburger__patty2"></span>
+    </button>
+
+    <div class="nav__menu">
+        <ul class="nav__list">
+            <li class="nav__item"><a href="/blog">Blog</a></li>
+            <li class="nav__item"><a href="/projects">Projects</a></li>
+            <li class="nav__item">
+                <a href="http://github.com/sjinno" target="_blank">
+                    <span class="upper-right-arrow">↗</span> <span class="nav__item">GitHub</span>
+                </a>
+            </li>
+            <li><a href="http://www.linkedin.com/in/shohei-jinno-947a88121" target="_blank"><span class="upper-right-arrow">↗</span>
+                    LinkedIn</a>
+            </li>
+            <li><a href="http://www.instagram.com/shoelric" target="_blank"><span class="upper-right-arrow">↗</span> Instagram</a>
+            </li>
+            <li><a href="http://stackoverflow.com/users/4909849/syohey" target="_blank"><span class="upper-right-arrow">↗</span>
+                    Stack Overflow</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+
+
+    <div class="container">
+        
+<section class="post">
+  <h1 class="post__title">Rust: I&#x2F;O</h1>
+  <h3 class="post__date"><span class="date">2020-12-04</span></h3>
+  <div class="post__reading-time">1 minute read</div>
+  <div class="post__tags">
+    
+    <a class="post__tags__tag" href="/tags/rust">#rust</a>&nbsp;
+    
+  </div>
+  <div class="post__content"><p>Input/output in Rust is one of the things that confuses me, so I wanted to drop a quick tutorial on how to io in Rust.</p>
+<pre style="background-color:#f9f9f9;">
+<code><span style="color:#8959a8;">use </span><span style="color:#111111;">std::io::{</span><span style="color:#c82728;">self</span><span style="color:#111111;">, Write};
+
+</span><span style="color:#8959a8;">fn </span><span style="color:#4271ae;">main</span><span style="color:#111111;">() {
+    </span><span style="color:#8e908c;">// To begin with, let us take an input value.
+    </span><span style="color:#111111;">print!(</span><span style="color:#839c00;">&quot;Type something... &quot;</span><span style="color:#111111;">);
+    io::stdout().</span><span style="color:#4271ae;">flush</span><span style="color:#111111;">().</span><span style="color:#4271ae;">unwrap</span><span style="color:#111111;">();
+
+    </span><span style="color:#8959a8;">let mut</span><span style="color:#111111;"> input_1 </span><span style="color:#3e999f;">= </span><span style="color:#c99e00;">String</span><span style="color:#111111;">::new(); </span><span style="color:#8e908c;">// This will prompt a user to input something.
+    </span><span style="color:#111111;">io::stdin().</span><span style="color:#4271ae;">read_line</span><span style="color:#111111;">(</span><span style="color:#3e999f;">&amp;</span><span style="color:#8959a8;">mut</span><span style="color:#111111;"> input_1).</span><span style="color:#4271ae;">ok</span><span style="color:#111111;">().</span><span style="color:#4271ae;">expect</span><span style="color:#111111;">(</span><span style="color:#839c00;">&quot;Failed to read line.&quot;</span><span style="color:#111111;">);
+
+    println!(</span><span style="color:#839c00;">&quot;You typed </span><span style="color:#111111;">{}</span><span style="color:#839c00;">.&quot;</span><span style="color:#111111;">, input_1);
+}
+</span></code></pre></div>
+  <div class="btn__wrapper">
+    <a href="/blog" class="btn btn--more btn--ripple btn--more--post"><span class="btn--ripple__source"></span>Read
+      more
+      posts</a>
+  </div>
+</section>
+
+    </div>
+    
+<footer class="footer">
+    <p>&copy; <span id="currentYear"></span> <a href="http://github.com/sjinno" class="footer__author"
+            target="_blank">Shohei Jinno</a>
+    </p>
+    <p>
+        <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank" class="footer__cc">
+            <img alt="Creative Commons License" style="border-width:0"
+                src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" />
+        </a>
+    </p>
+</footer>
+
+
+    <script src="/js/main.js"></script>
+
+</html>

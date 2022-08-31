@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+	<title> - ssh</title>
+	<link href="https://sjinno.xyz/tags/ssh/atom.xml" rel="self" type="application/atom+xml"/>
+  <link href="https://sjinno.xyz"/>
+	<generator uri="https://www.getzola.org/">Zola</generator>
+	<updated>2020-12-11T00:00:00+00:00</updated>
+	<id>https://sjinno.xyz/tags/ssh/atom.xml</id>
+	<entry xml:lang="en">
+		<title>SSH Setup for GitHub</title>
+		<published>2020-12-11T00:00:00+00:00</published>
+		<updated>2020-12-11T00:00:00+00:00</updated>
+		<link href="https://sjinno.xyz/blog/ssh-setup-for-github/" type="text/html"/>
+		<id>https://sjinno.xyz/blog/ssh-setup-for-github/</id>
+		<content type="html">&lt;h2 id=&quot;setting-up-ssh-keys&quot;&gt;Setting up SSH keys&lt;&#x2F;h2&gt;
+&lt;p&gt;&lt;strong&gt;References:&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;www.freecodecamp.org&#x2F;news&#x2F;git-ssh-how-to&#x2F;&quot;&gt;How to Get and Configure Your Git and GitHub SSH Keys&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;www.freecodecamp.org&#x2F;news&#x2F;the-ultimate-guide-to-ssh-setting-up-ssh-keys&#x2F;&quot;&gt;The Ultimate Guide to SSH - Setting Up SSH Keys&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;p&gt;If you follow those references above, you will be proabably all set. But I am just going to leave the summary on how to go about setting up multiple SSH keys so that if you have multiple GitHub accounts or some other accounts with GitLab or BitBucket, this post might give you an idea.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;1-check-for-existing-keys&quot;&gt;1. Check for existing keys&lt;&#x2F;h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Run &lt;code&gt;ls -al ~&#x2F;.ssh&lt;&#x2F;code&gt; to see if you have any &lt;strong&gt;existing&lt;&#x2F;strong&gt; SSH keys.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;If you see something like the following output, you should already have an SSH key.&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#f9f9f9;&quot;&gt;
+&lt;code&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;-rw-------&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt;  1 user_name user_name  1766 Jul  7  2018 id_rsa
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;-rw-r--r--&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt;  1 user_name user_name   414 Jul  7  2018 id_rsa.pub
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;-rw-------&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt;  1 user_name user_name 12892 Feb  5 18:39 known_hosts
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;If you don&#x27;t see any output, you probably don&#x27;t have any SSH keys.&lt;&#x2F;p&gt;
+&lt;p&gt;So run &lt;code&gt;mkdir $HOME&#x2F;.ssh&lt;&#x2F;code&gt; to create a &lt;code&gt;.ssh&lt;&#x2F;code&gt; directory.&lt;&#x2F;p&gt;
+&lt;p&gt;Then generate a new set of keys:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#f9f9f9;&quot;&gt;
+&lt;code&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;ssh-keygen&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07219;&quot;&gt; -t&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; rsa&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07219;&quot;&gt; -b&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; 4096&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07219;&quot;&gt; -C&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; your_email@example.com
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Now run &lt;code&gt;ls -la ~&#x2F;.ssh&lt;&#x2F;code&gt; again to see if the set of keys has been generated successfully. 😎&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;2-ssh-agent&quot;&gt;2. ssh-agent&lt;&#x2F;h2&gt;
+&lt;p&gt;Run the following command to see if the agent is running:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#f9f9f9;&quot;&gt;
+&lt;code&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt;eval &lt;&#x2F;span&gt;&lt;span style=&quot;color:#839c00;&quot;&gt;&amp;quot;$(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;ssh-agent&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07219;&quot;&gt; -s&lt;&#x2F;span&gt;&lt;span style=&quot;color:#839c00;&quot;&gt;)&amp;quot; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8e908c;&quot;&gt;# for Mac and Linux
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;or&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#f9f9f9;&quot;&gt;
+&lt;code&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt;eval `&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;ssh-agent&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07219;&quot;&gt; -s&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt;`
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;ssh-agent&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07219;&quot;&gt; -s &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8e908c;&quot;&gt;# for Windows
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Then add your private key to &lt;code&gt;ssh-agent&lt;&#x2F;code&gt;:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#f9f9f9;&quot;&gt;
+&lt;code&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;ssh-add ~&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt;&#x2F;.ssh&#x2F;id_rsa
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;After that,&lt;&#x2F;p&gt;
+&lt;ol&gt;
+&lt;li&gt;Copy your &lt;strong&gt;public key&lt;&#x2F;strong&gt;(&lt;code&gt;id_rsa.pub&lt;&#x2F;code&gt;).&lt;&#x2F;li&gt;
+&lt;li&gt;Sign in to your GitHub account.&lt;&#x2F;li&gt;
+&lt;li&gt;From your account dropdown, go to &lt;em&gt;Settings&lt;&#x2F;em&gt; -&amp;gt; &lt;em&gt;SSH and GPG keys&lt;&#x2F;em&gt;.&lt;&#x2F;li&gt;
+&lt;li&gt;Click on &amp;quot;&lt;strong&gt;New SSH key&lt;&#x2F;strong&gt;&amp;quot; button.&lt;&#x2F;li&gt;
+&lt;li&gt;Paste the &lt;strong&gt;copied public key&lt;&#x2F;strong&gt; into the textarea of &amp;quot;&lt;strong&gt;Key&lt;&#x2F;strong&gt;&amp;quot;.&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;p&gt;Lstly, check your authentication:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#f9f9f9;&quot;&gt;
+&lt;code&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;ssh&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07219;&quot;&gt; -T&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; git@github.com
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;If you see the following message, your SSH key has been successfully set up! 🖖&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#f9f9f9;&quot;&gt;
+&lt;code&gt;&lt;span style=&quot;color:#111111;&quot;&gt;Hi your_user_name! You&amp;#39;ve successfully authenticated, but GitHub does not provide shell access.
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;&lt;br &#x2F;&gt;
+&lt;br &#x2F;&gt;
+&lt;br &#x2F;&gt;
+&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;so-now-how-about-adding-another-account&quot;&gt;So now, how about adding another account?&lt;&#x2F;h3&gt;
+&lt;p&gt;&lt;br &#x2F;&gt;
+&lt;br &#x2F;&gt;
+&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;strong&gt;Carefully&lt;&#x2F;strong&gt; run:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#f9f9f9;&quot;&gt;
+&lt;code&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;ssh-keygen&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07219;&quot;&gt; -t&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; rsa&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07219;&quot;&gt; -b&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; 4096&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07219;&quot;&gt; -C&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; your_email@example.com
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;But, this time, &lt;strong&gt;&lt;em&gt;you will have to change the file name manually.&lt;&#x2F;em&gt;&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;When you run the command above, you should see the following messages:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#f9f9f9;&quot;&gt;
+&lt;code&gt;&lt;span style=&quot;color:#111111;&quot;&gt;Generating public&#x2F;private rsa key pair.
+Enter file in which to save the key (&#x2F;home&#x2F;username&#x2F;.ssh&#x2F;id_rsa):
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;When you generated a set of keys for the first time, you didn&#x27;t really need to specify the file name even though you could have if you wanted to.&lt;&#x2F;p&gt;
+&lt;p&gt;But as you generate more keys, &lt;strong&gt;&lt;em&gt;you must specify the file name.&lt;&#x2F;em&gt;&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;For example, if you are generating a key for your work, then you might want to enter something like:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#f9f9f9;&quot;&gt;
+&lt;code&gt;&lt;span style=&quot;color:#111111;&quot;&gt;&#x2F;home&#x2F;&amp;lt;your_username&amp;gt;&#x2F;.ssh&#x2F;id_rsa_work
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Now, when you run &lt;code&gt;ls -la ~&#x2F;.ssh&lt;&#x2F;code&gt;, you should see the following output or something similar:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#f9f9f9;&quot;&gt;
+&lt;code&gt;&lt;span style=&quot;color:#111111;&quot;&gt;-rw-------  1 user_name user_name  1766 Jul  7  2018 id_rsa
+-rw-r--r--  1 user_name user_name   414 Jul  7  2018 id_rsa.pub
+-rw-------  1 user_name user_name  1766 Jul  7  2018 id_rsa_work
+-rw-r--r--  1 user_name user_name   414 Jul  7  2018 id_rsa_work.pub
+-rw-------  1 user_name user_name 12892 Feb  5 18:39 known_hosts
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Lastly, &lt;code&gt;ssh-add ~&#x2F;.ssh&#x2F;id_rsa_work&lt;&#x2F;code&gt; and when you &lt;code&gt;ssh-add -l&lt;&#x2F;code&gt;, you should see all your identities in the output.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;3-create-ssh-config&quot;&gt;3. Create &lt;code&gt;~&#x2F;.ssh&#x2F;config&lt;&#x2F;code&gt;&lt;&#x2F;h2&gt;
+&lt;p&gt;When you have multiple SSH keys, creating &lt;code&gt;config&lt;&#x2F;code&gt; file under your &lt;code&gt;.ssh&lt;&#x2F;code&gt; directory is a must.&lt;&#x2F;p&gt;
+&lt;p&gt;So let&#x27;s do that.&lt;&#x2F;p&gt;
+&lt;p&gt;Run &lt;code&gt;touch ~&#x2F;.ssh&#x2F;config&lt;&#x2F;code&gt; to create &lt;code&gt;config&lt;&#x2F;code&gt; file, and then open it with your favorite text editor.&lt;&#x2F;p&gt;
+&lt;p&gt;Copy and paste the following as a template:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#f9f9f9;&quot;&gt;
+&lt;code&gt;&lt;span style=&quot;color:#8e908c;&quot;&gt;# personal
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;Host&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; github.com &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8e908c;&quot;&gt;# Change `github.com` to the name of your like.
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt;  HostName github.com
+  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;User&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; git
+  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;IdentityFile ~&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt;&#x2F;.ssh&#x2F;id_rsa_personal &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8e908c;&quot;&gt;# Change it to the correct path.
+
+# work
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt;Host github.com-work &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8e908c;&quot;&gt;# Change `github.com-work` to the name of your like.
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt;  HostName github.com
+  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;User&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; git
+  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;IdentityFile ~&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt;&#x2F;.ssh&#x2F;id_rsa_work &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8e908c;&quot;&gt;# Change it to the correct path.
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;In this example, we have configured multiple accounts for GitHub.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;4-how-do-you-switch-between-identities&quot;&gt;4. How do you switch between identities?&lt;&#x2F;h2&gt;
+&lt;p&gt;Every terminal session, you will have to &lt;code&gt;ssh-add ~&#x2F;.ssh&#x2F;&amp;lt;identity_file&amp;gt;&lt;&#x2F;code&gt; to add the identity you want to use.&lt;&#x2F;p&gt;
+&lt;p&gt;If an identity is somehow already set and you want to switch to a different one, then you will have to &lt;code&gt;ssh-add -D&lt;&#x2F;code&gt; to drop that identity and &lt;code&gt;ssh-add ~&#x2F;.ssh&#x2F;&amp;lt;identity_file&amp;gt;&lt;&#x2F;code&gt; to add the identity you want to use.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;you-cannot-use-multiple-identities-during-the-same-session&quot;&gt;&lt;em&gt;You cannot use multiple identities during the same session.&lt;&#x2F;em&gt;&lt;&#x2F;h3&gt;
+&lt;p&gt;And I think that&#x27;s about it.&lt;&#x2F;p&gt;
+&lt;p&gt;One thing to keep in mind is that, if you have globally set github username and email, you might want to configure your &lt;code&gt;.git&lt;&#x2F;code&gt; whenever you initialize a git repo:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#f9f9f9;&quot;&gt;
+&lt;code&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;git&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; config user.name &lt;&#x2F;span&gt;&lt;span style=&quot;color:#839c00;&quot;&gt;&amp;quot;Your name&amp;quot;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;git&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; config user.email your_email@example.com
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;</content>
+	</entry>
+</feed>

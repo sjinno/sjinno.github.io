@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+	<title> - web-development</title>
+	<link href="https://sjinno.xyz/tags/web-development/atom.xml" rel="self" type="application/atom+xml"/>
+  <link href="https://sjinno.xyz"/>
+	<generator uri="https://www.getzola.org/">Zola</generator>
+	<updated>2020-12-01T00:00:00+00:00</updated>
+	<id>https://sjinno.xyz/tags/web-development/atom.xml</id>
+	<entry xml:lang="en">
+		<title>Hugo Quickstart</title>
+		<published>2020-12-01T00:00:00+00:00</published>
+		<updated>2020-12-01T00:00:00+00:00</updated>
+		<link href="https://sjinno.xyz/blog/hugo-quickstart/" type="text/html"/>
+		<id>https://sjinno.xyz/blog/hugo-quickstart/</id>
+		<content type="html">&lt;p&gt;Here is a quick tutorial on how to get started with Hugo, the super fast framework for building websites. (Although this website is built with Zola...)&lt;&#x2F;p&gt;
+&lt;p&gt;I&#x27;m glad if this post could help someone get started with it too!&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;There will be two parts:&lt;&#x2F;p&gt;
+&lt;h4 id=&quot;1-quickstart&quot;&gt;1. Quickstart&lt;&#x2F;h4&gt;
+&lt;h4 id=&quot;2-deploying-to-github-pages&quot;&gt;2. Deploying to GitHub Pages&lt;&#x2F;h4&gt;
+&lt;p&gt;&lt;br &#x2F;&gt;
+&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;1-quickstart-1&quot;&gt;1. Quickstart&lt;&#x2F;h2&gt;
+&lt;p&gt;I assume that you already have hugo installed on your machine, so I&#x27;ll skip that part.&lt;&#x2F;p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;hugo new site quickstart&lt;&#x2F;code&gt; to generate a hugo website. You can &lt;strong&gt;replace&lt;&#x2F;strong&gt; &lt;code&gt;quickstart&lt;&#x2F;code&gt; with whatever name you like.&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;cd quickstart&lt;&#x2F;code&gt; to go to the folder you just created.&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;git init&lt;&#x2F;code&gt; to initialize a git repo.&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;git submodule add https:&#x2F;&#x2F;github.com&#x2F;budparr&#x2F;gohugo-theme-ananke.git themes&#x2F;ananke&lt;&#x2F;code&gt; to install a theme you like. In this example, we are installing &lt;code&gt;ananke&lt;&#x2F;code&gt; theme.&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;echo &#x27;theme = &amp;quot;ananke&amp;quot;&#x27; &amp;gt;&amp;gt; config.toml&lt;&#x2F;code&gt; to use the theme. Or open the folder in your favorite text editor, open the config.toml file, and write &lt;code&gt;theme = &amp;quot;ananke&amp;quot;&lt;&#x2F;code&gt;.&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;hugo new posts&#x2F;my-first-post.md&lt;&#x2F;code&gt; to create a new post.&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;my-first-post.md&lt;&#x2F;code&gt; should look like the following.&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#f9f9f9;&quot;&gt;
+&lt;code&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;---
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;title: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#839c00;&quot;&gt;&amp;quot;My First Post&amp;quot;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;date:&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; 2019-03-26T08:47:11+01:00
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;draft:&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; true
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;---
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Sometimes, it&#x27;s &lt;code&gt;+++&lt;&#x2F;code&gt; instead of &lt;code&gt;---&lt;&#x2F;code&gt;, so you might have to modify that manually.&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;Write anything you want in &lt;code&gt;my-first-post.md&lt;&#x2F;code&gt; and that&#x27;s pretty much it for the first part!&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;hugo server -D&lt;&#x2F;code&gt; or &lt;code&gt;hugo server -t &amp;lt;your-theme&amp;gt;&lt;&#x2F;code&gt; (if you use a theme) to see what your website looks like.&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;p&gt;&lt;br &#x2F;&gt;
+&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;2-deploying-to-github-pages-1&quot;&gt;2. Deploying to GitHub Pages&lt;&#x2F;h2&gt;
+&lt;p&gt;I assume that you already have a GitHub account.&lt;&#x2F;p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Create a new repository &lt;code&gt;&amp;lt;your-blog&amp;gt;&lt;&#x2F;code&gt;.&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;Create another repository, but this time the name should be &lt;code&gt;&amp;lt;your-user-name&amp;gt;.github.io&lt;&#x2F;code&gt;.&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;git clone &amp;lt;your-blog&amp;gt;&lt;&#x2F;code&gt; or &lt;code&gt;git remote add origin &amp;lt;url-to-your-blog-repo&amp;gt;&lt;&#x2F;code&gt; to skip step 4.&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;Move all the files and folders in your &lt;code&gt;quickstart&lt;&#x2F;code&gt; into &lt;code&gt;&amp;lt;your-blog&amp;gt;&lt;&#x2F;code&gt; repo.&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;Make sure your website works locally by running &lt;code&gt;hugo server&lt;&#x2F;code&gt; or &lt;code&gt;hugo server -t &amp;lt;your-theme&amp;gt;&lt;&#x2F;code&gt;.&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;git submodule add -b master https:&#x2F;&#x2F;github.com&#x2F;&amp;lt;your-user-name&amp;gt;&#x2F;&amp;lt;your-user-name&amp;gt;.github.io.git public&lt;&#x2F;code&gt; to create a git submodule.&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;Run &lt;code&gt;hugo&lt;&#x2F;code&gt; or &lt;code&gt;hugo -t &amp;lt;your-theme&amp;gt;&lt;&#x2F;code&gt; (if you use a theme). This should create a public folder in your working directory.&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;cd public&lt;&#x2F;code&gt; and all that&#x27;s left to do is to &lt;code&gt;git add&lt;&#x2F;code&gt;, &lt;code&gt;git commit&lt;&#x2F;code&gt;, and &lt;code&gt;git push&lt;&#x2F;code&gt; it.&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;pre style=&quot;background-color:#f9f9f9;&quot;&gt;
+&lt;code&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;git&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; add .
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;git&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; commit&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07219;&quot;&gt; -m &lt;&#x2F;span&gt;&lt;span style=&quot;color:#839c00;&quot;&gt;&amp;quot;Your comment.&amp;quot;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;git&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; push&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07219;&quot;&gt; -u&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; origin master
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;ol start=&quot;9&quot;&gt;
+&lt;li&gt;Now go to &lt;code&gt;https:&#x2F;&#x2F;&amp;lt;your-user-name&amp;gt;.github.io&lt;&#x2F;code&gt;, and you should see your website running!&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+</content>
+	</entry>
+</feed>

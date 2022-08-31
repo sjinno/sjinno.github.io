@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+	<title> - bash</title>
+	<link href="https://sjinno.xyz/tags/bash/atom.xml" rel="self" type="application/atom+xml"/>
+  <link href="https://sjinno.xyz"/>
+	<generator uri="https://www.getzola.org/">Zola</generator>
+	<updated>2020-12-03T00:00:00+00:00</updated>
+	<id>https://sjinno.xyz/tags/bash/atom.xml</id>
+	<entry xml:lang="en">
+		<title>Bash</title>
+		<published>2020-12-03T00:00:00+00:00</published>
+		<updated>2020-12-03T00:00:00+00:00</updated>
+		<link href="https://sjinno.xyz/blog/bash/" type="text/html"/>
+		<id>https://sjinno.xyz/blog/bash/</id>
+		<content type="html">&lt;pre style=&quot;background-color:#f9f9f9;&quot;&gt;
+&lt;code&gt;&lt;span style=&quot;color:#8e908c;&quot;&gt;# 1. Print output into terminal
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt;echo &lt;&#x2F;span&gt;&lt;span style=&quot;color:#839c00;&quot;&gt;&amp;quot;Hello, world\!&amp;quot;
+
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8e908c;&quot;&gt;# 2. Take user input
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt;read input &lt;&#x2F;span&gt;&lt;span style=&quot;color:#3e999f;&quot;&gt;; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt;echo &lt;&#x2F;span&gt;&lt;span style=&quot;color:#839c00;&quot;&gt;&amp;quot;You typed $&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;input&lt;&#x2F;span&gt;&lt;span style=&quot;color:#839c00;&quot;&gt;.&amp;quot;
+
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8e908c;&quot;&gt;# 3. Take user input in the same line
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt;echo &lt;&#x2F;span&gt;&lt;span style=&quot;color:#839c00;&quot;&gt;&amp;quot;Type something: \c&amp;quot; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#3e999f;&quot;&gt;; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt;read input &lt;&#x2F;span&gt;&lt;span style=&quot;color:#3e999f;&quot;&gt;; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt;echo &lt;&#x2F;span&gt;&lt;span style=&quot;color:#839c00;&quot;&gt;&amp;quot;You typed $&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;input&lt;&#x2F;span&gt;&lt;span style=&quot;color:#839c00;&quot;&gt;.&amp;quot;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8e908c;&quot;&gt;# or
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt;echo &lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07219;&quot;&gt;-n &lt;&#x2F;span&gt;&lt;span style=&quot;color:#839c00;&quot;&gt;&amp;quot;Type something: &amp;quot; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#3e999f;&quot;&gt;; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt;read input &lt;&#x2F;span&gt;&lt;span style=&quot;color:#3e999f;&quot;&gt;; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt;echo &lt;&#x2F;span&gt;&lt;span style=&quot;color:#839c00;&quot;&gt;&amp;quot;You typed $&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;input&lt;&#x2F;span&gt;&lt;span style=&quot;color:#839c00;&quot;&gt;.&amp;quot;
+
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8e908c;&quot;&gt;# 4. If statement
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt;echo &lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07219;&quot;&gt;-n &lt;&#x2F;span&gt;&lt;span style=&quot;color:#839c00;&quot;&gt;&amp;quot;Enter a number: &amp;quot; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#3e999f;&quot;&gt;; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt;read num
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8959a8;&quot;&gt;if &lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt;[ $&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;num &lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07219;&quot;&gt;-eq&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; 100 ]&lt;&#x2F;span&gt;&lt;span style=&quot;color:#3e999f;&quot;&gt;; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8959a8;&quot;&gt;then
+    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt;echo &lt;&#x2F;span&gt;&lt;span style=&quot;color:#839c00;&quot;&gt;&amp;quot;true&amp;quot;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8959a8;&quot;&gt;else
+    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt;echo &lt;&#x2F;span&gt;&lt;span style=&quot;color:#839c00;&quot;&gt;&amp;quot;false&amp;quot;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8959a8;&quot;&gt;fi
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8e908c;&quot;&gt;# if &amp;lt;expression&amp;gt;; then
+#     &amp;lt;commands&amp;gt;
+# elif &amp;lt;expression&amp;gt;; then
+#     &amp;lt;commands&amp;gt;
+# else
+#     &amp;lt;commands&amp;gt;
+# fi
+
+# if [ &amp;lt;expression&amp;gt; ] &amp;amp;&amp;amp; [ &amp;lt;expression&amp;gt; ]; then
+#     &amp;lt;commands&amp;gt;
+# fi
+
+# if [ &amp;lt;expression&amp;gt; ] || [ &amp;lt;expression&amp;gt; ]; then
+#     &amp;lt;commands&amp;gt;
+# fi
+
+
+# 5. While loop
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt;count=1
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;target&lt;&#x2F;span&gt;&lt;span style=&quot;color:#3e999f;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#839c00;&quot;&gt;10
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8959a8;&quot;&gt;while &lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt;[ $&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;count &lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07219;&quot;&gt;-ne &lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt;$&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;target &lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt;]
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8959a8;&quot;&gt;do
+    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt;echo &lt;&#x2F;span&gt;&lt;span style=&quot;color:#839c00;&quot;&gt;&amp;quot;$&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;count&lt;&#x2F;span&gt;&lt;span style=&quot;color:#839c00;&quot;&gt; is still less than $&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;target&lt;&#x2F;span&gt;&lt;span style=&quot;color:#839c00;&quot;&gt;.&amp;quot;
+    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#111111;&quot;&gt;((count&lt;&#x2F;span&gt;&lt;span style=&quot;color:#3e999f;&quot;&gt;++&lt;&#x2F;span&gt;&lt;span style=&quot;color:#111111;&quot;&gt;))
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8959a8;&quot;&gt;done
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt;echo &lt;&#x2F;span&gt;&lt;span style=&quot;color:#839c00;&quot;&gt;&amp;quot;Now finally $&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;count&lt;&#x2F;span&gt;&lt;span style=&quot;color:#839c00;&quot;&gt; is equal to $&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;target&lt;&#x2F;span&gt;&lt;span style=&quot;color:#839c00;&quot;&gt;.&amp;quot;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8e908c;&quot;&gt;# -gt: greater than
+# -lt: less than
+# -eq: equal to
+# -ge: greater than or equal to
+# -le: less than or equal to
+# -ne: not equal to
+
+
+# 6. For loop
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt;for num in {1..10}
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8959a8;&quot;&gt;do
+    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt;echo &lt;&#x2F;span&gt;&lt;span style=&quot;color:#839c00;&quot;&gt;&amp;quot;$&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;num&lt;&#x2F;span&gt;&lt;span style=&quot;color:#839c00;&quot;&gt;&amp;quot;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8959a8;&quot;&gt;done
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8e908c;&quot;&gt;# The following will output `1 11 21 31 41 51 61 71 81 91`.
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt;for num in {1..100..10}
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8959a8;&quot;&gt;do
+    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt;echo &lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07219;&quot;&gt;-n &lt;&#x2F;span&gt;&lt;span style=&quot;color:#839c00;&quot;&gt;&amp;quot;$&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;num &lt;&#x2F;span&gt;&lt;span style=&quot;color:#839c00;&quot;&gt;&amp;quot;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8959a8;&quot;&gt;done
+
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8e908c;&quot;&gt;# 7. Date
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt;date                             &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8e908c;&quot;&gt;# Output: Thu Mar 18 10:56:29 AM PDT 2021
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt;date +%&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;H&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt;:%&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;M&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt;:%&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;S                   &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8e908c;&quot;&gt;# Output: 10:57:14
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt;date +&lt;&#x2F;span&gt;&lt;span style=&quot;color:#839c00;&quot;&gt;&amp;quot;%dth %B, %Y&amp;quot;              &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8e908c;&quot;&gt;# Output: 18th March, 2021
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt;date&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07219;&quot;&gt; --date&lt;&#x2F;span&gt;&lt;span style=&quot;color:#3e999f;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#839c00;&quot;&gt;&amp;#39;15 days&amp;#39;            &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8e908c;&quot;&gt;# Output: Fri Apr  2 11:00:14 AM PDT 2021
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt;date&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07219;&quot;&gt; --date&lt;&#x2F;span&gt;&lt;span style=&quot;color:#3e999f;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#839c00;&quot;&gt;&amp;#39;15 days ago&amp;#39;        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8e908c;&quot;&gt;# Output: Wed Mar  3 10:00:22 AM PST 2021
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt;date&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07219;&quot;&gt; --date&lt;&#x2F;span&gt;&lt;span style=&quot;color:#3e999f;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#839c00;&quot;&gt;&amp;#39;5 hours 20 minutes&amp;#39; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8e908c;&quot;&gt;# Output: Thu Mar 18 04:21:33 PM PDT 2021
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt;date&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07219;&quot;&gt; -d &lt;&#x2F;span&gt;&lt;span style=&quot;color:#839c00;&quot;&gt;&amp;quot;2021-04-01&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; +&lt;&#x2F;span&gt;&lt;span style=&quot;color:#839c00;&quot;&gt;&amp;quot;%A&amp;quot;       &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8e908c;&quot;&gt;# Output: Thursday
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt;timediff&lt;&#x2F;span&gt;&lt;span style=&quot;color:#111111;&quot;&gt;() {
+    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;START&lt;&#x2F;span&gt;&lt;span style=&quot;color:#3e999f;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt;`&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;date&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07219;&quot;&gt; -d &lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt;$&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; +%&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;s&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt;`
+    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;END&lt;&#x2F;span&gt;&lt;span style=&quot;color:#3e999f;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt;`&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;date&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07219;&quot;&gt; -d &lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt;$&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;2&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; +%&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;s&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt;`
+    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#111111;&quot;&gt;((diff&lt;&#x2F;span&gt;&lt;span style=&quot;color:#3e999f;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#111111;&quot;&gt;$&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;END&lt;&#x2F;span&gt;&lt;span style=&quot;color:#3e999f;&quot;&gt;-&lt;&#x2F;span&gt;&lt;span style=&quot;color:#111111;&quot;&gt;$&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;START&lt;&#x2F;span&gt;&lt;span style=&quot;color:#111111;&quot;&gt;))
+    ((days&lt;&#x2F;span&gt;&lt;span style=&quot;color:#3e999f;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#111111;&quot;&gt;$&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;diff&lt;&#x2F;span&gt;&lt;span style=&quot;color:#3e999f;&quot;&gt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#111111;&quot;&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07219;&quot;&gt;60&lt;&#x2F;span&gt;&lt;span style=&quot;color:#3e999f;&quot;&gt;*&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07219;&quot;&gt;60&lt;&#x2F;span&gt;&lt;span style=&quot;color:#3e999f;&quot;&gt;*&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07219;&quot;&gt;24&lt;&#x2F;span&gt;&lt;span style=&quot;color:#111111;&quot;&gt;)))
+    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt;echo &lt;&#x2F;span&gt;&lt;span style=&quot;color:#839c00;&quot;&gt;&amp;quot;The time escaped = $&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;days&lt;&#x2F;span&gt;&lt;span style=&quot;color:#839c00;&quot;&gt; days.&amp;quot;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#111111;&quot;&gt;}
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8e908c;&quot;&gt;# The following should output `The time escaped = 282 days`.
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;timediff &lt;&#x2F;span&gt;&lt;span style=&quot;color:#839c00;&quot;&gt;&amp;quot;2021-03-18&amp;quot; &amp;quot;2021-12-25&amp;quot;
+
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8e908c;&quot;&gt;# 8. Calendar
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt;cal
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8e908c;&quot;&gt;#      March 2021
+# Su Mo Tu We Th Fr Sa
+#     1  2  3  4  5  6
+#  7  8  9 10 11 12 13
+# 14 15 16 17 18 19 20
+# 21 22 23 24 25 26 27
+# 28 29 30 31
+
+# For more info, run `man cal`.
+
+
+# 9. Operators
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#3e999f;&quot;&gt;&amp;amp;&amp;amp;  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8e908c;&quot;&gt;# AND op
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#3e999f;&quot;&gt;||  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8e908c;&quot;&gt;# OR op
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;...
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;&lt;a href=&quot;https:&#x2F;&#x2F;linuxhint.com&#x2F;category&#x2F;bash-programming&#x2F;&quot;&gt;More bash programming stuff.&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+</content>
+	</entry>
+</feed>

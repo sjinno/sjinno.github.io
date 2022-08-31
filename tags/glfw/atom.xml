@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+	<title> - glfw</title>
+	<link href="https://sjinno.xyz/tags/glfw/atom.xml" rel="self" type="application/atom+xml"/>
+  <link href="https://sjinno.xyz"/>
+	<generator uri="https://www.getzola.org/">Zola</generator>
+	<updated>2021-04-14T00:00:00+00:00</updated>
+	<id>https://sjinno.xyz/tags/glfw/atom.xml</id>
+	<entry xml:lang="en">
+		<title>OpenGL on Fedora 33</title>
+		<published>2021-04-14T00:00:00+00:00</published>
+		<updated>2021-04-14T00:00:00+00:00</updated>
+		<link href="https://sjinno.xyz/blog/opengl/" type="text/html"/>
+		<id>https://sjinno.xyz/blog/opengl/</id>
+		<content type="html">&lt;h2 id=&quot;installation-requirements&quot;&gt;Installation requirements:&lt;&#x2F;h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;GLFW:&lt;&#x2F;strong&gt; &lt;a href=&quot;https:&#x2F;&#x2F;www.glfw.org&#x2F;download.html&quot;&gt;https:&#x2F;&#x2F;www.glfw.org&#x2F;download.html&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;GLAD:&lt;&#x2F;strong&gt; &lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;Dav1dde&#x2F;glad&quot;&gt;https:&#x2F;&#x2F;github.com&#x2F;Dav1dde&#x2F;glad&lt;&#x2F;a&gt; or &lt;a href=&quot;https:&#x2F;&#x2F;glad.dav1d.de&quot;&gt;https:&#x2F;&#x2F;glad.dav1d.de&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;useful-links&quot;&gt;Useful links:&lt;&#x2F;h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https:&#x2F;&#x2F;stackoverflow.com&#x2F;questions&#x2F;17768008&#x2F;how-to-build-install-glfw-3-and-use-it-in-a-linux-project&quot;&gt;&lt;strong&gt;How to build &amp;amp; install GLFW 3 and use it in a Linux project&lt;&#x2F;strong&gt; (Stack Overflow)&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https:&#x2F;&#x2F;www.reddit.com&#x2F;r&#x2F;opengl&#x2F;comments&#x2F;blqgoy&#x2F;issue_compiling_with_glad_c&#x2F;&quot;&gt;&lt;strong&gt;Issue compiling with GLAD - C++&lt;&#x2F;strong&gt; (Reddit)&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;&lt;br &#x2F;&gt;
+&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;step-1-install-glfw-and-glad&quot;&gt;Step 1: Install GLFW and GLAD&lt;&#x2F;h2&gt;
+&lt;p&gt;After installing GLFW,&lt;&#x2F;p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;cd &amp;lt;source-directory&amp;gt;&lt;&#x2F;code&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;cmake -G &amp;quot;Unix Makefiles&amp;quot;&lt;&#x2F;code&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;sudo dnf install dnf-utils glfw&lt;&#x2F;code&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;make&lt;&#x2F;code&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;sudo make install&lt;&#x2F;code&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;p&gt;After installing GLAD,&lt;&#x2F;p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;pre style=&quot;background-color:#f9f9f9;&quot;&gt;
+&lt;code&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; ln&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07219;&quot;&gt; -s &lt;&#x2F;span&gt;&lt;span style=&quot;color:#3e999f;&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt;path&#x2F;to&#x2F;glad&lt;&#x2F;span&gt;&lt;span style=&quot;color:#3e999f;&quot;&gt;&amp;gt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; &#x2F;usr&#x2F;local&#x2F;include&#x2F;glad
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8e908c;&quot;&gt;# In my case,
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; ln&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07219;&quot;&gt; -s &lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;~&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt;&#x2F;glad&#x2F;include&#x2F;glad &#x2F;usr&#x2F;local&#x2F;include&#x2F;glad
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;You will need &lt;code&gt;glad.c&lt;&#x2F;code&gt; when compiling, so put it in the project directory or wherever you can remember.&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;p&gt;&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;step-2-compile&quot;&gt;Step 2: Compile&lt;&#x2F;h2&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Grab an example code from &lt;a href=&quot;https:&#x2F;&#x2F;learnopengl.com&#x2F;code_viewer_gh.php?code=src&#x2F;1.getting_started&#x2F;3.2.shaders_interpolation&#x2F;shaders_interpolation.cpp&quot;&gt;here&lt;&#x2F;a&gt; and name it &lt;code&gt;shaders.cpp&lt;&#x2F;code&gt;.&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;Compile &lt;code&gt;shaders.cpp&lt;&#x2F;code&gt; with:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#f9f9f9;&quot;&gt;
+&lt;code&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;g++&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07219;&quot;&gt; -std&lt;&#x2F;span&gt;&lt;span style=&quot;color:#3e999f;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt;c++11&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07219;&quot;&gt; -c&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; shaders.cpp &lt;&#x2F;span&gt;&lt;span style=&quot;color:#3e999f;&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt;path&#x2F;to&#x2F;glad.c&lt;&#x2F;span&gt;&lt;span style=&quot;color:#3e999f;&quot;&gt;&amp;gt;
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8e908c;&quot;&gt;# In my case,
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;g++&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07219;&quot;&gt; -std&lt;&#x2F;span&gt;&lt;span style=&quot;color:#3e999f;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt;c++11&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07219;&quot;&gt; -c&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; shaders.cpp &lt;&#x2F;span&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;~&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt;&#x2F;glad&#x2F;src&#x2F;glad.c
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;Output an executable file with:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#f9f9f9;&quot;&gt;
+&lt;code&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;g++&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; shaders.o glad.o&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07219;&quot;&gt; -o&lt;&#x2F;span&gt;&lt;span style=&quot;color:#4271ae;&quot;&gt; shaders.exec&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07219;&quot;&gt; -lGL -lglfw3 -lX11 -lpthread -ldl
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;Finally execute with:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#f9f9f9;&quot;&gt;
+&lt;code&gt;&lt;span style=&quot;color:#c82728;&quot;&gt;.&#x2F;shaders.exec
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;And you should see something like this:&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;&#x2F;images&#x2F;blog&#x2F;shaders.webp&quot; alt=&quot;triangle&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;p&gt;&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;finally&quot;&gt;Finally&lt;&#x2F;h2&gt;
+&lt;p&gt;If this didn&#x27;t help, you should be missing more required packages and you want to google until you find an answer. I don&#x27;t know anything about C&#x2F; C++, so it was kind of confusing to learn how to link stuff and whatnot, but eventually I found the answers I needed. :)&lt;&#x2F;p&gt;
+&lt;p&gt;Good luck!&lt;&#x2F;p&gt;
+</content>
+	</entry>
+</feed>

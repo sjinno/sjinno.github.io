@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/main.css">
+    <title>Shohei Jinno</title>
+    <link rel="shortcut icon" href=&#x2F;images&#x2F;pepe-16-270481.png type="image/x-icon">
+</head>
+
+<body>
+    
+<nav class="nav">
+    <a href="/" class="nav__home">Shohei Jinno</a>
+    <button class="hamburger">
+        <span class="hamburger__patty1"></span>
+        <span class="hamburger__patty2"></span>
+    </button>
+
+    <div class="nav__menu">
+        <ul class="nav__list">
+            <li class="nav__item"><a href="/blog">Blog</a></li>
+            <li class="nav__item"><a href="/projects">Projects</a></li>
+            <li class="nav__item">
+                <a href="http://github.com/sjinno" target="_blank">
+                    <span class="upper-right-arrow">↗</span> <span class="nav__item">GitHub</span>
+                </a>
+            </li>
+            <li><a href="http://www.linkedin.com/in/shohei-jinno-947a88121" target="_blank"><span class="upper-right-arrow">↗</span>
+                    LinkedIn</a>
+            </li>
+            <li><a href="http://www.instagram.com/shoelric" target="_blank"><span class="upper-right-arrow">↗</span> Instagram</a>
+            </li>
+            <li><a href="http://stackoverflow.com/users/4909849/syohey" target="_blank"><span class="upper-right-arrow">↗</span>
+                    Stack Overflow</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+
+
+    <div class="container">
+        
+<section class="post">
+  <h1 class="post__title">Hugo Quickstart</h1>
+  <h3 class="post__date"><span class="date">2020-12-01</span></h3>
+  <div class="post__reading-time">3 minute read</div>
+  <div class="post__tags">
+    
+    <a class="post__tags__tag" href="/tags/hugo">#hugo</a>&nbsp;
+    
+    <a class="post__tags__tag" href="/tags/static-site">#static-site</a>&nbsp;
+    
+    <a class="post__tags__tag" href="/tags/web-development">#web-development</a>&nbsp;
+    
+  </div>
+  <div class="post__content"><p>Here is a quick tutorial on how to get started with Hugo, the super fast framework for building websites. (Although this website is built with Zola...)</p>
+<p>I'm glad if this post could help someone get started with it too!</p>
+<p></p>
+<p>There will be two parts:</p>
+<h4 id="1-quickstart">1. Quickstart</h4>
+<h4 id="2-deploying-to-github-pages">2. Deploying to GitHub Pages</h4>
+<p><br />
+</p>
+<h2 id="1-quickstart-1">1. Quickstart</h2>
+<p>I assume that you already have hugo installed on your machine, so I'll skip that part.</p>
+<ol>
+<li>
+<p><code>hugo new site quickstart</code> to generate a hugo website. You can <strong>replace</strong> <code>quickstart</code> with whatever name you like.</p>
+</li>
+<li>
+<p><code>cd quickstart</code> to go to the folder you just created.</p>
+</li>
+<li>
+<p><code>git init</code> to initialize a git repo.</p>
+</li>
+<li>
+<p><code>git submodule add https://github.com/budparr/gohugo-theme-ananke.git themes/ananke</code> to install a theme you like. In this example, we are installing <code>ananke</code> theme.</p>
+</li>
+<li>
+<p><code>echo 'theme = &quot;ananke&quot;' &gt;&gt; config.toml</code> to use the theme. Or open the folder in your favorite text editor, open the config.toml file, and write <code>theme = &quot;ananke&quot;</code>.</p>
+</li>
+<li>
+<p><code>hugo new posts/my-first-post.md</code> to create a new post.</p>
+</li>
+<li>
+<p><code>my-first-post.md</code> should look like the following.</p>
+<pre style="background-color:#f9f9f9;">
+<code><span style="color:#c82728;">---
+</span><span style="color:#c82728;">title: </span><span style="color:#839c00;">&quot;My First Post&quot;
+</span><span style="color:#c82728;">date:</span><span style="color:#4271ae;"> 2019-03-26T08:47:11+01:00
+</span><span style="color:#c82728;">draft:</span><span style="color:#4271ae;"> true
+</span><span style="color:#c82728;">---
+</span></code></pre>
+<p>Sometimes, it's <code>+++</code> instead of <code>---</code>, so you might have to modify that manually.</p>
+</li>
+<li>
+<p>Write anything you want in <code>my-first-post.md</code> and that's pretty much it for the first part!</p>
+</li>
+<li>
+<p><code>hugo server -D</code> or <code>hugo server -t &lt;your-theme&gt;</code> (if you use a theme) to see what your website looks like.</p>
+</li>
+</ol>
+<p><br />
+</p>
+<h2 id="2-deploying-to-github-pages-1">2. Deploying to GitHub Pages</h2>
+<p>I assume that you already have a GitHub account.</p>
+<ol>
+<li>
+<p>Create a new repository <code>&lt;your-blog&gt;</code>.</p>
+</li>
+<li>
+<p>Create another repository, but this time the name should be <code>&lt;your-user-name&gt;.github.io</code>.</p>
+</li>
+<li>
+<p><code>git clone &lt;your-blog&gt;</code> or <code>git remote add origin &lt;url-to-your-blog-repo&gt;</code> to skip step 4.</p>
+</li>
+<li>
+<p>Move all the files and folders in your <code>quickstart</code> into <code>&lt;your-blog&gt;</code> repo.</p>
+</li>
+<li>
+<p>Make sure your website works locally by running <code>hugo server</code> or <code>hugo server -t &lt;your-theme&gt;</code>.</p>
+</li>
+<li>
+<p><code>git submodule add -b master https://github.com/&lt;your-user-name&gt;/&lt;your-user-name&gt;.github.io.git public</code> to create a git submodule.</p>
+</li>
+<li>
+<p>Run <code>hugo</code> or <code>hugo -t &lt;your-theme&gt;</code> (if you use a theme). This should create a public folder in your working directory.</p>
+</li>
+<li>
+<p><code>cd public</code> and all that's left to do is to <code>git add</code>, <code>git commit</code>, and <code>git push</code> it.</p>
+</li>
+</ol>
+<pre style="background-color:#f9f9f9;">
+<code><span style="color:#c82728;">git</span><span style="color:#4271ae;"> add .
+</span><span style="color:#c82728;">git</span><span style="color:#4271ae;"> commit</span><span style="color:#f07219;"> -m </span><span style="color:#839c00;">&quot;Your comment.&quot;
+</span><span style="color:#c82728;">git</span><span style="color:#4271ae;"> push</span><span style="color:#f07219;"> -u</span><span style="color:#4271ae;"> origin master
+</span></code></pre>
+<ol start="9">
+<li>Now go to <code>https://&lt;your-user-name&gt;.github.io</code>, and you should see your website running!</li>
+</ol>
+</div>
+  <div class="btn__wrapper">
+    <a href="/blog" class="btn btn--more btn--ripple btn--more--post"><span class="btn--ripple__source"></span>Read
+      more
+      posts</a>
+  </div>
+</section>
+
+    </div>
+    
+<footer class="footer">
+    <p>&copy; <span id="currentYear"></span> <a href="http://github.com/sjinno" class="footer__author"
+            target="_blank">Shohei Jinno</a>
+    </p>
+    <p>
+        <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank" class="footer__cc">
+            <img alt="Creative Commons License" style="border-width:0"
+                src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" />
+        </a>
+    </p>
+</footer>
+
+
+    <script src="/js/main.js"></script>
+
+</html>

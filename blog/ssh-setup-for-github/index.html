@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/main.css">
+    <title>Shohei Jinno</title>
+    <link rel="shortcut icon" href=&#x2F;images&#x2F;pepe-16-270481.png type="image/x-icon">
+</head>
+
+<body>
+    
+<nav class="nav">
+    <a href="/" class="nav__home">Shohei Jinno</a>
+    <button class="hamburger">
+        <span class="hamburger__patty1"></span>
+        <span class="hamburger__patty2"></span>
+    </button>
+
+    <div class="nav__menu">
+        <ul class="nav__list">
+            <li class="nav__item"><a href="/blog">Blog</a></li>
+            <li class="nav__item"><a href="/projects">Projects</a></li>
+            <li class="nav__item">
+                <a href="http://github.com/sjinno" target="_blank">
+                    <span class="upper-right-arrow">↗</span> <span class="nav__item">GitHub</span>
+                </a>
+            </li>
+            <li><a href="http://www.linkedin.com/in/shohei-jinno-947a88121" target="_blank"><span class="upper-right-arrow">↗</span>
+                    LinkedIn</a>
+            </li>
+            <li><a href="http://www.instagram.com/shoelric" target="_blank"><span class="upper-right-arrow">↗</span> Instagram</a>
+            </li>
+            <li><a href="http://stackoverflow.com/users/4909849/syohey" target="_blank"><span class="upper-right-arrow">↗</span>
+                    Stack Overflow</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+
+
+    <div class="container">
+        
+<section class="post">
+  <h1 class="post__title">SSH Setup for GitHub</h1>
+  <h3 class="post__date"><span class="date">2020-12-11</span></h3>
+  <div class="post__reading-time">4 minute read</div>
+  <div class="post__tags">
+    
+    <a class="post__tags__tag" href="/tags/ssh">#ssh</a>&nbsp;
+    
+    <a class="post__tags__tag" href="/tags/tutorial">#tutorial</a>&nbsp;
+    
+  </div>
+  <div class="post__content"><h2 id="setting-up-ssh-keys">Setting up SSH keys</h2>
+<p><strong>References:</strong></p>
+<ol>
+<li><a href="https://www.freecodecamp.org/news/git-ssh-how-to/">How to Get and Configure Your Git and GitHub SSH Keys</a></li>
+<li><a href="https://www.freecodecamp.org/news/the-ultimate-guide-to-ssh-setting-up-ssh-keys/">The Ultimate Guide to SSH - Setting Up SSH Keys</a></li>
+</ol>
+<p>If you follow those references above, you will be proabably all set. But I am just going to leave the summary on how to go about setting up multiple SSH keys so that if you have multiple GitHub accounts or some other accounts with GitLab or BitBucket, this post might give you an idea.</p>
+<p></p>
+<h2 id="1-check-for-existing-keys">1. Check for existing keys</h2>
+<ul>
+<li>Run <code>ls -al ~/.ssh</code> to see if you have any <strong>existing</strong> SSH keys.</li>
+</ul>
+<p>If you see something like the following output, you should already have an SSH key.</p>
+<pre style="background-color:#f9f9f9;">
+<code><span style="color:#c82728;">-rw-------</span><span style="color:#4271ae;">  1 user_name user_name  1766 Jul  7  2018 id_rsa
+</span><span style="color:#c82728;">-rw-r--r--</span><span style="color:#4271ae;">  1 user_name user_name   414 Jul  7  2018 id_rsa.pub
+</span><span style="color:#c82728;">-rw-------</span><span style="color:#4271ae;">  1 user_name user_name 12892 Feb  5 18:39 known_hosts
+</span></code></pre>
+<p>If you don't see any output, you probably don't have any SSH keys.</p>
+<p>So run <code>mkdir $HOME/.ssh</code> to create a <code>.ssh</code> directory.</p>
+<p>Then generate a new set of keys:</p>
+<pre style="background-color:#f9f9f9;">
+<code><span style="color:#c82728;">ssh-keygen</span><span style="color:#f07219;"> -t</span><span style="color:#4271ae;"> rsa</span><span style="color:#f07219;"> -b</span><span style="color:#4271ae;"> 4096</span><span style="color:#f07219;"> -C</span><span style="color:#4271ae;"> your_email@example.com
+</span></code></pre>
+<p>Now run <code>ls -la ~/.ssh</code> again to see if the set of keys has been generated successfully. 😎</p>
+<p></p>
+<h2 id="2-ssh-agent">2. ssh-agent</h2>
+<p>Run the following command to see if the agent is running:</p>
+<pre style="background-color:#f9f9f9;">
+<code><span style="color:#4271ae;">eval </span><span style="color:#839c00;">&quot;$(</span><span style="color:#c82728;">ssh-agent</span><span style="color:#f07219;"> -s</span><span style="color:#839c00;">)&quot; </span><span style="color:#8e908c;"># for Mac and Linux
+</span></code></pre>
+<p>or</p>
+<pre style="background-color:#f9f9f9;">
+<code><span style="color:#4271ae;">eval `</span><span style="color:#c82728;">ssh-agent</span><span style="color:#f07219;"> -s</span><span style="color:#4271ae;">`
+</span><span style="color:#c82728;">ssh-agent</span><span style="color:#f07219;"> -s </span><span style="color:#8e908c;"># for Windows
+</span></code></pre>
+<p>Then add your private key to <code>ssh-agent</code>:</p>
+<pre style="background-color:#f9f9f9;">
+<code><span style="color:#c82728;">ssh-add ~</span><span style="color:#4271ae;">/.ssh/id_rsa
+</span></code></pre>
+<p>After that,</p>
+<ol>
+<li>Copy your <strong>public key</strong>(<code>id_rsa.pub</code>).</li>
+<li>Sign in to your GitHub account.</li>
+<li>From your account dropdown, go to <em>Settings</em> -&gt; <em>SSH and GPG keys</em>.</li>
+<li>Click on &quot;<strong>New SSH key</strong>&quot; button.</li>
+<li>Paste the <strong>copied public key</strong> into the textarea of &quot;<strong>Key</strong>&quot;.</li>
+</ol>
+<p>Lstly, check your authentication:</p>
+<pre style="background-color:#f9f9f9;">
+<code><span style="color:#c82728;">ssh</span><span style="color:#f07219;"> -T</span><span style="color:#4271ae;"> git@github.com
+</span></code></pre>
+<p>If you see the following message, your SSH key has been successfully set up! 🖖</p>
+<pre style="background-color:#f9f9f9;">
+<code><span style="color:#111111;">Hi your_user_name! You&#39;ve successfully authenticated, but GitHub does not provide shell access.
+</span></code></pre>
+<p><br />
+<br />
+<br />
+</p>
+<h3 id="so-now-how-about-adding-another-account">So now, how about adding another account?</h3>
+<p><br />
+<br />
+</p>
+<p><strong>Carefully</strong> run:</p>
+<pre style="background-color:#f9f9f9;">
+<code><span style="color:#c82728;">ssh-keygen</span><span style="color:#f07219;"> -t</span><span style="color:#4271ae;"> rsa</span><span style="color:#f07219;"> -b</span><span style="color:#4271ae;"> 4096</span><span style="color:#f07219;"> -C</span><span style="color:#4271ae;"> your_email@example.com
+</span></code></pre>
+<p>But, this time, <strong><em>you will have to change the file name manually.</em></strong></p>
+<p>When you run the command above, you should see the following messages:</p>
+<pre style="background-color:#f9f9f9;">
+<code><span style="color:#111111;">Generating public/private rsa key pair.
+Enter file in which to save the key (/home/username/.ssh/id_rsa):
+</span></code></pre>
+<p>When you generated a set of keys for the first time, you didn't really need to specify the file name even though you could have if you wanted to.</p>
+<p>But as you generate more keys, <strong><em>you must specify the file name.</em></strong></p>
+<p>For example, if you are generating a key for your work, then you might want to enter something like:</p>
+<pre style="background-color:#f9f9f9;">
+<code><span style="color:#111111;">/home/&lt;your_username&gt;/.ssh/id_rsa_work
+</span></code></pre>
+<p>Now, when you run <code>ls -la ~/.ssh</code>, you should see the following output or something similar:</p>
+<pre style="background-color:#f9f9f9;">
+<code><span style="color:#111111;">-rw-------  1 user_name user_name  1766 Jul  7  2018 id_rsa
+-rw-r--r--  1 user_name user_name   414 Jul  7  2018 id_rsa.pub
+-rw-------  1 user_name user_name  1766 Jul  7  2018 id_rsa_work
+-rw-r--r--  1 user_name user_name   414 Jul  7  2018 id_rsa_work.pub
+-rw-------  1 user_name user_name 12892 Feb  5 18:39 known_hosts
+</span></code></pre>
+<p>Lastly, <code>ssh-add ~/.ssh/id_rsa_work</code> and when you <code>ssh-add -l</code>, you should see all your identities in the output.</p>
+<p></p>
+<h2 id="3-create-ssh-config">3. Create <code>~/.ssh/config</code></h2>
+<p>When you have multiple SSH keys, creating <code>config</code> file under your <code>.ssh</code> directory is a must.</p>
+<p>So let's do that.</p>
+<p>Run <code>touch ~/.ssh/config</code> to create <code>config</code> file, and then open it with your favorite text editor.</p>
+<p>Copy and paste the following as a template:</p>
+<pre style="background-color:#f9f9f9;">
+<code><span style="color:#8e908c;"># personal
+</span><span style="color:#c82728;">Host</span><span style="color:#4271ae;"> github.com </span><span style="color:#8e908c;"># Change `github.com` to the name of your like.
+</span><span style="color:#4271ae;">  HostName github.com
+  </span><span style="color:#c82728;">User</span><span style="color:#4271ae;"> git
+  </span><span style="color:#c82728;">IdentityFile ~</span><span style="color:#4271ae;">/.ssh/id_rsa_personal </span><span style="color:#8e908c;"># Change it to the correct path.
+
+# work
+</span><span style="color:#4271ae;">Host github.com-work </span><span style="color:#8e908c;"># Change `github.com-work` to the name of your like.
+</span><span style="color:#4271ae;">  HostName github.com
+  </span><span style="color:#c82728;">User</span><span style="color:#4271ae;"> git
+  </span><span style="color:#c82728;">IdentityFile ~</span><span style="color:#4271ae;">/.ssh/id_rsa_work </span><span style="color:#8e908c;"># Change it to the correct path.
+</span></code></pre>
+<p>In this example, we have configured multiple accounts for GitHub.</p>
+<p></p>
+<h2 id="4-how-do-you-switch-between-identities">4. How do you switch between identities?</h2>
+<p>Every terminal session, you will have to <code>ssh-add ~/.ssh/&lt;identity_file&gt;</code> to add the identity you want to use.</p>
+<p>If an identity is somehow already set and you want to switch to a different one, then you will have to <code>ssh-add -D</code> to drop that identity and <code>ssh-add ~/.ssh/&lt;identity_file&gt;</code> to add the identity you want to use.</p>
+<h3 id="you-cannot-use-multiple-identities-during-the-same-session"><em>You cannot use multiple identities during the same session.</em></h3>
+<p>And I think that's about it.</p>
+<p>One thing to keep in mind is that, if you have globally set github username and email, you might want to configure your <code>.git</code> whenever you initialize a git repo:</p>
+<pre style="background-color:#f9f9f9;">
+<code><span style="color:#c82728;">git</span><span style="color:#4271ae;"> config user.name </span><span style="color:#839c00;">&quot;Your name&quot;
+</span><span style="color:#c82728;">git</span><span style="color:#4271ae;"> config user.email your_email@example.com
+</span></code></pre></div>
+  <div class="btn__wrapper">
+    <a href="/blog" class="btn btn--more btn--ripple btn--more--post"><span class="btn--ripple__source"></span>Read
+      more
+      posts</a>
+  </div>
+</section>
+
+    </div>
+    
+<footer class="footer">
+    <p>&copy; <span id="currentYear"></span> <a href="http://github.com/sjinno" class="footer__author"
+            target="_blank">Shohei Jinno</a>
+    </p>
+    <p>
+        <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank" class="footer__cc">
+            <img alt="Creative Commons License" style="border-width:0"
+                src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" />
+        </a>
+    </p>
+</footer>
+
+
+    <script src="/js/main.js"></script>
+
+</html>
